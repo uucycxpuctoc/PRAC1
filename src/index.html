@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Портфолио — Иван Иванов</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="#home">Главная</a>
+    <a href="#skills">Навыки</a>
+    <a href="#education">Образование</a>
+    <a href="#achievements">Достижения</a>
+    <a href="#projects">Проекты</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HOME -->
+  <section id="home" class="hero">
+    <img src="img/avatar.png" alt="Аватар">
+    <h1>Иван Иванов</h1>
+    <p class="typing">Frontend разработчик | Студент</p>
+    <p>Я студент IT-направления, интересуюсь веб-разработкой и UI.</p>
+    <button onclick="scrollToContacts()">Связаться со мной</button>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Навыки</h2>
+
+    <h3>Hard Skills</h3>
+    <div class="skill">
+      <span>Python</span>
+      <div class="progress"><div style="width:70%"></div></div>
+    </div>
+    <div class="skill">
+      <span>JavaScript</span>
+      <div class="progress"><div style="width:10%"></div></div>
+    </div>
+
+    <h3>Soft Skills</h3>
+    <ul>
+      <li>Командная работа</li>
+      <li>Критическое мышление</li>
+      <li>Коммуникабельность</li>
+    </ul>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Образование</h2>
+    <article class="timeline">
+      <h4>Университет XYZ</h4>
+      <span>2022 — настоящее время</span>
+      <p>Бакалавр, Информационные технологии</p>
+    </article>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <h2>Достижения</h2>
+    <article>
+      <h4>Участие в хакатоне</h4>
+      <span>2024</span>
+      <p>Разработка веб-приложения за 48 часов</p>
+    </article>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Проекты</h2>
+    <div class="project-card">
+      <h3>Portfolio Site</h3>
+      <p>Персональный сайт-портфолио.</p>
+      <p><b>Технологии:</b> HTML, CSS, JS</p>
+      <a href="https://github.com/username/portfolio">GitHub</a>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <section id="contacts">
+    <h2>Контакты</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Имя" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Сообщение"></textarea>
+      <button type="submit">Отправить</button>
+    </form>
+
+    <p>Email: student@example.com</p>
+    <p>Город: Алматы</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Иван Иванов</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
