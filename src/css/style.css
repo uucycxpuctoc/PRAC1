@@ -1,0 +1,51 @@
+:root {
+  --main: #0f172a;
+  --accent: #38bdf8;
+  --bg: #f8fafc;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--main);
+  padding: 10px;
+}
+
+.navbar a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.hero {
+  height: 100vh;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.progress {
+  background: #ddd;
+  height: 10px;
+}
+
+.progress div {
+  background: var(--accent);
+  height: 10px;
+}
+
+.project-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
