@@ -1,304 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap');
-
-/* =========================
-   DESIGN SYSTEM
-========================= */
 :root {
-  --bg-main: #020617;
-  --bg-card: rgba(255,255,255,0.07);
-  --bg-card-strong: rgba(255,255,255,0.12);
-
-  --accent: #38bdf8;
-  --accent-2: #818cf8;
-  --accent-glow: rgba(56,189,248,0.45);
-
-  --text-main: #e5e7eb;
-  --text-muted: #9ca3af;
-
-  --border: rgba(255,255,255,0.12);
-
-  --radius: 18px;
-  --radius-sm: 12px;
-  --blur: 14px;
-
-  --shadow-sm: 0 10px 30px rgba(0,0,0,.25);
-  --shadow-lg: 0 30px 80px rgba(0,0,0,.45);
-
-  --header-height: 72px;
-  --max-width: 1200px;
-}
-
-/* =========================
-   RESET / GLOBAL
-========================= */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
+  --primary: #2563eb;
+  --bg: #0f172a;
+  --text: #e5e7eb;
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  color: var(--text-main);
-  line-height: 1.6;
-  background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(56,189,248,.08), transparent),
-    radial-gradient(800px 400px at 10% 10%, rgba(129,140,248,.08), transparent),
-    var(--bg-main);
-}
-
-/* =========================
-   NAVBAR
-========================= */
-header {
-  position: fixed;
-  inset: 0 0 auto 0;
-  height: var(--header-height);
-  backdrop-filter: blur(var(--blur));
-  background: rgba(2,6,23,.7);
-  border-bottom: 1px solid var(--border);
-  z-index: 1000;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .navbar {
-  max-width: var(--max-width);
-  height: 100%;
-  margin: auto;
-  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #020617;
+}
+
+.navbar ul {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  list-style: none;
 }
 
 .navbar a {
-  color: var(--text-muted);
+  color: white;
+  padding: 15px;
   text-decoration: none;
-  margin-left: 24px;
-  font-weight: 500;
-  position: relative;
-  transition: color .3s ease;
 }
 
-.navbar a:hover,
 .navbar a.active {
-  color: var(--accent);
+  color: var(--primary);
 }
 
-.navbar a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  transition: width .3s ease;
-}
-
-.navbar a:hover::after,
-.navbar a.active::after {
-  width: 100%;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-section {
-  max-width: var(--max-width);
-  margin: auto;
-  padding: 110px 20px;
-  scroll-margin-top: var(--header-height);
-}
-
-@media (max-width: 768px) {
-  section {
-    padding: 80px 16px;
-  }
-}
-
-/* =========================
-   HERO
-========================= */
 .hero {
-  min-height: 100vh;
-  display: grid;
-  gap: 24px;
-  align-content: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.hero img {
-  width: 130px;
-  border-radius: 50%;
-  padding: 4px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  box-shadow: 0 0 40px var(--accent-glow);
-  transition: transform .4s ease;
+.bar {
+  background: #1e293b;
+  height: 10px;
 }
 
-.hero img:hover {
-  transform: scale(1.05);
+.bar div {
+  height: 100%;
+  background: var(--primary);
 }
 
-.hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.typing {
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--accent);
-  font-size: 1.15rem;
-}
-
-/* =========================
-   BUTTON
-========================= */
-button {
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  border: none;
-  padding: 14px 32px;
-  border-radius: 999px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #020617;
-  cursor: pointer;
-  width: fit-content;
-  position: relative;
-  overflow: hidden;
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-
-button::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, #fff, transparent 60%);
-  opacity: 0;
-  transition: opacity .4s ease;
-}
-
-button:hover::after {
-  opacity: .15;
-}
-
-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px var(--accent-glow);
-}
-
-button:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
-}
-
-/* =========================
-   CARDS
-========================= */
-.project-card,
-.timeline,
-article {
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,.08),
-    rgba(255,255,255,.03)
-  );
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px;
-  margin-bottom: 24px;
-  backdrop-filter: blur(var(--blur));
-  box-shadow: var(--shadow-sm);
-  transition: transform .4s ease, box-shadow .4s ease;
+.project-card {
+  background: #020617;
+  padding: 20px;
+  transition: transform 0.3s;
 }
 
 .project-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow: var(--shadow-lg);
-}
-
-/* =========================
-   SKILLS
-========================= */
-.skill {
-  margin-bottom: 18px;
-}
-
-.skill span {
-  display: block;
-  margin-bottom: 8px;
-  font-size: .9rem;
-  color: var(--text-muted);
-}
-
-.progress {
-  height: 8px;
-  background: #020617;
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.progress div {
-  height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  transition: width 1.2s ease;
-}
-
-/* =========================
-   FORM
-========================= */
-form {
-  max-width: 420px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-input,
-textarea {
-  background: rgba(255,255,255,.05);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 14px;
-  color: var(--text-main);
-  font-family: inherit;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: var(--text-muted);
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(56,189,248,.15);
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  color: var(--text-muted);
-  border-top: 1px solid var(--border);
-}
-
-/* =========================
-   FALLBACK
-========================= */
-@supports not (backdrop-filter: blur(10px)) {
-  header,
-  .project-card,
-  article {
-    background: #020617;
-  }
+  transform: translateY(-10px);
 }
