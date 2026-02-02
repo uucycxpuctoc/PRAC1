@@ -3,315 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Дышленко Александр — Frontend Developer</title>
-  <meta name="description" content="Портфолио фронтенд-разработчика — Дышленко Александр. Современный UI, анимации, чистый код.">
-  <meta name="author" content="Дышленко Александр">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
-
-  <style>
-/* =======================
-   DESIGN SYSTEM
-======================= */
-:root {
-  --bg-main: #020617;
-  --bg-card: rgba(255,255,255,0.06);
-
-  --accent: #38bdf8;
-  --accent-2: #818cf8;
-  --accent-glow: rgba(56,189,248,.45);
-
-  --text-main: #e5e7eb;
-  --text-muted: #9ca3af;
-
-  --border: rgba(255,255,255,.12);
-  --radius: 18px;
-  --blur: 14px;
-
-  --header-height: 72px;
-  --max-width: 1200px;
-}
-
-/* =======================
-   GLOBAL
-======================= */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  color: var(--text-main);
-  background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(56,189,248,.08), transparent),
-    radial-gradient(800px 400px at 10% 10%, rgba(129,140,248,.08), transparent),
-    var(--bg-main);
-}
-
-/* =======================
-   HEADER / NAV
-======================= */
-header {
-  position: fixed;
-  inset: 0 0 auto 0;
-  height: var(--header-height);
-  backdrop-filter: blur(var(--blur));
-  background: rgba(2,6,23,.7);
-  border-bottom: 1px solid var(--border);
-  z-index: 1000;
-}
-
-.navbar {
-  max-width: var(--max-width);
-  height: 100%;
-  margin: auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.navbar strong {
-  font-weight: 800;
-  letter-spacing: 0.5px;
-}
-
-.navbar a {
-  color: var(--text-muted);
-  text-decoration: none;
-  margin-left: 24px;
-  font-weight: 500;
-  position: relative;
-  transition: color .3s;
-}
-
-.navbar a:hover,
-.navbar a.active {
-  color: var(--accent);
-}
-
-.navbar a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  transition: width .3s;
-}
-
-.navbar a:hover::after,
-.navbar a.active::after {
-  width: 100%;
-}
-
-/* =======================
-   SECTIONS
-======================= */
-section {
-  max-width: var(--max-width);
-  margin: auto;
-  padding: 110px 20px;
-  scroll-margin-top: var(--header-height);
-}
-
-@media (max-width: 768px) {
-  section {
-    padding: 80px 16px;
-  }
-}
-
-/* =======================
-   HERO
-======================= */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  gap: 24px;
-  align-content: center;
-}
-
-.hero img {
-  width: 130px;
-  border-radius: 50%;
-  padding: 4px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  box-shadow: 0 0 40px var(--accent-glow);
-}
-
-.hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.typing {
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--accent);
-  font-size: 1.1rem;
-}
-
-/* =======================
-   BUTTON
-======================= */
-button {
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  border: none;
-  padding: 14px 32px;
-  border-radius: 999px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #020617;
-  cursor: pointer;
-  width: fit-content;
-  transition: .3s;
-}
-
-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px var(--accent-glow);
-}
-
-/* =======================
-   CARDS
-======================= */
-.project-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px;
-  margin-bottom: 24px;
-  backdrop-filter: blur(var(--blur));
-  transition: .4s;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-}
-
-/* =======================
-   SKILLS
-======================= */
-.skill {
-  margin-bottom: 16px;
-}
-
-.progress {
-  height: 8px;
-  background: #020617;
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.progress div {
-  height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  transition: width 1.2s ease;
-}
-
-/* =======================
-   FOOTER
-======================= */
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  color: var(--text-muted);
-  border-top: 1px solid var(--border);
-}
-
-/* =======================
-   FALLBACK
-======================= */
-@supports not (backdrop-filter: blur(10px)) {
-  header,
-  .project-card {
-    background: #020617;
-  }
-}
-  </style>
+  <title>Портфолио | Ваше имя</title>
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
 
 <header>
   <nav class="navbar">
-    <strong>Дышленко</strong>
-    <div>
-      <a href="#home" class="active">Главная</a>
-      <a href="#projects">Проекты</a>
-      <a href="#skills">Навыки</a>
-    </div>
+    <ul>
+      <li><a href="#home" class="active">Главная</a></li>
+      <li><a href="#skills">Навыки</a></li>
+      <li><a href="#education">Образование</a></li>
+      <li><a href="#achievements">Достижения</a></li>
+      <li><a href="#projects">Проекты</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
   </nav>
 </header>
 
-<section id="home" class="hero">
-  <img src="avatar.jpg" alt="Дышленко Александр">
-  <h1>
-    Дышленко <br>
-    <span style="color: var(--accent)">Александр</span>
-  </h1>
-  <div class="typing">Frontend Developer</div>
-  <button>Связаться</button>
-</section>
+<main>
 
-<section id="projects">
-  <h2>Проекты</h2>
-  <div class="project-card">Проект №1</div>
-  <div class="project-card">Проект №2</div>
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>Привет, я <span>Ваше имя</span></h1>
+    <p class="typing">Frontend разработчик | Студент</p>
+    <p>
+      Я начинающий разработчик, интересуюсь веб-технологиями,
+      программированием и созданием удобных интерфейсов.
+    </p>
+    <button onclick="scrollToContacts()">Связаться со мной</button>
+  </div>
+  <img src="assets/avatar.png" alt="Аватар" />
 </section>
 
 <section id="skills">
   <h2>Навыки</h2>
 
+  <h3>Hard Skills</h3>
   <div class="skill">
-    <span>HTML / CSS</span>
-    <div class="progress"><div data-level="90%"></div></div>
+    <span>Python</span>
+    <div class="bar"><div style="width:70%"></div></div>
   </div>
-
   <div class="skill">
     <span>JavaScript</span>
-    <div class="progress"><div data-level="80%"></div></div>
+    <div class="bar"><div style="width:10%"></div></div>
   </div>
 
-  <div class="skill">
-    <span>React</span>
-    <div class="progress"><div data-level="70%"></div></div>
+  <h3>Soft Skills</h3>
+  <ul class="soft-skills">
+    <li>Командная работа</li>
+    <li>Критическое мышление</li>
+    <li>Коммуникабельность</li>
+  </ul>
+</section>
+
+<section id="education">
+  <h2>Образование</h2>
+  <div class="timeline">
+    <article>
+      <h3>Университет XYZ</h3>
+      <span>2022 — настоящее время</span>
+      <p>Бакалавр, Информационные системы</p>
+    </article>
+    <article>
+      <h3>Колледж ABC</h3>
+      <span>2018 — 2022</span>
+      <p>Программирование</p>
+    </article>
   </div>
 </section>
 
+<section id="achievements">
+  <h2>Достижения</h2>
+  <div class="achievements">
+    <article>🏆 Хакатон 2023</article>
+    <article>📜 Сертификат Coursera</article>
+    <article>🎓 Академическая стипендия</article>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Проекты</h2>
+  <div class="projects">
+    <article class="project-card">
+      <img src="assets/project1.png" alt="Проект" />
+      <h3>Portfolio Site</h3>
+      <p>Персональный сайт-портфолио.</p>
+      <p><strong>HTML, CSS, JS</strong></p>
+      <a href="#">GitHub</a> | <a href="#">Live Demo</a>
+    </article>
+  </div>
+</section>
+
+<section id="contacts">
+  <h2>Контакты</h2>
+  <form id="contactForm">
+    <input type="text" placeholder="Имя" required />
+    <input type="email" placeholder="Email" required />
+    <textarea placeholder="Сообщение"></textarea>
+    <button type="submit">Отправить</button>
+  </form>
+
+  <p>Email: student@example.com</p>
+  <p>Город: Алматы</p>
+</section>
+
+</main>
+
 <footer>
-  © 2026 Дышленко Александр
+  <p>© 2026 Ваше имя</p>
 </footer>
 
-<script>
-/* =======================
-   SKILL ANIMATION
-======================= */
-const bars = document.querySelectorAll('.progress div');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.width = entry.target.dataset.level;
-    }
-  });
-}, { threshold: 0.6 });
-
-bars.forEach(bar => observer.observe(bar));
-</script>
-
+<script src="js/script.js"></script>
 </body>
 </html>
