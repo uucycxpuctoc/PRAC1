@@ -1,67 +1,25 @@
-/* =========================
-   SCROLL TO CONTACTS
-========================= */
-const scrollToContacts = () => {
-  const target = document.getElementById("contacts");
-  if (!target) return;
+const links = document.querySelectorAll("nav a");
 
-  target.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
+window.addEventListener("scroll", () => {
+  let fromTop = window.scrollY + 100;
+
+  links.forEach(link => {
+    const section = document.querySelector(link.getAttribute("href"));
+    if (
+      section.offsetTop <= fromTop &&
+      section.offsetTop + section.offsetHeight > fromTop
+    ) {
+      links.forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
+    }
   });
-};
+});
 
-/* =========================
-   ACTIVE NAV (IntersectionObserver)
-========================= */
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".navbar a[href^='#']");
-
-const navObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-
-      const id = entry.target.getAttribute("id");
-
-      navLinks.forEach(link => {
-        link.classList.toggle(
-          "active",
-          link.getAttribute("href") === `#${id}`
-        );
-      });
-    });
-  },
-  {
-    rootMargin: "-50% 0px -50% 0px",
-    threshold: 0
-  }
-);
-
-sections.forEach(section => navObserver.observe(section));
-
-/* =========================
-   FORM HANDLING
-========================= */
-const form = document.getElementById("contactForm");
-
-if (form) {
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-
-    const button = form.querySelector("button");
-    const originalText = button.textContent;
-
-    button.disabled = true;
-    button.textContent = "Отправка...";
-
-    // имитация отправки
-    setTimeout(() => {
-      alert("Спасибо! Сообщение отправлено 🚀");
-
-      form.reset();
-      button.disabled = false;
-      button.textContent = originalText;
-    }, 800);
-  });
+function scrollToContacts() {
+  document.querySelector("#contacts").scrollIntoView({ behavior: "smooth" });
 }
+
+document.getElementById("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+  alert("Сообщение отправлено!");
+});
