@@ -1,7 +1,7 @@
 # Портфолио — Дышленко Александр
 
 ## 🌐 Демо
-(https://github.com/uucycxpuctoc/PRAC1)
+https://uucycxpuctoc.github.io/PRAC1/
 <img width="1901" height="924" alt="изображение" src="https://github.com/user-attachments/assets/6ed2af07-b986-4158-ba20-0cf30b855591" />
 
 ## 📋 Описание
