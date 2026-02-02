@@ -27,27 +27,34 @@
 <section id="home" class="hero">
   <div class="hero-content">
     <h1>Привет, я <span>Ваше имя</span></h1>
-    <p class="typing">Frontend разработчик | Студент</p>
+    <p id="typing" class="typing"></p>
     <p>
-      Я начинающий разработчик, интересуюсь веб-технологиями,
-      программированием и созданием удобных интерфейсов.
+      Я студент и начинающий разработчик, интересуюсь веб-разработкой,
+      программированием и созданием современных интерфейсов.
     </p>
     <button onclick="scrollToContacts()">Связаться со мной</button>
   </div>
-  <img src="assets/avatar.png" alt="Аватар" />
+  <img src="assets/avatar.png" alt="Аватар пользователя" />
 </section>
 
 <section id="skills">
   <h2>Навыки</h2>
 
   <h3>Hard Skills</h3>
+
   <div class="skill">
-    <span>Python</span>
+    <span>Python — 70%</span>
     <div class="bar"><div style="width:70%"></div></div>
   </div>
+
   <div class="skill">
-    <span>JavaScript</span>
+    <span>JavaScript — 10%</span>
     <div class="bar"><div style="width:10%"></div></div>
+  </div>
+
+  <div class="skill">
+    <span>Java — 60%</span>
+    <div class="bar"><div style="width:60%"></div></div>
   </div>
 
   <h3>Soft Skills</h3>
@@ -77,7 +84,7 @@
 <section id="achievements">
   <h2>Достижения</h2>
   <div class="achievements">
-    <article>🏆 Хакатон 2023</article>
+    <article>🏆 Участие в хакатоне</article>
     <article>📜 Сертификат Coursera</article>
     <article>🎓 Академическая стипендия</article>
   </div>
@@ -87,21 +94,22 @@
   <h2>Проекты</h2>
   <div class="projects">
     <article class="project-card">
-      <img src="assets/project1.png" alt="Проект" />
-      <h3>Portfolio Site</h3>
+      <img src="assets/project1.png" alt="Проект портфолио" />
+      <h3>Portfolio Website</h3>
       <p>Персональный сайт-портфолио.</p>
-      <p><strong>HTML, CSS, JS</strong></p>
-      <a href="#">GitHub</a> | <a href="#">Live Demo</a>
+      <p><strong>HTML, CSS, JavaScript</strong></p>
+      <a href="#">GitHub</a> · <a href="#">Live Demo</a>
     </article>
   </div>
 </section>
 
 <section id="contacts">
   <h2>Контакты</h2>
+
   <form id="contactForm">
     <input type="text" placeholder="Имя" required />
     <input type="email" placeholder="Email" required />
-    <textarea placeholder="Сообщение"></textarea>
+    <textarea placeholder="Сообщение" required></textarea>
     <button type="submit">Отправить</button>
   </form>
 
