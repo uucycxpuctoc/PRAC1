@@ -1,91 +1,64 @@
-// --- 1. Анимация ролей (Typewriter) ---
-const roles = ["Frontend разработчик", "UI дизайнер", "Студент TOU"];
-let roleIndex = 0;
-let charIndex = 0;
-const roleElement = document.getElementById("role");
-
-function type() {
-    if (charIndex < roles[roleIndex].length) {
-        roleElement.textContent += roles[roleIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(type, 100);
-    } else {
-        setTimeout(erase, 2000);
-    }
-}
-
-function erase() {
-    if (charIndex > 0) {
-        roleElement.textContent = roles[roleIndex].substring(0, charIndex - 1);
-        charIndex--;
-        setTimeout(erase, 50);
-    } else {
-        roleIndex = (roleIndex + 1) % roles.length;
-        setTimeout(type, 500);
-    }
-}
-document.addEventListener("DOMContentLoaded", type);
-
-// --- 2. RPG Система (Практика 4) ---
-let character = JSON.parse(localStorage.getItem('rpg_char')) || {
-    level: 1,
+// --- RPG Система ---
+let hero = JSON.parse(localStorage.getItem('heroData')) || {
+    lvl: 1,
     xp: 0,
-    neededXp: 100
+    nextLvlXp: 100
 };
 
-function updateUI() {
-    document.getElementById('char-level').textContent = character.level;
-    document.getElementById('current-xp').textContent = character.xp;
-    document.getElementById('needed-xp').textContent = character.neededXp;
-    const progress = (character.xp / character.neededXp) * 100;
-    document.getElementById('xp-bar-fill').style.width = progress + "%";
-    localStorage.setItem('rpg_char', JSON.stringify(character));
+function updateHeroUI() {
+    document.getElementById('char-level').innerText = hero.lvl;
+    document.getElementById('current-xp').innerText = hero.xp;
+    document.getElementById('needed-xp').innerText = hero.nextLvlXp;
+    
+    const percent = (hero.xp / hero.nextLvlXp) * 100;
+    document.getElementById('xp-bar-fill').style.width = percent + "%";
+    
+    localStorage.setItem('heroData', JSON.stringify(hero));
 }
 
 function addTask() {
-    const input = document.getElementById('task-input');
-    const diff = document.getElementById('task-difficulty');
-    if (!input.value) return;
-
-    const li = document.createElement('li');
-    li.innerHTML = `
-        <span>${input.value} (+${diff.value} XP)</span>
-        <button onclick="completeTask(${diff.value}, this)">✅ Выполнить</button>
-    `;
-    document.getElementById('task-list').appendChild(li);
-    input.value = "";
-}
-
-function completeTask(xpGain, btn) {
-    character.xp += xpGain;
-    if (character.xp >= character.neededXp) {
-        character.xp -= character.neededXp;
-        character.level++;
-        character.neededXp = character.level * 100;
-        alert("LEVEL UP! Теперь вы уровень " + character.level);
-    }
-    btn.parentElement.remove();
-    updateUI();
-}
-
-// --- 3. Управление Мини-играми (Практика 2 & 3) ---
-function openGame(gameType) {
-    const modal = document.getElementById('game-modal');
-    const container = document.getElementById('game-container');
-    modal.style.display = "block";
+    const title = document.getElementById('task-input').value;
+    const xp = parseInt(document.getElementById('task-difficulty').value);
     
-    if(gameType === 'clicker') {
-        container.innerHTML = `
-            <h3>Кликер</h3>
-            <p>Счет: <span id="score">0</span></p>
-            <button class="btn-main" onclick="let s = document.getElementById('score'); s.innerText = parseInt(s.innerText)+1">Клик!</button>
-        `;
+    if(!title) return alert("Введите название квеста!");
+
+    const list = document.getElementById('task-list');
+    const li = document.createElement('div');
+    li.className = 'task-item';
+    li.innerHTML = `
+        <span><b>${title}</b> (+${xp} XP)</span>
+        <button onclick="completeTask(${xp}, this)">Завершить ⚔️</button>
+    `;
+    list.appendChild(li);
+    document.getElementById('task-input').value = "";
+}
+
+function completeTask(xpGain, element) {
+    hero.xp += xpGain;
+    
+    // Проверка уровня
+    if (hero.xp >= hero.nextLvlXp) {
+        hero.xp -= hero.nextLvlXp;
+        hero.lvl++;
+        hero.nextLvlXp = hero.lvl * 100;
+        alert("🎉 УРОВЕНЬ ПОВЫШЕН! Теперь вы " + hero.lvl + " уровня!");
     }
-    // Здесь добавляются остальные игры по аналогии
+    
+    element.parentElement.remove();
+    updateHeroUI();
 }
 
-function closeModal() {
-    document.getElementById('game-modal').style.display = "none";
+// --- Мини-игра: Угадай число ---
+let secretNum = Math.floor(Math.random() * 100) + 1;
+function guessNumber() {
+    const userNum = parseInt(prompt("Угадай число от 1 до 100:"));
+    if (userNum === secretNum) {
+        alert("Победа! Это было " + secretNum);
+        secretNum = Math.floor(Math.random() * 100) + 1;
+    } else {
+        alert(userNum > secretNum ? "Меньше!" : "Больше!");
+    }
 }
 
-updateUI(); // Инициализация при загрузке
+// Запуск при загрузке
+window.onload = updateHeroUI;
