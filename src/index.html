@@ -1,108 +1,105 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Портфолио | Мини-игры</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Student Name</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-<header>
-  <h1>🎮 Моё портфолио</h1>
-  <nav>
-    <button class="nav-btn" data-target="home">Главная</button>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">PORTFOLIO<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Главная</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#education">Обучение</a></li>
+                <li><a href="#achievements">Успехи</a></li>
+                <li><a href="#projects">Проекты</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <div class="dropdown">
-      <button class="nav-btn">Мини-игры ⬇</button>
-      <div class="dropdown-content">
-        <button data-target="clicker">Кликер</button>
-        <button data-target="adventure">Генератор приключений</button>
-        <button data-target="guess">Угадай число</button>
-        <button data-target="reaction">Реакция</button>
-        <button data-target="tictactoe">Крестики-нолики</button>
-        <button data-target="maze">Лабиринт</button>
-      </div>
-    </div>
+    <header id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
+                <h1>Привет, я <span class="highlight">Имя Фамилия</span></h1>
+                <p class="typewriter">Я — <span id="role-text"></span></p>
+                <p class="description">
+                    Студент-разработчик, увлеченный созданием современных веб-приложений и высокопроизводительного софта. 
+                    Изучаю алгоритмы и архитектуру систем.
+                </p>
+                <a href="#contacts" class="btn">Связаться со мной</a>
+            </div>
+        </div>
+    </header>
 
-    <button class="nav-btn" data-target="rpg">RPG Task Manager</button>
-  </nav>
-</header>
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Мои Навыки</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Hard Skills</h3>
+                    <div class="progress-bar"><span>Python</span><div class="bar"><div class="fill" style="width: 70%;"></div></div></div>
+                    <div class="progress-bar"><span>Java</span><div class="bar"><div class="fill" style="width: 60%;"></div></div></div>
+                    <div class="progress-bar"><span>JavaScript</span><div class="bar"><div class="fill" style="width: 10%;"></div></div></div>
+                </div>
+                <div class="skill-card">
+                    <h3>Инструменты</h3>
+                    <ul class="tags">
+                        <li>Git</li><li>MySQL</li><li>Linux</li><li>Qt</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<main>
-  <section id="home" class="page active">
-    <h2>Добро пожаловать 👋</h2>
-    <p>Выберите игру в меню</p>
-  </section>
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Проекты</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img"></div>
+                    <div class="project-info">
+                        <h3>Smart Home App</h3>
+                        <p>Система управления умным домом на базе Python и Qt.</p>
+                        <div class="tech-stack"><span>Python</span> <span>Qt</span></div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
 
-  <!-- КЛИКЕР -->
-  <section id="clicker" class="page">
-    <h2>🕹 Кликер</h2>
-    <p>Очки: <span id="score">0</span></p>
-    <p>Время: <span id="time">30</span> сек</p>
-    <button id="clickBtn">Клик!</button>
-    <button id="resetBtn">Сброс</button>
-    <p id="clickerResult"></p>
-  </section>
+    <section id="contacts" class="section">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-wrapper">
+                <form id="contact-form">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Сообщение" rows="5" required></textarea>
+                    <button type="submit" class="btn">Отправить</button>
+                </form>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> student@example.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Алматы, Казахстан</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- ГЕНЕРАТОР ПРИКЛЮЧЕНИЙ -->
-  <section id="adventure" class="page">
-    <h2>🗺 Генератор приключений</h2>
-    <button id="generateAdventure">Сгенерировать</button>
-    <p id="adventureText"></p>
-  </section>
-
-  <!-- УГАДАЙ ЧИСЛО -->
-  <section id="guess" class="page">
-    <h2>🔢 Угадай число</h2>
-    <input type="number" id="guessInput" min="1" max="100">
-    <button id="guessBtn">Проверить</button>
-    <p id="guessMessage"></p>
-    <p>Попытки: <span id="attempts">10</span></p>
-  </section>
-
-  <!-- РЕАКЦИЯ -->
-  <section id="reaction" class="page">
-    <h2>⚡ Игра на реакцию</h2>
-    <p>Нажми кнопку как можно быстрее!</p>
-    <div id="reactionArea"></div>
-    <button id="startReaction">Старт</button>
-    <p id="reactionStats"></p>
-  </section>
-
-  <!-- КРЕСТИКИ-НОЛИКИ -->
-  <section id="tictactoe" class="page">
-    <h2>❌⭕ Крестики-нолики</h2>
-    <div id="board"></div>
-    <p id="tttStatus"></p>
-    <button id="restartTTT">Перезапуск</button>
-  </section>
-
-  <!-- ЛАБИРИНТ -->
-  <section id="maze" class="page">
-    <h2>🧩 Лабиринт</h2>
-    <div id="mazeGrid"></div>
-    <p id="mazeStatus"></p>
-  </section>
-
-  <!-- RPG -->
-  <section id="rpg" class="page">
-    <h2>⚔ RPG Task Manager</h2>
-    <div id="rpgApp"></div>
-  </section>
-</main>
-
-<script src="js/navigation.js"></script>
-<script src="js/clicker.js"></script>
-<script src="js/adventure.js"></script>
-<script src="js/guess.js"></script>
-<script src="js/reaction.js"></script>
-<script src="js/tictactoe.js"></script>
-<script src="js/maze.js"></script>
-
-<script src="js/rpg/storage.js"></script>
-<script src="js/rpg/character.js"></script>
-<script src="js/rpg/tasks.js"></script>
-<script src="js/rpg/app.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
