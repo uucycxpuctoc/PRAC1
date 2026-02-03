@@ -4,107 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio & RPG Quest</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <nav id="navbar">
-        <div class="logo">DevHero</div>
-        <ul>
-            <li><a href="#home">Главная</a></li>
-            <li><a href="#skills">Навыки</a></li>
-            <li><a href="#projects">Проекты</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">Мини-игры <i class="fa fa-caret-down"></i></a>
-                <div class="dropdown-content">
-                    <a onclick="openGame('clicker')">Кликер</a>
-                    <a onclick="openGame('adventure')">Генератор</a>
-                    <a onclick="openGame('guess')">Угадай число</a>
-                    <a onclick="openGame('reaction')">Реакция</a>
-                    <a onclick="openGame('tictac')">Крестики-нолики</a>
-                </div>
-            </li>
-            <li><a href="#rpg-todo">RPG Планировщик</a></li>
-            <li><a href="#contacts">Контакты</a></li>
-        </ul>
+        <a href="#home">Главная</a>
+        <a href="#skills">Навыки</a>
+        <a href="#projects">Проекты</a>
+        <div class="dropdown" style="display: inline-block;">
+            <a href="javascript:void(0)">Мини-игры ▾</a>
+            <div class="dropdown-content">
+                <a href="#" onclick="playGuessNumber()">Угадай число</a>
+                <a href="#" onclick="alert('Игра Кликер скоро появится!')">Кликер</a>
+            </div>
+        </div>
+        <a href="#rpg-todo">RPG Планировщик</a>
+        <a href="#contacts">Контакты</a>
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
-            <h1>Привет, я <span class="highlight">Иван Иванов</span></h1>
-            <p class="typewriter">Я — <span id="role"></span></p>
-            <button onclick="location.href='#contacts'" class="btn-main">Связаться со мной</button>
-        </div>
+        <img src="assets/avatar.png" alt="Avatar" class="avatar" onerror="this.src='https://via.placeholder.com/150'">
+        <h1>Привет, я <span class="highlight">Иван Иванов</span></h1>
+        <p>Я — <span id="role">Студент / Разработчик</span></p>
+        <button onclick="location.href='#contacts'">Связаться со мной</button>
     </section>
 
     <section id="skills" class="container">
-        <h2 class="section-title">Мои Навыки</h2>
+        <h2>Мои Навыки</h2>
         <div class="skills-grid">
             <div class="skill-card">
                 <h3>Hard Skills</h3>
-                <p>Python</p><div class="progress-bar"><div class="progress" style="width: 70%"></div></div>
-                <p>JavaScript</p><div class="progress-bar"><div class="progress" style="width: 10%"></div></div>
-                <p>Java</p><div class="progress-bar"><div class="progress" style="width: 60%"></div></div>
-            </div>
-            <div class="skill-card">
-                <h3>Soft Skills</h3>
-                <ul>
-                    <li>Командная работа</li>
-                    <li>Критическое мышление</li>
-                    <li>Коммуникабельность</li>
-                </ul>
+                <p>Python (70%)</p>
+                <div class="xp-bar"><div class="xp-fill" style="width: 70%"></div></div>
+                <p>JavaScript (10%)</p>
+                <div class="xp-bar"><div class="xp-fill" style="width: 10%"></div></div>
             </div>
         </div>
     </section>
 
     <section id="rpg-todo" class="rpg-container">
-        <h2 class="section-title">⚔️ RPG Task Manager ⚔️</h2>
-        
+        <h2>⚔️ RPG Task Manager ⚔️</h2>
         <div class="character-card">
-            <div class="char-info">
-                <h3 id="char-name">Герой: Путешественник</h3>
-                <p>Уровень: <span id="char-level">1</span></p>
-                <div class="xp-bar-container">
-                    <div id="xp-bar-fill" class="xp-bar-fill"></div>
-                </div>
-                <p><span id="current-xp">0</span> / <span id="needed-xp">100</span> XP</p>
+            <h3>Герой: <span id="char-name">Путешественник</span></h3>
+            <p>Уровень: <span id="char-lvl">1</span></p>
+            <div class="xp-bar">
+                <div id="xp-fill" class="xp-fill"></div>
             </div>
+            <p id="xp-text">0 / 100 XP</p>
         </div>
 
         <div class="task-form">
-            <input type="text" id="task-input" placeholder="Название квеста...">
-            <select id="task-difficulty">
+            <input type="text" id="task-name" placeholder="Название квеста...">
+            <select id="task-diff">
                 <option value="10">Легкая (+10 XP)</option>
                 <option value="25">Средняя (+25 XP)</option>
                 <option value="50">Сложная (+50 XP)</option>
                 <option value="100">Эпическая (+100 XP)</option>
             </select>
-            <button onclick="addTask()">➕ Добавить задачу</button>
+            <button onclick="addTask()">➕ Добавить квест</button>
         </div>
 
-        <ul id="task-list" class="quest-list"></ul>
+        <div id="task-list" class="quest-list">
+            </div>
     </section>
 
-    <div id="game-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="game-container">
-                </div>
-        </div>
-    </div>
-
-    <footer id="contacts">
+    <footer id="contacts" class="container">
         <h2>Контакты</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="Имя" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Сообщение"></textarea>
-            <button type="submit" class="btn-main">Отправить</button>
-        </form>
+        <div class="contact-form">
+            <input type="text" placeholder="Имя">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Ваше сообщение"></textarea>
+            <button>Отправить</button>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
