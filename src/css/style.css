@@ -1,43 +1,229 @@
-html, body {
-  background: #0f0f0f;
-  color: #f5f5f5;
-  min-height: 100vh;
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,Arial,sans-serif;background:linear-gradient(135deg,#0f0f0f,#1a1a1a);color:#f5f5f5;line-height:1.6}
-.nav{position:fixed;top:0;width:100%;padding:15px;z-index:100;background:rgba(20,20,20,0.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.1)}
-.nav ul{display:flex;justify-content:center;gap:20px;list-style:none}
-.nav a{color:#aaa;text-decoration:none;transition:.3s}
-.nav a.active,.nav a:hover{color:#fff}
-section{padding:100px 15%;scroll-margin-top:80px}
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
-.avatar{width:140px;border-radius:50%;margin-bottom:20px}
-.btn{margin-top:20px;padding:12px 24px;background:#fff;color:#000;border-radius:30px;text-decoration:none;transition:.3s}
-.btn:hover{transform:scale(1.05)}
-.skill{margin:10px 0}
-.bar{background:#333;border-radius:10px;overflow:hidden}
-.bar div{height:10px;background:#fff}
-.tags{display:flex;gap:10px;flex-wrap:wrap}
-.tags li{background:#222;padding:6px 12px;border-radius:20px}
-.timeline article{margin:20px 0;padding-left:20px;border-left:2px solid #fff}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{background:rgba(255,255,255,0.08);padding:20px;border-radius:20px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.15);transition:.4s}
-.card:hover{transform:translateY(-5px)}
-form{display:flex;flex-direction:column;gap:10px;max-width:400px}
-input,textarea,button{padding:10px;border-radius:8px;border:none}
-button{background:#fff;color:#000;cursor:pointer}
-footer{text-align:center;padding:30px;background:rgba(20,20,20,0.6);backdrop-filter:blur(10px)}
+/* ===== BASE ===== */
+html, body {
+  min-height: 100%;
+  font-family: "Inter", Arial, sans-serif;
+  background: radial-gradient(circle at top, #1a1a1a, #0b0b0b);
+  color: #f5f5f5;
+  scroll-behavior: smooth;
+}
 
+/* ===== NAV ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 0;
+  z-index: 1000;
+  background: rgba(20, 20, 20, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
 
-/* scroll reveal */
-.reveal{opacity:0;transform:translateY(40px);transition:1s}
-.reveal.active{opacity:1;transform:none}
+.nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  list-style: none;
+}
 
+.nav a {
+  color: #aaa;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color .3s;
+}
 
-/* glow */
-.hero h1 span{background:linear-gradient(90deg,#fff,#aaa);-webkit-background-clip:text;color:transparent}
+.nav a:hover,
+.nav a.active {
+  color: #fff;
+}
 
+/* ===== SECTIONS ===== */
+section {
+  padding: 120px 12%;
+  scroll-margin-top: 90px;
+}
 
-/* micro */
-button:hover,.btn:hover{box-shadow:0 0 20px rgba(255,255,255,0.3)}
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  margin-bottom: 14px;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg, #ffffff, #9c9c9c);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 640px;
+  opacity: 0.85;
+  margin-bottom: 12px;
+}
+
+.typing {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* ===== AVATAR ===== */
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-bottom: 24px;
+  border: 2px solid rgba(255,255,255,0.15);
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  margin-top: 28px;
+  padding: 14px 32px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(255,255,255,0.35);
+}
+
+/* ===== SKILLS ===== */
+.skill {
+  margin: 14px 0;
+}
+
+.bar {
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar div {
+  height: 10px;
+  background: linear-gradient(90deg, #ffffff, #bfbfbf);
+}
+
+/* ===== TAGS ===== */
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tags li {
+  list-style: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+
+/* ===== TIMELINE ===== */
+.timeline article {
+  margin: 24px 0;
+  padding-left: 24px;
+  border-left: 2px solid rgba(255,255,255,0.3);
+}
+
+/* ===== CARDS ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+.card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 22px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: transform .35s, box-shadow .35s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+}
+
+/* ===== FORM ===== */
+form {
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input,
+textarea {
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
+}
+
+button {
+  padding: 12px;
+  border-radius: 10px;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow .3s;
+}
+
+button:hover {
+  box-shadow: 0 0 22px rgba(255,255,255,0.35);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 32px;
+  text-align: center;
+  background: rgba(20,20,20,0.6);
+  backdrop-filter: blur(12px);
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: none;
+}
