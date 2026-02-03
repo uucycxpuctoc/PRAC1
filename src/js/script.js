@@ -1,13 +1,13 @@
-// Анимация печатающегося текста
-const roles = ["Frontend Разработчик", "UI Дизайнер", "Студент TOU"];
-let roleIndex = 0;
-let charIndex = 0;
-const target = document.getElementById("role-text");
+// Анимация текста (Роли)
+const roles = ["Frontend разработчик", "UI дизайнер", "Студент ТОУ"];
+let roleIdx = 0;
+let charIdx = 0;
+const roleEl = document.getElementById("role");
 
 function type() {
-    if (charIndex < roles[roleIndex].length) {
-        target.textContent += roles[roleIndex].charAt(charIndex);
-        charIndex++;
+    if (charIdx < roles[roleIdx].length) {
+        roleEl.textContent += roles[roleIdx].charAt(charIdx);
+        charIdx++;
         setTimeout(type, 100);
     } else {
         setTimeout(erase, 2000);
@@ -15,40 +15,44 @@ function type() {
 }
 
 function erase() {
-    if (charIndex > 0) {
-        target.textContent = roles[roleIndex].substring(0, charIndex - 1);
-        charIndex--;
+    if (charIdx > 0) {
+        roleEl.textContent = roles[roleIdx].substring(0, charIdx - 1);
+        charIdx--;
         setTimeout(erase, 50);
     } else {
-        roleIndex = (roleIndex + 1) % roles.length;
+        roleIdx = (roleIdx + 1) % roles.length;
         setTimeout(type, 500);
     }
 }
 
 document.addEventListener("DOMContentLoaded", type);
 
-// Валидация формы
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Спасибо! Ваше сообщение (имитация) отправлено.');
-    this.reset();
-});
-
 // Подсветка активной секции
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section, header');
+const sections = document.querySelectorAll("section, header");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+    let current = "";
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 60) {
-            current = section.getAttribute('id');
+        if (pageYOffset >= sectionTop - 100) {
+            current = section.getAttribute("id");
         }
     });
 
-    document.querySelectorAll('.nav-links a').forEach(a => {
-        a.classList.remove('active');
-        if (a.getAttribute('href').includes(current)) {
-            a.classList.add('active');
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+            link.classList.add("active");
         }
     });
+});
+
+// Валидация формы
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const status = document.getElementById("formStatus");
+    status.textContent = "Сообщение отправлено успешно!";
+    status.style.color = "#4ade80";
+    this.reset();
 });
