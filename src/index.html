@@ -1,4 +1,59 @@
 <!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Портфолио — Студент</title>
+<link rel="icon" href="assets/avatar.png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+<nav class="nav">
+<ul>
+<li><a href="#home" class="active">Главная</a></li>
+<li><a href="#skills">Навыки</a></li>
+<li><a href="#education">Образование</a></li>
+<li><a href="#achievements">Достижения</a></li>
+<li><a href="#projects">Проекты</a></li>
+<li><a href="#contacts">Контакты</a></li>
+</ul>
+</nav>
+</header>
+
+
+<main>
+<section id="home" class="hero">
+<img src="assets/avatar.png" alt="Аватар" class="avatar" />
+<h1>Привет, я <span>Ваше Имя</span></h1>
+<p>Я студент и начинающий разработчик. Интересуюсь созданием современных приложений, интерфейсов и программированием.</p>
+<p>Люблю учиться новому и постоянно развиваю свои навыки.</p>
+<h2 class="typing">Frontend разработчик | Студент | UI‑энтузиаст</h2>
+<a href="#contacts" class="btn">Связаться со мной</a>
+</section>
+
+
+<section id="skills">
+<h2>Навыки</h2>
+<h3>Hard Skills</h3>
+<div class="skill"><span>Python</span><div class="bar"><div style="width:70%"></div></div></div>
+<div class="skill"><span>JavaScript</span><div class="bar"><div style="width:10%"></div></div></div>
+<div class="skill"><span>Java</span><div class="bar"><div style="width:60%"></div></div></div>
+<div class="skill"><span>C++</span><div class="bar"><div style="width:40%"></div></div></div>
+<div class="skill"><span>C</span><div class="bar"><div style="width:50%"></div></div></div>
+
+
+<h3>Инструменты</h3>
+<ul class="tags"><li>Git</li><li>MySQL</li><li>Qt</li><li>Linux</li></ul>
+
+
+<h3>Soft Skills</h3>
+<ul>
+<li>Командная работа</li>
+<li>Критическое мышление</li>
+<li>Коммуникабельность</li>
+</ul>
+</section>
 
 
 <section id="education">
@@ -35,33 +90,4 @@
 <h3>Портфолио</h3>
 <p>Одностраничный сайт‑портфолио.</p>
 <p><strong>Технологии:</strong> HTML, CSS, JS</p>
-<a href="#">GitHub</a>
-</div>
-<div class="card"><h3>Мини‑игра</h3><p>Игра на JavaScript</p></div>
-<div class="card"><h3>Учебный проект</h3><p>CRUD‑приложение</p></div>
-</div>
-</section>
-
-
-<section id="contacts">
-<h2>Контакты</h2>
-<form id="contactForm">
-<input type="text" placeholder="Имя" required />
-<input type="email" placeholder="Email" required />
-<textarea placeholder="Сообщение" required></textarea>
-<button type="submit">Отправить</button>
-</form>
-<p>Email: student@example.com</p>
-<p>Город: Алматы</p>
-</section>
-</main>
-
-
-<footer>
-<p>© 2026 Ваше Имя</p>
-</footer>
-
-
-<script src="script.js"></script>
-</body>
 </html>
