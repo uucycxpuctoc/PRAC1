@@ -3,51 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPG Portfolio Tasker</title>
+    <title>Portfolio RPG | Студент TOU</title>
     <link rel="stylesheet" href="css/style.css">
-</head>
+    <link rel="icon" href="assets/favicon.ico"> </head>
 <body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#skills">Навыки</a></li>
+            <li><a href="#education">Обучение</a></li>
+            <li><a href="#achievements">Достижения</a></li>
+            <li><a href="#projects">Проекты</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+    </nav>
 
-    <div class="container">
-        <header class="hero-header">
-            <h1>Level Up Your Skills</h1>
-            <div class="typing-container">
-                <span id="role"></span>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Привет, я <span class="highlight">Имя Фамилия</span></h1>
+                <div class="typing-box"><span id="role"></span></div>
+                <p>Я увлеченный разработчик, который превращает код в искусство. Мой путь — это постоянный "Level Up" в мире технологий.</p>
+                <p>Специализируюсь на создании интерактивных интерфейсов и изучении новых фреймворков.</p>
+                <a href="#contacts" class="btn-primary">Связаться со мной</a>
             </div>
-        </header>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/300" alt="Мой аватар">
+            </div>
+        </div>
+    </section>
 
-        <main class="rpg-card">
-            <div class="character-info">
-                <div class="lvl-container">
-                    <span class="label">LVL</span>
-                    <span id="char-lvl" class="lvl-value">1</span>
+    <section id="skills" class="container">
+        <h2 class="section-title">Навыки (Stats)</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Hard Skills</h3>
+                <div class="progress-item">
+                    <span>Python</span>
+                    <div class="progress-bar"><div class="fill" style="width: 70%;"></div></div>
                 </div>
-                <div class="xp-container">
-                    <div class="xp-header">
-                        <span>Experience</span>
-                        <span id="xp-text">0 / 100</span>
-                    </div>
-                    <div class="xp-bar">
-                        <div id="xp-fill"></div>
+                <div class="progress-item">
+                    <span>JavaScript</span>
+                    <div class="progress-bar"><div class="fill" style="width: 15%;"></div></div>
+                </div>
+                <ul class="tool-list">
+                    <li>Git</li><li>MySQL</li><li>Linux</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Soft Skills & Languages</h3>
+                <p>Командная работа, Критическое мышление</p>
+                <hr>
+                <p><strong>Английский:</strong> Intermediate</p>
+                <p><strong>Казахский:</strong> Родной</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="container">
+        <h2 class="section-title">Образование</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>TOU (Toraighyrov University)</h4>
+                <p>Информационные системы | 2022 — Настоящее время</p>
+                <p>Степень: Бакалавр. Изучение архитектуры ЭВМ и ООП.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>IT-Школа "Step"</h4>
+                <p>Frontend Разработка | 2021 — 2022</p>
+                <p>Курс по основам верстки и JavaScript.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2 class="section-title">Проекты</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x150" alt="Project 1">
+                <div class="project-info">
+                    <h3>RPG Task Manager</h3>
+                    <p>Трекер задач с элементами геймификации и прокачкой уровня.</p>
+                    <p><strong>Tech:</strong> JS, CSS3, HTML5</p>
+                    <div class="project-links">
+                        <a href="#">GitHub</a>
+                        <a href="#">Live Demo</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <section class="quest-log">
-                <h3>📜 Список Квестов</h3>
-                <div class="quest-input-group">
-                    <input type="text" id="task-name" placeholder="Название задачи..." maxlength="30">
-                    <select id="task-diff">
-                        <option value="20">Easy (+20)</option>
-                        <option value="50" selected>Medium (+50)</option>
-                        <option value="100">Hard (+100)</option>
-                    </select>
-                    <button class="add-btn" onclick="addTask()">Принять квест</button>
+    <section id="contacts" class="container">
+        <h2 class="section-title">Контакты</h2>
+        <div class="contact-wrapper">
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="name" placeholder="Ваше имя" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <textarea id="message" placeholder="Сообщение" required></textarea>
+                <button type="submit" class="btn-primary">Отправить свиток</button>
+            </form>
+            <div class="contact-info">
+                <p>📍 Город: Павлодар</p>
+                <p>📧 Email: student@example.com</p>
+                <div class="socials">
+                    <a href="#">GitHub</a>
+                    <a href="#">Telegram</a>
                 </div>
-                <div id="task-list" class="task-list"></div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </div>
+    </section>
 
     <script src="js/script.js"></script>
 </body>
