@@ -29,42 +29,58 @@ function eraseEffect() {
     }
 }
 
-// RPG Логика (с обновленным дизайном)
+// RPG Логика
 let hero = JSON.parse(localStorage.getItem('hero_v2')) || { lvl: 1, xp: 0, next: 100 };
 
 function updateUI() {
     document.getElementById('char-lvl').textContent = hero.lvl;
-    document.getElementById('xp-text').textContent = `${hero.xp} / ${hero.next}`;
+    document.getElementById('xp-text').textContent = `${hero.xp} / ${hero.next} XP`;
     document.getElementById('xp-fill').style.width = (hero.xp / hero.next * 100) + "%";
     localStorage.setItem('hero_v2', JSON.stringify(hero));
 }
 
 function addTask() {
-    const name = document.getElementById('task-name').value;
+    const nameInput = document.getElementById('task-name');
+    const name = nameInput.value;
     const xp = parseInt(document.getElementById('task-diff').value);
-    if (!name) return;
+    
+    if (!name.trim()) return;
 
     const list = document.getElementById('task-list');
     const item = document.createElement('div');
     item.className = 'quest-item';
     item.innerHTML = `
-        <span>⚔️ ${name} (+${xp} XP)</span>
-        <button onclick="finishTask(${xp}, this)" style="background:none; color:var(--gold); border:1px solid var(--gold); border-radius:5px; cursor:pointer;">Завершить</button>
+        <div class="task-info">
+            <span style="display:block; font-weight:bold;">⚔️ ${name}</span>
+            <small style="color:var(--accent)">Награда: +${xp} XP</small>
+        </div>
+        <button class="finish-btn" onclick="finishTask(${xp}, this)">Выполнить</button>
     `;
-    list.appendChild(item);
-    document.getElementById('task-name').value = "";
+    list.prepend(item);
+    nameInput.value = "";
 }
 
 function finishTask(xp, btn) {
     hero.xp += xp;
+    
+    // Эффект перехода уровня
     if (hero.xp >= hero.next) {
         hero.xp -= hero.next;
         hero.lvl++;
         hero.next = hero.lvl * 100;
-        alert("💥 LEVEL UP! Ваш уровень: " + hero.lvl);
+        // Можно добавить эффект вспышки
     }
-    btn.parentElement.remove();
-    updateUI();
+
+    // Плавное удаление элемента
+    const item = btn.parentElement;
+    item.style.transition = "0.3s";
+    item.style.opacity = "0";
+    item.style.transform = "scale(0.9)";
+    
+    setTimeout(() => {
+        item.remove();
+        updateUI();
+    }, 300);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
