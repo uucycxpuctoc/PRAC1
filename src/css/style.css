@@ -1,32 +1,32 @@
 :root {
-    --bg: #0f172a;
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --accent: #6366f1;
-    --text: #f8fafc;
-    --gold: #fbbf24;
+    --bg: #000000;
+    --card-bg: #111111;
+    --accent: #ffffff; /* Чистый белый для акцентов */
+    --text: #e0e0e0;
+    --text-dim: #888888;
+    --border: #333333;
 }
 
 * { box-sizing: border-box; scroll-behavior: smooth; }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: radial-gradient(circle at top, #1e1b4b, var(--bg));
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;
 }
 
-.container { padding: 80px 10%; max-width: 1200px; margin: auto; }
-.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: var(--gold); }
+.container { padding: 100px 10%; max-width: 1200px; margin: auto; }
 
 /* Navigation */
 .navbar {
     position: fixed;
     top: 0; width: 100%;
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid var(--border);
 }
 
 .navbar ul {
@@ -35,8 +35,9 @@ body {
 }
 
 .navbar a {
-    color: var(--text); text-decoration: none;
-    margin: 0 15px; font-weight: 500; transition: 0.3s;
+    color: var(--text-dim); text-decoration: none;
+    margin: 0 20px; font-size: 0.9rem; text-transform: uppercase;
+    letter-spacing: 1px; transition: 0.3s;
 }
 
 .navbar a:hover { color: var(--accent); }
@@ -45,48 +46,63 @@ body {
 .hero {
     height: 100vh;
     display: flex; align-items: center; justify-content: center;
-    text-align: left;
+    border-bottom: 1px solid var(--border);
 }
 
-.hero-content { display: flex; align-items: center; gap: 50px; }
+.hero-content { display: flex; align-items: center; gap: 60px; }
 
-.highlight { color: var(--accent); }
+.highlight { color: var(--accent); border-bottom: 2px solid var(--accent); }
 
-.typing-box { height: 30px; font-size: 1.5rem; color: var(--gold); margin-bottom: 20px; }
+.typing-box { height: 35px; font-size: 1.4rem; font-weight: 300; margin-bottom: 25px; color: var(--text-dim); }
 
 .btn-primary {
     background: var(--accent);
-    color: white; padding: 12px 25px;
-    border-radius: 8px; text-decoration: none;
+    color: var(--bg); padding: 14px 28px;
+    border-radius: 0; font-weight: bold; text-decoration: none;
     display: inline-block; transition: 0.3s;
-    border: none; cursor: pointer;
+    border: 1px solid var(--accent);
 }
 
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4); }
+.btn-primary:hover { background: transparent; color: var(--accent); }
 
-/* Progress Bars */
-.progress-item { margin-bottom: 15px; }
-.progress-bar { background: rgba(255,255,255,0.1); height: 10px; border-radius: 5px; overflow: hidden; }
-.fill { background: var(--accent); height: 100%; transition: 1s ease-in-out; }
+/* Stats & Skills */
+.skill-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    padding: 30px; border-radius: 4px;
+}
 
-/* Project Cards */
-.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.progress-bar { background: #222; height: 4px; border-radius: 2px; margin-top: 8px; }
+.fill { background: var(--accent); height: 100%; transition: 1.5s ease-in-out; }
+
+/* Project Cards - Monochrome Hover */
 .project-card {
-    background: var(--card-bg); border-radius: 15px; overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
+    background: var(--card-bg); border: 1px solid var(--border);
+    transition: 0.4s ease; filter: grayscale(100%);
 }
-.project-card:hover { transform: scale(1.03); border-color: var(--accent); }
-.project-info { padding: 20px; }
 
-/* Contact Form */
-.contact-form { display: flex; flex-direction: column; gap: 10px; flex: 1; }
-.contact-form input, .contact-form textarea {
-    background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1);
-    padding: 12px; color: white; border-radius: 8px;
+.project-card:hover { 
+    filter: grayscale(0%); 
+    border-color: var(--accent);
+    transform: translateY(-5px);
 }
-.contact-wrapper { display: flex; gap: 40px; }
 
-@media (max-width: 768px) {
-    .hero-content { flex-direction: column; text-align: center; }
-    .contact-wrapper { flex-direction: column; }
+.project-info h3 { margin-top: 0; color: var(--accent); }
+
+/* Contacts */
+input, textarea {
+    background: transparent; border: 1px solid var(--border);
+    padding: 15px; color: white; width: 100%; margin-bottom: 15px;
+}
+
+input:focus { border-color: var(--accent); outline: none; }
+
+/* Education Timeline */
+.timeline-item {
+    border-left: 1px solid var(--accent);
+    padding-left: 20px; margin-bottom: 30px; position: relative;
+}
+
+.timeline-item::before {
+    content: ""; position: absolute; left: -5px; top: 5px;
+    width: 9px; height: 9px; background: var(--accent);
 }
