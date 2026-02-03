@@ -3,115 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio RPG | Студент TOU</title>
+    <title>Portfolio | Noir Edition</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="assets/favicon.ico"> </head>
+</head>
 <body>
     <nav class="navbar">
         <ul>
-            <li><a href="#home">Главная</a></li>
-            <li><a href="#skills">Навыки</a></li>
-            <li><a href="#education">Обучение</a></li>
-            <li><a href="#achievements">Достижения</a></li>
-            <li><a href="#projects">Проекты</a></li>
-            <li><a href="#contacts">Контакты</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contacts">Contacts</a></li>
         </ul>
     </nav>
 
-    <section id="home" class="hero">
+    <header id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Привет, я <span class="highlight">Имя Фамилия</span></h1>
+                <h1>I AM <span class="highlight">YOUR NAME</span></h1>
                 <div class="typing-box"><span id="role"></span></div>
-                <p>Я увлеченный разработчик, который превращает код в искусство. Мой путь — это постоянный "Level Up" в мире технологий.</p>
-                <p>Специализируюсь на создании интерактивных интерфейсов и изучении новых фреймворков.</p>
-                <a href="#contacts" class="btn-primary">Связаться со мной</a>
-            </div>
-            <div class="hero-image">
-                <img src="https://via.placeholder.com/300" alt="Мой аватар">
+                <p>Frontend-разработчик с фокусом на минимализм и функциональность. Студент TOU.</p>
+                <a href="#contacts" class="btn-primary">GET IN TOUCH</a>
             </div>
         </div>
-    </section>
+    </header>
 
     <section id="skills" class="container">
-        <h2 class="section-title">Навыки (Stats)</h2>
-        <div class="skills-grid">
+        <h2 class="section-title">TECHNICAL STATS</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
             <div class="skill-card">
-                <h3>Hard Skills</h3>
                 <div class="progress-item">
-                    <span>Python</span>
+                    <span>PYTHON / 70%</span>
                     <div class="progress-bar"><div class="fill" style="width: 70%;"></div></div>
                 </div>
                 <div class="progress-item">
-                    <span>JavaScript</span>
-                    <div class="progress-bar"><div class="fill" style="width: 15%;"></div></div>
+                    <span>JAVASCRIPT / 10%</span>
+                    <div class="progress-bar"><div class="fill" style="width: 10%;"></div></div>
                 </div>
-                <ul class="tool-list">
-                    <li>Git</li><li>MySQL</li><li>Linux</li>
-                </ul>
             </div>
             <div class="skill-card">
-                <h3>Soft Skills & Languages</h3>
-                <p>Командная работа, Критическое мышление</p>
-                <hr>
-                <p><strong>Английский:</strong> Intermediate</p>
-                <p><strong>Казахский:</strong> Родной</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="education" class="container">
-        <h2 class="section-title">Образование</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h4>TOU (Toraighyrov University)</h4>
-                <p>Информационные системы | 2022 — Настоящее время</p>
-                <p>Степень: Бакалавр. Изучение архитектуры ЭВМ и ООП.</p>
-            </div>
-            <div class="timeline-item">
-                <h4>IT-Школа "Step"</h4>
-                <p>Frontend Разработка | 2021 — 2022</p>
-                <p>Курс по основам верстки и JavaScript.</p>
+                <h3>TOOLS</h3>
+                <p>GIT / MYSQL / LINUX / QT</p>
             </div>
         </div>
     </section>
 
     <section id="projects" class="container">
-        <h2 class="section-title">Проекты</h2>
-        <div class="project-grid">
+        <h2 class="section-title">SELECTED WORKS</h2>
+        <div class="project-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
             <div class="project-card">
-                <img src="https://via.placeholder.com/300x150" alt="Project 1">
-                <div class="project-info">
-                    <h3>RPG Task Manager</h3>
-                    <p>Трекер задач с элементами геймификации и прокачкой уровня.</p>
-                    <p><strong>Tech:</strong> JS, CSS3, HTML5</p>
-                    <div class="project-links">
-                        <a href="#">GitHub</a>
-                        <a href="#">Live Demo</a>
-                    </div>
+                <div style="height: 200px; background: #222;"></div>
+                <div class="project-info" style="padding: 20px;">
+                    <h3>Project Alpha</h3>
+                    <p>Минималистичное веб-приложение.</p>
+                    <a href="#" style="color: var(--accent);">View Code</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="contacts" class="container">
-        <h2 class="section-title">Контакты</h2>
-        <div class="contact-wrapper">
-            <form id="contactForm" class="contact-form">
-                <input type="text" id="name" placeholder="Ваше имя" required>
-                <input type="email" id="email" placeholder="Email" required>
-                <textarea id="message" placeholder="Сообщение" required></textarea>
-                <button type="submit" class="btn-primary">Отправить свиток</button>
-            </form>
-            <div class="contact-info">
-                <p>📍 Город: Павлодар</p>
-                <p>📧 Email: student@example.com</p>
-                <div class="socials">
-                    <a href="#">GitHub</a>
-                    <a href="#">Telegram</a>
-                </div>
             </div>
-        </div>
     </section>
 
     <script src="js/script.js"></script>
