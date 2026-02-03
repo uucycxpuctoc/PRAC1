@@ -3,87 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevHero | Portfolio & RPG</title>
+    <title>RPG Portfolio Tasker</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">⚔️ DevHero</div>
-            <div class="nav-links">
-                <a href="#home">Главная</a>
-                <a href="#skills">Навыки</a>
-                <div class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Мини-игры <i class="fa fa-caret-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="#" onclick="playGuessNumber()">🔢 Угадай число</a>
-                        <a href="#" onclick="startClicker()">🖱️ Кликер</a>
+    <div class="container">
+        <header class="hero-header">
+            <h1>Level Up Your Skills</h1>
+            <div class="typing-container">
+                <span id="role"></span>
+            </div>
+        </header>
+
+        <main class="rpg-card">
+            <div class="character-info">
+                <div class="lvl-container">
+                    <span class="label">LVL</span>
+                    <span id="char-lvl" class="lvl-value">1</span>
+                </div>
+                <div class="xp-container">
+                    <div class="xp-header">
+                        <span>Experience</span>
+                        <span id="xp-text">0 / 100</span>
+                    </div>
+                    <div class="xp-bar">
+                        <div id="xp-fill"></div>
                     </div>
                 </div>
-                <a href="#rpg-todo">Квесты</a>
-                <a href="#contacts">Контакты</a>
-            </div>
-        </div>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="avatar-wrapper">
-                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Avatar" class="avatar">
-            </div>
-            <h1>Привет, я <span class="highlight">Иван Иванов</span></h1>
-            <p class="typewriter">Я — <span id="role"></span></p>
-            <div class="hero-btns">
-                <button class="btn-primary" onclick="location.href='#contacts'">Связаться со мной</button>
-                <button class="btn-outline" onclick="location.href='#rpg-todo'">Смотреть квесты</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="container">
-        <h2 class="section-title">Арсенал Навыков</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <i class="fab fa-python card-icon"></i>
-                <h3>Python</h3>
-                <div class="progress-container"><div class="progress-bar" style="width: 70%"><span>70%</span></div></div>
-            </div>
-            <div class="skill-card">
-                <i class="fab fa-js card-icon"></i>
-                <h3>JavaScript</h3>
-                <div class="progress-container"><div class="progress-bar" style="width: 25%"><span>25%</span></div></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="rpg-todo" class="rpg-section">
-        <div class="rpg-box">
-            <div class="char-header">
-                <div class="lvl-badge">LVL <span id="char-lvl">1</span></div>
-                <h2>Журнал Квестов</h2>
-            </div>
-            
-            <div class="xp-section">
-                <div class="xp-label">Опыт: <span id="xp-text">0 / 100</span> XP</div>
-                <div class="xp-track"><div id="xp-fill"></div></div>
             </div>
 
-            <div class="quest-input-group">
-                <input type="text" id="task-name" placeholder="Название нового квеста...">
-                <select id="task-diff">
-                    <option value="10">Легкий (+10 XP)</option>
-                    <option value="30">Средний (+30 XP)</option>
-                    <option value="60">Сложный (+60 XP)</option>
-                </select>
-                <button class="add-btn" onclick="addTask()">➕</button>
-            </div>
-
-            <div id="task-list" class="quest-log"></div>
-        </div>
-    </section>
+            <section class="quest-log">
+                <h3>📜 Список Квестов</h3>
+                <div class="quest-input-group">
+                    <input type="text" id="task-name" placeholder="Название задачи..." maxlength="30">
+                    <select id="task-diff">
+                        <option value="20">Easy (+20)</option>
+                        <option value="50" selected>Medium (+50)</option>
+                        <option value="100">Hard (+100)</option>
+                    </select>
+                    <button class="add-btn" onclick="addTask()">Принять квест</button>
+                </div>
+                <div id="task-list" class="task-list"></div>
+            </section>
+        </main>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
