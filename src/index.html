@@ -1,111 +1,67 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Александр Дышленко | Портфолио</title>
-    <link rel="stylesheet" href="src/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">AD.<span>dev</span></div>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Главная</a></li>
-                <li><a href="#skills">Навыки</a></li>
-                <li><a href="#education">Образование</a></li>
-                <li><a href="#achievements">Достижения</a></li>
-                <li><a href="#projects">Проекты</a></li>
-                <li><a href="#contacts">Контакты</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <header id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Привет, я <span class="highlight">Дышленко Александр</span></h1>
-                <p class="typewriter">Я <span id="role"></span></p>
-                <p class="description">Студент-разработчик, увлеченный созданием эффективных программных решений. Специализируюсь на системном программировании и веб-технологиях.</p>
-                <div class="hero-btns">
-                    <a href="#contacts" class="btn primary">Связаться со мной</a>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title">Навыки</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Hard Skills</h3>
-                    <div class="progress-item"><span>Python</span> <div class="bar"><div class="fill" style="width: 70%"></div></div></div>
-                    <div class="progress-item"><span>Java</span> <div class="bar"><div class="fill" style="width: 60%"></div></div></div>
-                    <div class="progress-item"><span>C++</span> <div class="bar"><div class="fill" style="width: 40%"></div></div></div>
-                </div>
-                <div class="skill-card">
-                    <h3>Инструменты</h3>
-                    <ul class="tags">
-                        <li>Git</li><li>MySQL</li><li>QT</li><li>Linux</li><li>HTTP</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="education">
+<h2>Образование</h2>
+<div class="timeline">
+<article>
+<h3>Университет</h3>
+<span>2022 — настоящее время</span>
+<p>Бакалавр, Информационные технологии</p>
+</article>
+<article>
+<h3>Колледж</h3>
+<span>2018 — 2022</span>
+<p>Программирование</p>
+</article>
+</div>
+</section>
 
-    <section id="education" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Образование</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="time">2021 — Наст. время</div>
-                    <h4>Торайгыров Университет</h4>
-                    <p>Бакалавриат: Информационные системы.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Проекты</h2>
-            <div class="project-cards">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Smart Budget Tracker</h3>
-                        <p>Приложение для управления личными финансами.</p>
-                        <div class="tech">Python, SQLite</div>
-                        <a href="https://github.com/uucycpuc" class="link">GitHub <i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="achievements">
+<h2>Достижения</h2>
+<div class="cards">
+<div class="card">🏆 Хакатон — участие (2024)</div>
+<div class="card">📜 Сертификат Coursera</div>
+<div class="card">🎓 Олимпиада по программированию</div>
+</div>
+</section>
 
-    <footer id="contacts" class="footer">
-        <div class="container">
-            <h2 class="section-title">Контакты</h2>
-            <div class="footer-grid">
-                <form id="contactForm">
-                    <input type="text" placeholder="Имя" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Сообщение" rows="5" required></textarea>
-                    <button type="submit" class="btn primary">Отправить</button>
-                    <p id="formStatus"></p>
-                </form>
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> student@example.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Павлодар, Казахстан</p>
-                    <div class="socials">
-                        <a href="https://github.com/uucycpuc"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <script src="js/script.js"></script>
+<section id="projects">
+<h2>Проекты</h2>
+<div class="cards">
+<div class="card">
+<h3>Портфолио</h3>
+<p>Одностраничный сайт‑портфолио.</p>
+<p><strong>Технологии:</strong> HTML, CSS, JS</p>
+<a href="#">GitHub</a>
+</div>
+<div class="card"><h3>Мини‑игра</h3><p>Игра на JavaScript</p></div>
+<div class="card"><h3>Учебный проект</h3><p>CRUD‑приложение</p></div>
+</div>
+</section>
+
+
+<section id="contacts">
+<h2>Контакты</h2>
+<form id="contactForm">
+<input type="text" placeholder="Имя" required />
+<input type="email" placeholder="Email" required />
+<textarea placeholder="Сообщение" required></textarea>
+<button type="submit">Отправить</button>
+</form>
+<p>Email: student@example.com</p>
+<p>Город: Алматы</p>
+</section>
+</main>
+
+
+<footer>
+<p>© 2026 Ваше Имя</p>
+</footer>
+
+
+<script src="script.js"></script>
 </body>
 </html>
