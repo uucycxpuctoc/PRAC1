@@ -1,64 +1,73 @@
-// --- RPG Система ---
-let hero = JSON.parse(localStorage.getItem('heroData')) || {
-    lvl: 1,
-    xp: 0,
-    nextLvlXp: 100
-};
+// Эффект печати
+const roles = ["Frontend Разработчик", "UI/UX Дизайнер", "Студент TOU"];
+let roleIdx = 0;
+let charIdx = 0;
+const roleSpeed = 100;
 
-function updateHeroUI() {
-    document.getElementById('char-level').innerText = hero.lvl;
-    document.getElementById('current-xp').innerText = hero.xp;
-    document.getElementById('needed-xp').innerText = hero.nextLvlXp;
+function typeEffect() {
+    const target = document.getElementById("role");
+    if (!target) return;
     
-    const percent = (hero.xp / hero.nextLvlXp) * 100;
-    document.getElementById('xp-bar-fill').style.width = percent + "%";
-    
-    localStorage.setItem('heroData', JSON.stringify(hero));
+    if (charIdx < roles[roleIdx].length) {
+        target.textContent += roles[roleIdx].charAt(charIdx);
+        charIdx++;
+        setTimeout(typeEffect, roleSpeed);
+    } else {
+        setTimeout(eraseEffect, 2000);
+    }
+}
+
+function eraseEffect() {
+    const target = document.getElementById("role");
+    if (charIdx > 0) {
+        target.textContent = roles[roleIdx].substring(0, charIdx - 1);
+        charIdx--;
+        setTimeout(eraseEffect, 50);
+    } else {
+        roleIdx = (roleIdx + 1) % roles.length;
+        setTimeout(typeEffect, 500);
+    }
+}
+
+// RPG Логика (с обновленным дизайном)
+let hero = JSON.parse(localStorage.getItem('hero_v2')) || { lvl: 1, xp: 0, next: 100 };
+
+function updateUI() {
+    document.getElementById('char-lvl').textContent = hero.lvl;
+    document.getElementById('xp-text').textContent = `${hero.xp} / ${hero.next}`;
+    document.getElementById('xp-fill').style.width = (hero.xp / hero.next * 100) + "%";
+    localStorage.setItem('hero_v2', JSON.stringify(hero));
 }
 
 function addTask() {
-    const title = document.getElementById('task-input').value;
-    const xp = parseInt(document.getElementById('task-difficulty').value);
-    
-    if(!title) return alert("Введите название квеста!");
+    const name = document.getElementById('task-name').value;
+    const xp = parseInt(document.getElementById('task-diff').value);
+    if (!name) return;
 
     const list = document.getElementById('task-list');
-    const li = document.createElement('div');
-    li.className = 'task-item';
-    li.innerHTML = `
-        <span><b>${title}</b> (+${xp} XP)</span>
-        <button onclick="completeTask(${xp}, this)">Завершить ⚔️</button>
+    const item = document.createElement('div');
+    item.className = 'quest-item';
+    item.innerHTML = `
+        <span>⚔️ ${name} (+${xp} XP)</span>
+        <button onclick="finishTask(${xp}, this)" style="background:none; color:var(--gold); border:1px solid var(--gold); border-radius:5px; cursor:pointer;">Завершить</button>
     `;
-    list.appendChild(li);
-    document.getElementById('task-input').value = "";
+    list.appendChild(item);
+    document.getElementById('task-name').value = "";
 }
 
-function completeTask(xpGain, element) {
-    hero.xp += xpGain;
-    
-    // Проверка уровня
-    if (hero.xp >= hero.nextLvlXp) {
-        hero.xp -= hero.nextLvlXp;
+function finishTask(xp, btn) {
+    hero.xp += xp;
+    if (hero.xp >= hero.next) {
+        hero.xp -= hero.next;
         hero.lvl++;
-        hero.nextLvlXp = hero.lvl * 100;
-        alert("🎉 УРОВЕНЬ ПОВЫШЕН! Теперь вы " + hero.lvl + " уровня!");
+        hero.next = hero.lvl * 100;
+        alert("💥 LEVEL UP! Ваш уровень: " + hero.lvl);
     }
-    
-    element.parentElement.remove();
-    updateHeroUI();
+    btn.parentElement.remove();
+    updateUI();
 }
 
-// --- Мини-игра: Угадай число ---
-let secretNum = Math.floor(Math.random() * 100) + 1;
-function guessNumber() {
-    const userNum = parseInt(prompt("Угадай число от 1 до 100:"));
-    if (userNum === secretNum) {
-        alert("Победа! Это было " + secretNum);
-        secretNum = Math.floor(Math.random() * 100) + 1;
-    } else {
-        alert(userNum > secretNum ? "Меньше!" : "Больше!");
-    }
-}
-
-// Запуск при загрузке
-window.onload = updateHeroUI;
+document.addEventListener("DOMContentLoaded", () => {
+    updateUI();
+    typeEffect();
+});
