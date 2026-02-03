@@ -3,82 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio & RPG Quest</title>
+    <title>DevHero | Portfolio & RPG</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <nav id="navbar">
-        <a href="#home">Главная</a>
-        <a href="#skills">Навыки</a>
-        <a href="#projects">Проекты</a>
-        <div class="dropdown" style="display: inline-block;">
-            <a href="javascript:void(0)">Мини-игры ▾</a>
-            <div class="dropdown-content">
-                <a href="#" onclick="playGuessNumber()">Угадай число</a>
-                <a href="#" onclick="alert('Игра Кликер скоро появится!')">Кликер</a>
+        <div class="nav-container">
+            <div class="logo">⚔️ DevHero</div>
+            <div class="nav-links">
+                <a href="#home">Главная</a>
+                <a href="#skills">Навыки</a>
+                <div class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Мини-игры <i class="fa fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="playGuessNumber()">🔢 Угадай число</a>
+                        <a href="#" onclick="startClicker()">🖱️ Кликер</a>
+                    </div>
+                </div>
+                <a href="#rpg-todo">Квесты</a>
+                <a href="#contacts">Контакты</a>
             </div>
         </div>
-        <a href="#rpg-todo">RPG Планировщик</a>
-        <a href="#contacts">Контакты</a>
     </nav>
 
     <section id="home" class="hero">
-        <img src="assets/avatar.png" alt="Avatar" class="avatar" onerror="this.src='https://via.placeholder.com/150'">
-        <h1>Привет, я <span class="highlight">Иван Иванов</span></h1>
-        <p>Я — <span id="role">Студент / Разработчик</span></p>
-        <button onclick="location.href='#contacts'">Связаться со мной</button>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="avatar-wrapper">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Avatar" class="avatar">
+            </div>
+            <h1>Привет, я <span class="highlight">Иван Иванов</span></h1>
+            <p class="typewriter">Я — <span id="role"></span></p>
+            <div class="hero-btns">
+                <button class="btn-primary" onclick="location.href='#contacts'">Связаться со мной</button>
+                <button class="btn-outline" onclick="location.href='#rpg-todo'">Смотреть квесты</button>
+            </div>
+        </div>
     </section>
 
     <section id="skills" class="container">
-        <h2>Мои Навыки</h2>
+        <h2 class="section-title">Арсенал Навыков</h2>
         <div class="skills-grid">
             <div class="skill-card">
-                <h3>Hard Skills</h3>
-                <p>Python (70%)</p>
-                <div class="xp-bar"><div class="xp-fill" style="width: 70%"></div></div>
-                <p>JavaScript (10%)</p>
-                <div class="xp-bar"><div class="xp-fill" style="width: 10%"></div></div>
+                <i class="fab fa-python card-icon"></i>
+                <h3>Python</h3>
+                <div class="progress-container"><div class="progress-bar" style="width: 70%"><span>70%</span></div></div>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-js card-icon"></i>
+                <h3>JavaScript</h3>
+                <div class="progress-container"><div class="progress-bar" style="width: 25%"><span>25%</span></div></div>
             </div>
         </div>
     </section>
 
-    <section id="rpg-todo" class="rpg-container">
-        <h2>⚔️ RPG Task Manager ⚔️</h2>
-        <div class="character-card">
-            <h3>Герой: <span id="char-name">Путешественник</span></h3>
-            <p>Уровень: <span id="char-lvl">1</span></p>
-            <div class="xp-bar">
-                <div id="xp-fill" class="xp-fill"></div>
+    <section id="rpg-todo" class="rpg-section">
+        <div class="rpg-box">
+            <div class="char-header">
+                <div class="lvl-badge">LVL <span id="char-lvl">1</span></div>
+                <h2>Журнал Квестов</h2>
             </div>
-            <p id="xp-text">0 / 100 XP</p>
-        </div>
-
-        <div class="task-form">
-            <input type="text" id="task-name" placeholder="Название квеста...">
-            <select id="task-diff">
-                <option value="10">Легкая (+10 XP)</option>
-                <option value="25">Средняя (+25 XP)</option>
-                <option value="50">Сложная (+50 XP)</option>
-                <option value="100">Эпическая (+100 XP)</option>
-            </select>
-            <button onclick="addTask()">➕ Добавить квест</button>
-        </div>
-
-        <div id="task-list" class="quest-list">
+            
+            <div class="xp-section">
+                <div class="xp-label">Опыт: <span id="xp-text">0 / 100</span> XP</div>
+                <div class="xp-track"><div id="xp-fill"></div></div>
             </div>
+
+            <div class="quest-input-group">
+                <input type="text" id="task-name" placeholder="Название нового квеста...">
+                <select id="task-diff">
+                    <option value="10">Легкий (+10 XP)</option>
+                    <option value="30">Средний (+30 XP)</option>
+                    <option value="60">Сложный (+60 XP)</option>
+                </select>
+                <button class="add-btn" onclick="addTask()">➕</button>
+            </div>
+
+            <div id="task-list" class="quest-log"></div>
+        </div>
     </section>
-
-    <footer id="contacts" class="container">
-        <h2>Контакты</h2>
-        <div class="contact-form">
-            <input type="text" placeholder="Имя">
-            <input type="email" placeholder="Email">
-            <textarea placeholder="Ваше сообщение"></textarea>
-            <button>Отправить</button>
-        </div>
-    </footer>
 
     <script src="js/script.js"></script>
 </body>
