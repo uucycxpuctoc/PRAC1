@@ -1,108 +1,55 @@
-:root {
-    --bg: #000000;
-    --card-bg: #111111;
-    --accent: #ffffff; /* Чистый белый для акцентов */
-    --text: #e0e0e0;
-    --text-dim: #888888;
-    --border: #333333;
-}
-
-* { box-sizing: border-box; scroll-behavior: smooth; }
-
 body {
-    margin: 0;
-    font-family: 'Inter', -apple-system, sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #111;
+  color: #fff;
 }
 
-.container { padding: 100px 10%; max-width: 1200px; margin: auto; }
-
-/* Navigation */
-.navbar {
-    position: fixed;
-    top: 0; width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    border-bottom: 1px solid var(--border);
+header {
+  background: #222;
+  padding: 10px;
 }
 
-.navbar ul {
-    display: flex; justify-content: center;
-    list-style: none; padding: 15px; margin: 0;
+nav {
+  display: flex;
+  gap: 10px;
 }
 
-.navbar a {
-    color: var(--text-dim); text-decoration: none;
-    margin: 0 20px; font-size: 0.9rem; text-transform: uppercase;
-    letter-spacing: 1px; transition: 0.3s;
+button {
+  padding: 10px;
+  cursor: pointer;
 }
 
-.navbar a:hover { color: var(--accent); }
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    border-bottom: 1px solid var(--border);
+.page {
+  display: none;
+  padding: 20px;
 }
 
-.hero-content { display: flex; align-items: center; gap: 60px; }
-
-.highlight { color: var(--accent); border-bottom: 2px solid var(--accent); }
-
-.typing-box { height: 35px; font-size: 1.4rem; font-weight: 300; margin-bottom: 25px; color: var(--text-dim); }
-
-.btn-primary {
-    background: var(--accent);
-    color: var(--bg); padding: 14px 28px;
-    border-radius: 0; font-weight: bold; text-decoration: none;
-    display: inline-block; transition: 0.3s;
-    border: 1px solid var(--accent);
+.page.active {
+  display: block;
 }
 
-.btn-primary:hover { background: transparent; color: var(--accent); }
-
-/* Stats & Skills */
-.skill-card {
-    background: var(--card-bg); border: 1px solid var(--border);
-    padding: 30px; border-radius: 4px;
+.dropdown {
+  position: relative;
 }
 
-.progress-bar { background: #222; height: 4px; border-radius: 2px; margin-top: 8px; }
-.fill { background: var(--accent); height: 100%; transition: 1.5s ease-in-out; }
-
-/* Project Cards - Monochrome Hover */
-.project-card {
-    background: var(--card-bg); border: 1px solid var(--border);
-    transition: 0.4s ease; filter: grayscale(100%);
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #333;
 }
 
-.project-card:hover { 
-    filter: grayscale(0%); 
-    border-color: var(--accent);
-    transform: translateY(-5px);
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
-.project-info h3 { margin-top: 0; color: var(--accent); }
-
-/* Contacts */
-input, textarea {
-    background: transparent; border: 1px solid var(--border);
-    padding: 15px; color: white; width: 100%; margin-bottom: 15px;
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 5px;
 }
 
-input:focus { border-color: var(--accent); outline: none; }
-
-/* Education Timeline */
-.timeline-item {
-    border-left: 1px solid var(--accent);
-    padding-left: 20px; margin-bottom: 30px; position: relative;
-}
-
-.timeline-item::before {
-    content: ""; position: absolute; left: -5px; top: 5px;
-    width: 9px; height: 9px; background: var(--accent);
+#board button {
+  font-size: 2rem;
+  height: 100px;
 }
