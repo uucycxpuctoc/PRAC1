@@ -1,72 +1,109 @@
 :root {
-    --primary: #f1c40f; /* Золото RPG */
-    --bg: #121212;
-    --card: #1e1e1e;
-    --text: #e0e0e0;
+    --gold: #ffcc00;
+    --gold-glow: rgba(255, 204, 0, 0.4);
+    --bg-dark: #0a0a0b;
+    --card-bg: #161618;
+    --primary-gradient: linear-gradient(135deg, #ffcc00 0%, #ff8800 100%);
 }
 
 body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-dark);
+    color: #fff;
     margin: 0;
-    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
 }
 
-/* Фиксированная навигация */
-nav {
-    position: fixed;
-    top: 0; width: 100%;
-    background: rgba(0,0,0,0.9);
+/* Навигация */
+#navbar {
+    background: rgba(10, 10, 11, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #333;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
-    padding: 15px 0;
-    z-index: 1000;
-    border-bottom: 2px solid var(--primary);
+    justify-content: space-between;
+    padding: 15px 20px;
 }
 
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Секция на весь экран */
+/* Hero Секция */
 .hero {
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0b 100%);
+}
+
+.avatar-wrapper {
+    width: 150px;
+    height: 150px;
+    border: 3px solid var(--gold);
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 0 20px var(--gold-glow);
+    margin: 0 auto 20px;
+}
+
+.avatar { width: 100%; border-radius: 50%; }
+
+.highlight { color: var(--gold); text-shadow: 0 0 10px var(--gold-glow); }
+
+/* Карточки Навыков */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.skill-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
     text-align: center;
+    border: 1px solid #333;
+    transition: 0.3s;
 }
 
-/* RPG Прогресс-бар */
-.xp-container {
-    width: 300px;
-    height: 20px;
-    background: #333;
-    border-radius: 10px;
-    border: 2px solid var(--primary);
-    overflow: hidden;
+.skill-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+
+/* RPG Планировщик */
+.rpg-box {
+    max-width: 700px;
+    margin: 50px auto;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.xp-track {
+    width: 100%;
+    height: 12px;
+    background: #222;
+    border-radius: 6px;
     margin: 10px 0;
+    border: 1px solid #444;
 }
 
-.xp-fill {
+#xp-fill {
     height: 100%;
-    background: var(--primary);
+    background: var(--primary-gradient);
     width: 0%;
-    transition: width 0.4s ease;
+    border-radius: 6px;
+    box-shadow: 0 0 10px var(--gold-glow);
 }
 
-/* Карточки задач */
-.task-item {
-    background: var(--card);
-    margin: 10px;
+.quest-item {
+    background: #222;
     padding: 15px;
-    border-radius: 8px;
-    border-left: 4px solid var(--primary);
+    margin-top: 10px;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid var(--gold);
 }
