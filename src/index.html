@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дышленко Александр | Портфолио</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23ffffff'/><text x='50' y='68' font-size='40' text-anchor='middle' fill='black' font-family='Cormorant Garamond'>ДА</text></svg>">
+    
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
+        /* ===== МРАЧНЫЙ ЭЛЕГАНТНЫЙ СТИЛЬ ===== */
         * {
             margin: 0;
             padding: 0;
@@ -21,62 +25,145 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
+            background: #0f0f0f;
+            color: #e0e0e0;
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* Навигация */
+        /* ===== ЭФФЕКТ ДОЖДЯ ===== */
+        .rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .drop {
+            position: absolute;
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.15));
+            animation: rain 2s linear infinite;
+        }
+
+        @keyframes rain {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0.1;
+            }
+        }
+
+        /* Заголовки с благородным шрифтом */
+        h1, h2, h3, .section-title, .nav-links a {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== НАВИГАЦИЯ ===== */
         nav {
             position: fixed;
-            top: 20px;
+            top: 30px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            background: rgba(20, 20, 20, 0.9);
+            padding: 0.8rem 2.5rem;
+            background: rgba(15, 15, 15, 0.7);
             backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            border: 1px solid #333;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: #888;
+            color: #a0a0a0;
             text-decoration: none;
-            transition: color 0.3s;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.3rem 0;
+            position: relative;
         }
 
-        .nav-links a.active,
-        .nav-links a:hover {
-            color: white;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #ffffff;
+            transition: width 0.3s ease;
         }
 
-        /* Секции */
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #ffffff;
+        }
+
+        /* ===== СЕКЦИИ ===== */
         section {
             min-height: 100vh;
-            padding: 100px 10%;
+            padding: 120px 12%;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            position: relative;
+            z-index: 2;
         }
 
         .section-title {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 3rem;
+            color: #ffffff;
             text-align: center;
-            border-bottom: 2px solid white;
-            padding-bottom: 1rem;
+            font-weight: 400;
+            position: relative;
             display: inline-block;
             align-self: center;
         }
 
-        /* Главная */
+        .section-title::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background: #ffffff;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background: #ffffff;
+        }
+
+        /* ===== ГЛАВНАЯ ===== */
         .hero-content {
             display: flex;
             align-items: center;
@@ -88,23 +175,45 @@
         }
 
         .hero-text h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
+            line-height: 1.2;
             margin-bottom: 1rem;
+            color: #ffffff;
+            font-weight: 400;
         }
 
         .highlight {
-            color: white;
-            border-bottom: 2px solid white;
+            color: #ffffff;
+            font-style: italic;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .animated-text {
             font-size: 1.8rem;
             margin: 2rem 0;
             height: 3rem;
+            display: flex;
+            gap: 0.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+
+        .static-text {
+            color: #888888;
+        }
+
+        .dynamic-text {
+            color: #ffffff;
+            position: relative;
         }
 
         .dynamic-text::after {
-            content: "|";
+            content: "";
+            position: absolute;
+            right: -5px;
+            width: 2px;
+            height: 80%;
+            background: #ffffff;
             animation: blink 1s infinite;
         }
 
@@ -114,24 +223,47 @@
         }
 
         .hero-description {
-            color: #aaa;
-            margin: 1rem 0;
+            color: #b0b0b0;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
         }
 
         .btn {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: white;
-            color: black;
+            padding: 1rem 3rem;
+            background: transparent;
+            color: #ffffff;
             text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            margin-top: 1rem;
-            transition: transform 0.3s;
+            border: 1px solid #ffffff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            transition: left 0.3s ease;
+            z-index: -1;
         }
 
         .btn:hover {
-            transform: scale(1.05);
+            color: #0f0f0f;
+        }
+
+        .btn:hover::before {
+            left: 0;
         }
 
         .hero-avatar {
@@ -143,18 +275,26 @@
         .avatar-container {
             width: 350px;
             height: 350px;
-            border-radius: 50%;
+            border-radius: 0;
             overflow: hidden;
-            border: 3px solid white;
+            border: 1px solid #ffffff;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .avatar-container:hover {
+            opacity: 1;
         }
 
         .avatar-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: grayscale(100%);
         }
 
-        /* Навыки */
+        /* ===== НАВЫКИ ===== */
         .skills-container {
             display: flex;
             flex-direction: column;
@@ -162,41 +302,61 @@
         }
 
         .skill-category {
-            background: #111;
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid #333;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border-color 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .skill-category h3 {
-            margin-bottom: 1.5rem;
-            color: white;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            font-weight: 400;
+            letter-spacing: 0.1em;
         }
 
         .skill-items {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         .skill-info {
             display: flex;
             justify-content: space-between;
-            color: #aaa;
-            margin-bottom: 0.5rem;
+            color: #a0a0a0;
+            font-size: 0.95rem;
         }
 
         .progress-bar {
             width: 100%;
-            height: 8px;
-            background: #222;
-            border-radius: 10px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
             overflow: hidden;
         }
 
         .progress {
             height: 100%;
-            background: white;
+            background: #ffffff;
+            animation: fillBar 1.5s ease-out forwards;
+            transform-origin: left;
+        }
+
+        @keyframes fillBar {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
         }
 
         .soft-skills {
@@ -207,33 +367,48 @@
 
         .skill-tag {
             padding: 0.5rem 1.5rem;
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 30px;
-            color: #ddd;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+            font-weight: 300;
         }
 
-        /* Образование */
+        .skill-tag:hover {
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+
+        /* ===== ОБРАЗОВАНИЕ ===== */
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .timeline::after {
             content: '';
             position: absolute;
-            width: 2px;
-            background: #333;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.2);
             top: 0;
             bottom: 0;
             left: 50%;
+            transform: translateX(-50%);
         }
 
         .timeline-item {
-            padding: 10px 40px;
+            padding: 20px 40px;
             position: relative;
             width: 50%;
+            animation: fadeIn 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .timeline-item.left {
@@ -245,107 +420,153 @@
         }
 
         .timeline-content {
-            padding: 20px;
-            background: #111;
-            border-radius: 10px;
-            border: 1px solid #333;
+            padding: 2rem;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffffff;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .left .timeline-content::before {
+            right: -45px;
+        }
+
+        .right .timeline-content::before {
+            left: -45px;
         }
 
         .timeline-date {
-            color: white;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.2em;
         }
 
-        /* Достижения */
+        /* ===== ДОСТИЖЕНИЯ ===== */
         .achievements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
         .achievement-card {
-            background: #111;
-            padding: 2rem;
-            border-radius: 20px;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 2.5rem 2rem;
             text-align: center;
-            border: 1px solid #333;
-            transition: transform 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            animation: fadeIn 0.8s ease forwards;
+            opacity: 0;
         }
 
         .achievement-card:hover {
-            transform: translateY(-10px);
-            border-color: white;
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
         }
 
         .achievement-icon {
             font-size: 2.5rem;
-            color: white;
-            margin-bottom: 1rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
         }
 
-        /* Проекты */
+        .achievement-date {
+            color: #888888;
+            font-size: 0.85rem;
+            margin: 0.8rem 0;
+            letter-spacing: 0.1em;
+        }
+
+        /* ===== ПРОЕКТЫ ===== */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         .project-card {
-            background: #111;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid #333;
-            transition: transform 0.3s;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+            animation: fadeIn 0.8s ease forwards;
+            opacity: 0;
+            position: relative;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            border-color: white;
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px);
         }
 
         .project-image {
+            width: 100%;
             height: 200px;
             background: #1a1a1a;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #ffffff;
             font-size: 3rem;
+            opacity: 0.8;
         }
 
         .project-content {
-            padding: 1.5rem;
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            font-weight: 400;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1rem 0;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
         }
 
         .tech-tag {
             padding: 0.3rem 1rem;
-            background: #1a1a1a;
-            border-radius: 20px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.8rem;
-            color: #aaa;
+            color: #b0b0b0;
         }
 
         .project-links a {
-            color: #888;
+            color: #888888;
             text-decoration: none;
-            margin-right: 1rem;
+            margin-right: 1.5rem;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
         }
 
         .project-links a:hover {
-            color: white;
+            color: #ffffff;
         }
 
-        /* Контакты */
+        /* ===== КОНТАКТЫ ===== */
         .contact-container {
             display: flex;
             gap: 4rem;
+            align-items: flex-start;
         }
 
         .contact-info {
@@ -355,95 +576,129 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(20, 20, 20, 0.5);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .contact-item i {
-            font-size: 2rem;
-            color: white;
+            font-size: 1.8rem;
+            color: #ffffff;
+            opacity: 0.7;
         }
 
         .social-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             margin-top: 2rem;
         }
 
         .social-links a {
-            color: #888;
-            font-size: 2rem;
-            transition: color 0.3s;
+            color: #888888;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            color: white;
+            color: #ffffff;
+            transform: translateY(-3px);
         }
 
         .contact-form {
             flex: 1;
-            background: #111;
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid #333;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 1rem;
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 10px;
-            color: white;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .form-group textarea {
             height: 120px;
+            resize: vertical;
         }
 
         .error-message {
-            color: #ff4444;
-            font-size: 0.9rem;
+            color: #ff6b6b;
+            font-size: 0.85rem;
             margin-top: 0.3rem;
             display: none;
         }
 
-        .form-group.error input,
-        .form-group.error textarea {
-            border-color: #ff4444;
-        }
-
         .success-message {
-            background: #1a1a1a;
-            border: 1px solid #00ff88;
-            color: white;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
             padding: 1rem;
-            border-radius: 10px;
             margin-top: 1rem;
             display: none;
             text-align: center;
         }
 
+        /* ===== ПОДВАЛ ===== */
         footer {
             text-align: center;
             padding: 2rem;
-            color: #666;
-            border-top: 1px solid #333;
+            color: #666666;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 2;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
         }
 
+        /* ===== АДАПТАЦИЯ ===== */
         @media (max-width: 768px) {
+            nav {
+                width: 90%;
+                padding: 0.8rem 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
             .hero-content {
                 flex-direction: column-reverse;
                 text-align: center;
             }
 
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
+            }
+
+            .animated-text {
+                font-size: 1.3rem;
+                justify-content: center;
             }
 
             .avatar-container {
@@ -457,23 +712,34 @@
 
             .timeline-item {
                 width: 100%;
-                left: 0 !important;
                 padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item.right {
+                left: 0;
+            }
+
+            .left .timeline-content::before,
+            .right .timeline-content::before {
+                left: -40px;
             }
 
             .contact-container {
                 flex-direction: column;
             }
 
-            .nav-links {
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
+            .section-title {
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Эффект дождя -->
+    <div class="rain" id="rain"></div>
+
+    <!-- Навигация -->
     <nav>
         <ul class="nav-links">
             <li><a href="#home" class="active">Главная</a></li>
@@ -485,51 +751,88 @@
         </ul>
     </nav>
 
+    <!-- Главная -->
     <section id="home">
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Привет, я <span class="highlight">Дышленко Александр</span></h1>
                 <div class="animated-text">
+                    <span class="static-text">Я</span>
                     <span class="dynamic-text" id="typing-text"></span>
                 </div>
                 <p class="hero-description">
-                    Студент 4 курса, разработчик настольных приложений и бэкенд-архитектуры.
+                    Студент 4 курса, погружённый в мир разработки настольных приложений и бэкенд-архитектуры. 
+                    Создаю элегантные решения для сложных задач.
                 </p>
-                <a href="#contacts" class="btn">Связаться со мной</a>
+                <p class="hero-description">
+                    В свободное время — участник хакатонов, исследователь новых технологий и автор пет-проектов.
+                </p>
+                <a href="#contacts" class="btn">СВЯЗАТЬСЯ</a>
             </div>
             <div class="hero-avatar">
                 <div class="avatar-container">
-                    <img src="https://github.com/user-attachments/assets/c763dc83-51f6-4ac0-9601-144336bdadd8" alt="Аватар">
+                    <img src="https://ui-avatars.com/api/?name=Дышленко+Александр&size=350&length=2&background=1a1a1a&color=fff&bold=false&font-size=0.35&rounded=false" alt="Аватар">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Навыки -->
     <section id="skills">
         <h2 class="section-title">Навыки</h2>
         <div class="skills-container">
+            <!-- Hard Skills -->
             <div class="skill-category">
                 <h3>Hard Skills</h3>
                 <div class="skill-items">
                     <div class="skill-item">
-                        <div class="skill-info"><span>Python</span><span>70%</span></div>
-                        <div class="progress-bar"><div class="progress" style="width:70%"></div></div>
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 70%"></div>
+                        </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>JavaScript</span><span>10%</span></div>
-                        <div class="progress-bar"><div class="progress" style="width:10%"></div></div>
+                        <div class="skill-info">
+                            <span>JavaScript</span>
+                            <span>10%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 10%"></div>
+                        </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>Java</span><span>60%</span></div>
-                        <div class="progress-bar"><div class="progress" style="width:60%"></div></div>
+                        <div class="skill-info">
+                            <span>Java</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%"></div>
+                        </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>C++</span><span>40%</span></div>
-                        <div class="progress-bar"><div class="progress" style="width:40%"></div></div>
+                        <div class="skill-info">
+                            <span>C++</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>C</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 50%"></div>
+                        </div>
                     </div>
                 </div>
-                <div style="margin-top:2rem">
-                    <h4 style="color:#aaa">Инструменты</h4>
+                <div style="margin-top: 2.5rem;">
+                    <h4 style="color: #a0a0a0; margin-bottom: 1.5rem; font-weight: 400;">Инструменты</h4>
                     <div class="soft-skills">
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">MySQL</span>
@@ -537,8 +840,19 @@
                         <span class="skill-tag">Linux</span>
                     </div>
                 </div>
+                <div style="margin-top: 2.5rem;">
+                    <h4 style="color: #a0a0a0; margin-bottom: 1.5rem; font-weight: 400;">Другое</h4>
+                    <div class="soft-skills">
+                        <span class="skill-tag">ООП</span>
+                        <span class="skill-tag">Паттерны</span>
+                        <span class="skill-tag">QT/wxWidgets</span>
+                        <span class="skill-tag">Android</span>
+                        <span class="skill-tag">HTTP</span>
+                    </div>
+                </div>
             </div>
 
+            <!-- Soft Skills -->
             <div class="skill-category">
                 <h3>Soft Skills</h3>
                 <div class="soft-skills">
@@ -546,95 +860,134 @@
                     <span class="skill-tag">Критическое мышление</span>
                     <span class="skill-tag">Коммуникабельность</span>
                     <span class="skill-tag">Тайм-менеджмент</span>
+                    <span class="skill-tag">Адаптивность</span>
+                    <span class="skill-tag">Решение проблем</span>
                 </div>
             </div>
 
+            <!-- Языки -->
             <div class="skill-category">
                 <h3>Языки</h3>
                 <div class="skill-items">
                     <div class="skill-item">
-                        <div class="skill-info"><span>Английский</span><span>B2</span></div>
-                        <div class="progress-bar"><div class="progress" style="width:75%"></div></div>
+                        <div class="skill-info">
+                            <span>Английский</span>
+                            <span>B2</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%"></div>
+                        </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>Казахский</span><span>Родной</span></div>
-                        <div class="progress-bar"><div class="progress" style="width:100%"></div></div>
+                        <div class="skill-info">
+                            <span>Казахский</span>
+                            <span>Родной</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%"></div>
+                        </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info"><span>Русский</span><span>Свободно</span></div>
-                        <div class="progress-bar"><div class="progress" style="width:100%"></div></div>
+                        <div class="skill-info">
+                            <span>Русский</span>
+                            <span>Свободно</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Образование -->
     <section id="education">
         <h2 class="section-title">Образование</h2>
         <div class="timeline">
             <div class="timeline-item left">
                 <div class="timeline-content">
-                    <div class="timeline-date">2021 - 2025</div>
-                    <h3>Университет имени Сулеймана Демиреля</h3>
-                    <p>Информационные системы, бакалавр</p>
+                    <div class="timeline-date">2021 — 2025</div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Университет имени Сулеймана Демиреля</h3>
+                    <p style="color: #b0b0b0; margin-bottom: 0.5rem;">Факультет инженерии и естественных наук</p>
+                    <p style="color: #888888;"><em>Информационные системы, бакалавр</em></p>
                 </div>
             </div>
             <div class="timeline-item right">
                 <div class="timeline-content">
-                    <div class="timeline-date">2019 - 2021</div>
-                    <h3>НИШ ФМН Алматы</h3>
-                    <p>Физико-математическое направление</p>
+                    <div class="timeline-date">2019 — 2021</div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">НИШ ФМН Алматы</h3>
+                    <p style="color: #b0b0b0; margin-bottom: 0.5rem;">Физико-математическое направление</p>
+                    <p style="color: #888888;"><em>Информатика и математика</em></p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Достижения -->
     <section id="achievements">
         <h2 class="section-title">Достижения</h2>
         <div class="achievements-grid">
             <div class="achievement-card">
-                <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+                <div class="achievement-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
                 <h3>HackNU 2024</h3>
-                <p>2 место</p>
+                <div class="achievement-date">МАРТ 2024</div>
+                <p style="color: #a0a0a0;">2 место в хакатоне по разработке настольных приложений</p>
             </div>
             <div class="achievement-card">
-                <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
+                <div class="achievement-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
                 <h3>Huawei Certificate</h3>
-                <p>HCIA - AI</p>
+                <div class="achievement-date">ЯНВАРЬ 2024</div>
+                <p style="color: #a0a0a0;">HCIA - Artificial Intelligence</p>
             </div>
             <div class="achievement-card">
-                <div class="achievement-icon"><i class="fas fa-medal"></i></div>
+                <div class="achievement-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
                 <h3>Algorithmic Battle</h3>
-                <p>3 место</p>
+                <div class="achievement-date">НОЯБРЬ 2023</div>
+                <p style="color: #a0a0a0;">3 место в республиканской олимпиаде</p>
             </div>
         </div>
     </section>
 
+    <!-- Проекты -->
     <section id="projects">
         <h2 class="section-title">Проекты</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-image"><i class="fas fa-tasks"></i></div>
+                <div class="project-image">
+                    <i class="fas fa-tasks"></i>
+                </div>
                 <div class="project-content">
                     <h3>TaskFlow</h3>
-                    <p>Приложение для управления задачами</p>
+                    <p style="color: #b0b0b0; font-weight: 300;">Кроссплатформенное приложение для управления задачами с облачной синхронизацией.</p>
                     <div class="project-tech">
                         <span class="tech-tag">C++</span>
                         <span class="tech-tag">QT</span>
+                        <span class="tech-tag">SQLite</span>
                     </div>
                     <div class="project-links">
                         <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image"><i class="fas fa-chart-line"></i></div>
+                <div class="project-image">
+                    <i class="fas fa-chart-line"></i>
+                </div>
                 <div class="project-content">
                     <h3>EduAnalytics</h3>
-                    <p>Аналитика успеваемости</p>
+                    <p style="color: #b0b0b0; font-weight: 300;">Платформа для анализа успеваемости с элементами машинного обучения.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Pandas</span>
                     </div>
                     <div class="project-links">
                         <a href="#"><i class="fab fa-github"></i> GitHub</a>
@@ -642,13 +995,16 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image"><i class="fas fa-mobile-alt"></i></div>
+                <div class="project-image">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
                 <div class="project-content">
                     <h3>StudyBuddy</h3>
-                    <p>Мобильное приложение</p>
+                    <p style="color: #b0b0b0; font-weight: 300;">Мобильное приложение для поиска учебных партнёров.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Java</span>
                         <span class="tech-tag">Android</span>
+                        <span class="tech-tag">Firebase</span>
                     </div>
                     <div class="project-links">
                         <a href="#"><i class="fab fa-github"></i> GitHub</a>
@@ -658,6 +1014,7 @@
         </div>
     </section>
 
+    <!-- Контакты -->
     <section id="contacts">
         <h2 class="section-title">Контакты</h2>
         <div class="contact-container">
@@ -665,15 +1022,15 @@
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <div>
-                        <h3>Email</h3>
-                        <p>a.dyshlenko@student.example.com</p>
+                        <h3 style="font-weight: 400;">Email</h3>
+                        <p style="color: #b0b0b0;">a.dyshlenko@student.example.com</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
-                        <h3>Локация</h3>
-                        <p>Алматы, Казахстан</p>
+                        <h3 style="font-weight: 400;">Локация</h3>
+                        <p style="color: #b0b0b0;">Алматы, Казахстан</p>
                     </div>
                 </div>
                 <div class="social-links">
@@ -683,7 +1040,7 @@
                 </div>
             </div>
             <div class="contact-form">
-                <h3 style="margin-bottom:1.5rem">Напишите мне</h3>
+                <h3 style="margin-bottom: 2rem; font-weight: 400; letter-spacing: 0.2em;">НАПИШИТЕ МНЕ</h3>
                 <div class="form-group" id="nameGroup">
                     <input type="text" id="name" placeholder="Имя">
                     <div class="error-message">Минимум 2 символа</div>
@@ -696,111 +1053,4 @@
                     <textarea id="message" placeholder="Сообщение"></textarea>
                     <div class="error-message">Напишите сообщение</div>
                 </div>
-                <button class="btn" onclick="validateForm()" style="width:100%">Отправить</button>
-                <div class="success-message" id="successMessage">Отправлено!</div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2025 Дышленко Александр</p>
-    </footer>
-
-    <script>
-        // Печатная машинка
-        const roles = ["Frontend разработчик", "UI дизайнер", "Студент", "Разработчик"];
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingText = document.getElementById('typing-text');
-
-        function typeEffect() {
-            const currentRole = roles[roleIndex];
-            
-            if (isDeleting) {
-                typingText.textContent = currentRole.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.textContent = currentRole.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentRole.length) {
-                isDeleting = true;
-                setTimeout(typeEffect, 2000);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-                setTimeout(typeEffect, 500);
-            } else {
-                setTimeout(typeEffect, isDeleting ? 50 : 100);
-            }
-        }
-        typeEffect();
-
-        // Подсветка навигации
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-links a');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Валидация формы
-        function validateForm() {
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const message = document.getElementById('message');
-            
-            let isValid = true;
-
-            if (name.value.length < 2) {
-                document.getElementById('nameGroup').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('nameGroup').classList.remove('error');
-            }
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email.value)) {
-                document.getElementById('emailGroup').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('emailGroup').classList.remove('error');
-            }
-
-            if (message.value.trim() === '') {
-                document.getElementById('messageGroup').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('messageGroup').classList.remove('error');
-            }
-
-            if (isValid) {
-                document.getElementById('successMessage').style.display = 'block';
-                setTimeout(() => {
-                    document.getElementById('successMessage').style.display = 'none';
-                }, 3000);
-                
-                name.value = '';
-                email.value = '';
-                message.value = '';
-            }
-        }
-    </script>
-</body>
-</html>
+               
