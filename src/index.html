@@ -88,6 +88,11 @@
             display: flex;
             gap: 2.5rem;
             list-style: none;
+            position: relative;
+        }
+
+        .nav-links li {
+            position: relative;
         }
 
         .nav-links a {
@@ -97,6 +102,7 @@
             transition: all 0.3s ease;
             padding: 0.3rem 0;
             position: relative;
+            cursor: pointer;
         }
 
         .nav-links a::after {
@@ -117,6 +123,49 @@
 
         .nav-links a.active {
             color: #ffffff;
+        }
+
+        /* Выпадающее меню */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            z-index: 1001;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.8rem 2rem;
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .dropdown-menu a::after {
+            display: none;
         }
 
         /* ===== СЕКЦИИ ===== */
@@ -658,6 +707,178 @@
             text-align: center;
         }
 
+        /* ===== СТИЛИ ДЛЯ МИНИ-ИГР ===== */
+        .games-section {
+            min-height: 100vh;
+            padding: 120px 12%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
+        }
+
+        .games-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .game-card {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .game-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .game-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 1rem;
+        }
+
+        .game-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Кликер */
+        .clicker-display {
+            font-size: 4rem;
+            text-align: center;
+            color: #ffffff;
+            margin: 2rem 0;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .clicker-timer {
+            font-size: 1.5rem;
+            text-align: center;
+            color: #a0a0a0;
+            margin-bottom: 1rem;
+        }
+
+        .clicker-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .game-btn {
+            padding: 1rem 2rem;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+
+        .game-btn:hover {
+            background: #ffffff;
+            color: #0f0f0f;
+        }
+
+        .game-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .clicker-message {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            margin-top: 1rem;
+        }
+
+        .clicker-record {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-top: 1rem;
+        }
+
+        /* Генератор приключений */
+        .adventure-text {
+            font-size: 1.5rem;
+            text-align: center;
+            color: #ffffff;
+            margin: 2rem 0;
+            line-height: 1.8;
+            font-style: italic;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .saved-adventures {
+            margin-top: 2rem;
+        }
+
+        .saved-adventure {
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 0.5rem;
+            color: #a0a0a0;
+        }
+
+        /* Угадай число */
+        .guess-number {
+            font-size: 2rem;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+
+        .guess-input {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .guess-field {
+            padding: 1rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 1.2rem;
+            width: 150px;
+            text-align: center;
+        }
+
+        .guess-field:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .guess-message {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            margin-bottom: 1rem;
+        }
+
+        .guess-attempts {
+            text-align: center;
+            color: #ffffff;
+            margin-top: 1rem;
+        }
+
         /* ===== ПОДВАЛ ===== */
         footer {
             text-align: center;
@@ -732,6 +953,10 @@
             .section-title {
                 font-size: 2.5rem;
             }
+
+            .game-card {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -742,11 +967,19 @@
     <!-- Навигация -->
     <nav>
         <ul class="nav-links">
-            <li><a href="#home" class="active">Главная</a></li>
+            <li><a href="#home">Главная</a></li>
             <li><a href="#skills">Навыки</a></li>
             <li><a href="#education">Образование</a></li>
             <li><a href="#achievements">Достижения</a></li>
             <li><a href="#projects">Проекты</a></li>
+            <li class="dropdown">
+                <a>Мини-игры <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
+                <div class="dropdown-menu">
+                    <a href="#clicker">🖱️ Кликер</a>
+                    <a href="#adventure">🗺️ Генератор приключений</a>
+                    <a href="#guess">🔢 Угадай число</a>
+                </div>
+            </li>
             <li><a href="#contacts">Контакты</a></li>
         </ul>
     </nav>
@@ -915,142 +1148,4 @@
             </div>
             <div class="timeline-item right">
                 <div class="timeline-content">
-                    <div class="timeline-date">2019 — 2021</div>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">НИШ ФМН Алматы</h3>
-                    <p style="color: #b0b0b0; margin-bottom: 0.5rem;">Физико-математическое направление</p>
-                    <p style="color: #888888;"><em>Информатика и математика</em></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Достижения -->
-    <section id="achievements">
-        <h2 class="section-title">Достижения</h2>
-        <div class="achievements-grid">
-            <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <h3>HackNU 2024</h3>
-                <div class="achievement-date">МАРТ 2024</div>
-                <p style="color: #a0a0a0;">2 место в хакатоне по разработке настольных приложений</p>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class="fas fa-certificate"></i>
-                </div>
-                <h3>Huawei Certificate</h3>
-                <div class="achievement-date">ЯНВАРЬ 2024</div>
-                <p style="color: #a0a0a0;">HCIA - Artificial Intelligence</p>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class="fas fa-medal"></i>
-                </div>
-                <h3>Algorithmic Battle</h3>
-                <div class="achievement-date">НОЯБРЬ 2023</div>
-                <p style="color: #a0a0a0;">3 место в республиканской олимпиаде</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Проекты -->
-    <section id="projects">
-        <h2 class="section-title">Проекты</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">
-                    <i class="fas fa-tasks"></i>
-                </div>
-                <div class="project-content">
-                    <h3>TaskFlow</h3>
-                    <p style="color: #b0b0b0; font-weight: 300;">Кроссплатформенное приложение для управления задачами с облачной синхронизацией.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">C++</span>
-                        <span class="tech-tag">QT</span>
-                        <span class="tech-tag">SQLite</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="project-content">
-                    <h3>EduAnalytics</h3>
-                    <p style="color: #b0b0b0; font-weight: 300;">Платформа для анализа успеваемости с элементами машинного обучения.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">Pandas</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <div class="project-content">
-                    <h3>StudyBuddy</h3>
-                    <p style="color: #b0b0b0; font-weight: 300;">Мобильное приложение для поиска учебных партнёров.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">Android</span>
-                        <span class="tech-tag">Firebase</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Контакты -->
-    <section id="contacts">
-        <h2 class="section-title">Контакты</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h3 style="font-weight: 400;">Email</h3>
-                        <p style="color: #b0b0b0;">a.dyshlenko@student.example.com</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h3 style="font-weight: 400;">Локация</h3>
-                        <p style="color: #b0b0b0;">Алматы, Казахстан</p>
-                    </div>
-                </div>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="contact-form">
-                <h3 style="margin-bottom: 2rem; font-weight: 400; letter-spacing: 0.2em;">НАПИШИТЕ МНЕ</h3>
-                <div class="form-group" id="nameGroup">
-                    <input type="text" id="name" placeholder="Имя">
-                    <div class="error-message">Минимум 2 символа</div>
-                </div>
-                <div class="form-group" id="emailGroup">
-                    <input type="email" id="email" placeholder="Email">
-                    <div class="error-message">Неверный email</div>
-                </div>
-                <div class="form-group" id="messageGroup">
-                    <textarea id="message" placeholder="Сообщение"></textarea>
-                    <div class="error-message">Напишите сообщение</div>
-                </div>
-               
+                    <div class="timeline-date">2019 — 2021</
