@@ -4,19 +4,651 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Айбек Сериков | Портфолио</title>
+    
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%236366f1'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='Arial'>AS</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23000000'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='Arial'>AS</text></svg>">
+    
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Подключаем внешний CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* ===== ЧИСТО ЧЁРНО-БЕЛАЯ СХЕМА ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* ===== НАВИГАЦИЯ ===== */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background-color: #111111;
+            border: 1px solid #333333;
+            border-radius: 50px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #888888;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+        }
+
+        .nav-links a.active {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* ===== СЕКЦИИ ===== */
+        section {
+            min-height: 100vh;
+            padding: 100px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #ffffff;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 1rem;
+            display: inline-block;
+            align-self: center;
+        }
+
+        /* ===== ГЛАВНАЯ ===== */
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .highlight {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .animated-text {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 1.5rem 0;
+            height: 3rem;
+            display: flex;
+            gap: 0.5rem;
+            color: #ffffff;
+        }
+
+        .static-text {
+            color: #888888;
+        }
+
+        .dynamic-text {
+            color: #ffffff;
+            position: relative;
+        }
+
+        .dynamic-text::after {
+            content: "";
+            position: absolute;
+            right: -5px;
+            width: 3px;
+            height: 80%;
+            background: #ffffff;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-description {
+            color: #cccccc;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #cccccc;
+            transform: scale(1.05);
+        }
+
+        .hero-avatar {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .avatar-container {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #ffffff;
+            animation: float 6s ease-in-out infinite;
+            filter: grayscale(100%);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        /* ===== НАВЫКИ ===== */
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .skill-category {
+            background-color: #111111;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid #333333;
+        }
+
+        .skill-category h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .skill-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            color: #cccccc;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #333333;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #ffffff;
+            border-radius: 10px;
+            animation: fillBar 1.5s ease-out forwards;
+            transform-origin: left;
+        }
+
+        @keyframes fillBar {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        .soft-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1.5rem;
+            background-color: #222222;
+            border: 1px solid #444444;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background-color: #ffffff;
+            color: #000000;
+            transform: scale(1.05);
+        }
+
+        /* ===== ОБРАЗОВАНИЕ ===== */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #ffffff;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-item.left {
+            left: 0;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: #111111;
+            border-radius: 15px;
+            border: 1px solid #333333;
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .left .timeline-content::before {
+            right: -50px;
+        }
+
+        .right .timeline-content::before {
+            left: -50px;
+        }
+
+        .timeline-date {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== ДОСТИЖЕНИЯ ===== */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background-color: #111111;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #333333;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffffff;
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        .achievement-icon {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-date {
+            color: #888888;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        /* ===== ПРОЕКТЫ ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: #111111;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333333;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffffff;
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #222222, #333333);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            padding: 0.3rem 1rem;
+            background-color: #222222;
+            border: 1px solid #444444;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #cccccc;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-links a {
+            color: #888888;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: #ffffff;
+        }
+
+        /* ===== КОНТАКТЫ ===== */
+        .contact-container {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: #ffffff;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: #888888;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ffffff;
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: #111111;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid #333333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background-color: #222222;
+            border: 1px solid #333333;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ffffff;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #ff4444;
+        }
+
+        .success-message {
+            background-color: #222222;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            display: none;
+            text-align: center;
+        }
+
+        /* ===== ПОДВАЛ ===== */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #888888;
+            border-top: 1px solid #333333;
+        }
+
+        /* ===== АДАПТАЦИЯ ===== */
+        @media (max-width: 768px) {
+            nav {
+                width: 90%;
+                padding: 0.5rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .animated-text {
+                font-size: 1.5rem;
+                justify-content: center;
+            }
+
+            .avatar-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item.right {
+                left: 0;
+            }
+
+            .left .timeline-content::before,
+            .right .timeline-content::before {
+                left: -40px;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="glass">
+    <!-- Навигация -->
+    <nav>
         <ul class="nav-links">
             <li><a href="#home" class="active">Главная</a></li>
             <li><a href="#skills">Навыки</a></li>
@@ -27,7 +659,7 @@
         </ul>
     </nav>
 
-    <!-- Home Section -->
+    <!-- Главная -->
     <section id="home">
         <div class="hero-content">
             <div class="hero-text">
@@ -38,7 +670,7 @@
                 </div>
                 <p class="hero-description">
                     Студент 4 курса, специализирующийся на разработке настольных приложений и бэкенд-разработке. 
-                    Увлечен созданием эффективных и масштабируемых решений. Постоянно учусь и развиваюсь в мире IT.
+                    Увлечен созданием эффективных и масштабируемых решений.
                 </p>
                 <p class="hero-description">
                     В свободное время участвую в хакатонах, изучаю новые технологии и работаю над пет-проектами.
@@ -47,13 +679,13 @@
             </div>
             <div class="hero-avatar">
                 <div class="avatar-container">
-                    <img src="https://ui-avatars.com/api/?name=Айбек+Сериков&size=350&length=2&background=6366f1&color=fff&bold=true&font-size=0.50&rounded=true" alt="Аватар Айбека Серикова">
+                    <img src="https://ui-avatars.com/api/?name=Айбек+Сериков&size=350&length=2&background=000000&color=fff&bold=true&font-size=0.50&rounded=true" alt="Аватар">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Навыки -->
     <section id="skills">
         <h2 class="section-title">Навыки</h2>
         <div class="skills-container">
@@ -108,7 +740,7 @@
                     </div>
                 </div>
                 <div style="margin-top: 2rem;">
-                    <h4 style="color: var(--text-secondary); margin-bottom: 1rem;">Инструменты</h4>
+                    <h4 style="color: #cccccc; margin-bottom: 1rem;">Инструменты</h4>
                     <div class="soft-skills">
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">MySQL</span>
@@ -117,7 +749,7 @@
                     </div>
                 </div>
                 <div style="margin-top: 2rem;">
-                    <h4 style="color: var(--text-secondary); margin-bottom: 1rem;">Другое</h4>
+                    <h4 style="color: #cccccc; margin-bottom: 1rem;">Другое</h4>
                     <div class="soft-skills">
                         <span class="skill-tag">ООП</span>
                         <span class="skill-tag">Паттерны</span>
@@ -141,14 +773,14 @@
                 </div>
             </div>
 
-            <!-- Languages -->
+            <!-- Языки -->
             <div class="skill-category">
                 <h3>Языки</h3>
                 <div class="skill-items">
                     <div class="skill-item">
                         <div class="skill-info">
                             <span>Английский</span>
-                            <span>B2 (Upper-Intermediate)</span>
+                            <span>B2</span>
                         </div>
                         <div class="progress-bar">
                             <div class="progress" style="width: 75%"></div>
@@ -177,38 +809,31 @@
         </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- Образование -->
     <section id="education">
         <h2 class="section-title">Образование</h2>
         <div class="timeline">
             <div class="timeline-item left">
                 <div class="timeline-content">
                     <div class="timeline-date">2021 - 2025</div>
-                    <h3>Казахский Национальный Университет им. Аль-Фараби</h3>
-                    <h4 style="color: var(--text-secondary); margin: 0.5rem 0;">Факультет информационных технологий</h4>
+                    <h3>КазНУ им. Аль-Фараби</h3>
+                    <p>Факультет информационных технологий</p>
                     <p><strong>Специальность:</strong> Информационные системы</p>
                     <p><strong>Степень:</strong> Бакалавр</p>
-                    <p style="margin-top: 1rem; color: var(--text-secondary);">
-                        GPA: 3.8/4.0. Участник студенческого научного кружка по разработке ПО.
-                        Дипломная работа: "Разработка кроссплатформенного приложения для управления задачами с использованием QT".
-                    </p>
                 </div>
             </div>
             <div class="timeline-item right">
                 <div class="timeline-content">
                     <div class="timeline-date">2019 - 2021</div>
-                    <h3>Нazarbayev Intellectual School</h3>
-                    <h4 style="color: var(--text-secondary); margin: 0.5rem 0;">Физико-математическое направление</h4>
-                    <p><strong>Специализация:</strong> Информатика и математика</p>
-                    <p style="margin-top: 1rem; color: var(--text-secondary);">
-                        Углубленное изучение программирования на C++ и Java. Призер школьных олимпиад по информатике.
-                    </p>
+                    <h3>НИШ</h3>
+                    <p>Физико-математическое направление</p>
+                    <p><strong>Специализация:</strong> Информатика</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Achievements Section -->
+    <!-- Достижения -->
     <section id="achievements">
         <h2 class="section-title">Достижения</h2>
         <div class="achievements-grid">
@@ -218,7 +843,7 @@
                 </div>
                 <h3>HackNU 2024</h3>
                 <div class="achievement-date">Март 2024</div>
-                <p>2 место в хакатоне по разработке настольных приложений. Создали приложение для автоматизации учета времени студентов.</p>
+                <p>2 место в хакатоне</p>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">
@@ -226,20 +851,20 @@
                 </div>
                 <h3>Сертификат Huawei</h3>
                 <div class="achievement-date">Январь 2024</div>
-                <p>Huawei Certified ICT Associate - Artificial Intelligence. Успешно сдал экзамен по основам AI и машинного обучения.</p>
+                <p>HCIA - Artificial Intelligence</p>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">
                     <i class="fas fa-medal"></i>
                 </div>
-                <h3>Олимпиада по программированию</h3>
+                <h3>Олимпиада</h3>
                 <div class="achievement-date">Ноябрь 2023</div>
-                <p>3 место в Республиканской олимпиаде среди студентов "Algorithmic Battle 2023" в номинации "Лучшее решение задач на C++".</p>
+                <p>3 место, Algorithmic Battle</p>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Проекты -->
     <section id="projects">
         <h2 class="section-title">Проекты</h2>
         <div class="projects-grid">
@@ -249,15 +874,13 @@
                 </div>
                 <div class="project-content">
                     <h3>TaskFlow</h3>
-                    <p>Кроссплатформенное приложение для управления задачами с поддержкой командной работы. Реализована синхронизация через облако и система уведомлений.</p>
+                    <p>Приложение для управления задачами</p>
                     <div class="project-tech">
                         <span class="tech-tag">C++</span>
                         <span class="tech-tag">QT</span>
-                        <span class="tech-tag">SQLite</span>
                     </div>
                     <div class="project-links">
                         <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                     </div>
                 </div>
             </div>
@@ -267,12 +890,10 @@
                 </div>
                 <div class="project-content">
                     <h3>EduAnalytics</h3>
-                    <p>Веб-платформа для анализа успеваемости студентов с использованием машинного обучения. Предсказывает возможные трудности в обучении.</p>
+                    <p>Аналитика успеваемости</p>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">scikit-learn</span>
-                        <span class="tech-tag">Pandas</span>
                     </div>
                     <div class="project-links">
                         <a href="#"><i class="fab fa-github"></i> GitHub</a>
@@ -285,11 +906,10 @@
                 </div>
                 <div class="project-content">
                     <h3>StudyBuddy</h3>
-                    <p>Мобильное приложение для поиска учебных партнеров и создания групп для совместной подготовки к экзаменам.</p>
+                    <p>Мобильное приложение</p>
                     <div class="project-tech">
                         <span class="tech-tag">Java</span>
-                        <span class="tech-tag">Android SDK</span>
-                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Android</span>
                     </div>
                     <div class="project-links">
                         <a href="#"><i class="fab fa-github"></i> GitHub</a>
@@ -299,7 +919,7 @@
         </div>
     </section>
 
-    <!-- Contacts Section -->
+    <!-- Контакты -->
     <section id="contacts">
         <h2 class="section-title">Контакты</h2>
         <div class="contact-container">
@@ -319,40 +939,143 @@
                     </div>
                 </div>
                 <div class="social-links">
-                    <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" target="_blank" title="HackerRank"><i class="fab fa-hackerrank"></i></a>
-                    <a href="#" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-            <div class="contact-form" id="contactForm">
+            <div class="contact-form">
                 <h3 style="margin-bottom: 1.5rem;">Напишите мне</h3>
                 <div class="form-group" id="nameGroup">
-                    <input type="text" id="name" placeholder="Ваше имя" required>
-                    <div class="error-message">Имя должно содержать минимум 2 символа</div>
+                    <input type="text" id="name" placeholder="Ваше имя">
+                    <div class="error-message">Минимум 2 символа</div>
                 </div>
                 <div class="form-group" id="emailGroup">
-                    <input type="email" id="email" placeholder="Ваш Email" required>
-                    <div class="error-message">Введите корректный email</div>
+                    <input type="email" id="email" placeholder="Ваш Email">
+                    <div class="error-message">Неверный email</div>
                 </div>
                 <div class="form-group" id="messageGroup">
-                    <textarea id="message" placeholder="Ваше сообщение" required></textarea>
-                    <div class="error-message">Сообщение не может быть пустым</div>
+                    <textarea id="message" placeholder="Сообщение"></textarea>
+                    <div class="error-message">Напишите сообщение</div>
                 </div>
-                <button class="btn" onclick="validateAndSubmitForm()" style="width: 100%;">Отправить сообщение</button>
+                <button class="btn" onclick="validateForm()" style="width: 100%;">Отправить</button>
                 <div class="success-message" id="successMessage">
-                    <i class="fas fa-check-circle"></i> Спасибо! Сообщение отправлено (тестовый режим).
+                    Отправлено! (тест)
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Подвал -->
     <footer>
-        <p>&copy; 2025 Айбек Сериков. Все права защищены.</p>
+        <p>© 2025 Айбек Сериков</p>
     </footer>
 
-    <!-- Подключаем внешний JavaScript -->
-    <script src="js/script.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // Печатная машинка
+        const roles = ["Frontend разработчик", "UI дизайнер", "Студент"];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingText = document.getElementById('typing-text');
+
+        function typeEffect() {
+            const currentRole = roles[roleIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(typeEffect, 500);
+            } else {
+                setTimeout(typeEffect, isDeleting ? 50 : 100);
+            }
+        }
+
+        typeEffect();
+
+        // Подсветка навигации
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Валидация формы
+        function validateForm() {
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const message = document.getElementById('message');
+            const nameGroup = document.getElementById('nameGroup');
+            const emailGroup = document.getElementById('emailGroup');
+            const messageGroup = document.getElementById('messageGroup');
+            const successMessage = document.getElementById('successMessage');
+            
+            let isValid = true;
+
+            // Имя
+            if (name.value.length < 2) {
+                nameGroup.classList.add('error');
+                isValid = false;
+            } else {
+                nameGroup.classList.remove('error');
+            }
+
+            // Email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                emailGroup.classList.add('error');
+                isValid = false;
+            } else {
+                emailGroup.classList.remove('error');
+            }
+
+            // Сообщение
+            if (message.value.trim() === '') {
+                messageGroup.classList.add('error');
+                isValid = false;
+            } else {
+                messageGroup.classList.remove('error');
+            }
+
+            if (isValid) {
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+                
+                name.value = '';
+                email.value = '';
+                message.value = '';
+            }
+        }
+    </script>
 </body>
 </html>
