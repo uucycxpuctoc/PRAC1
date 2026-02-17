@@ -5,230 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дышленко Александр | Портфолио</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23ffffff'/><text x='50' y='68' font-size='40' text-anchor='middle' fill='black' font-family='Cormorant Garamond'>ДА</text></svg>">
-    
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* ===== МРАЧНЫЙ ЭЛЕГАНТНЫЙ СТИЛЬ ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             scroll-behavior: smooth;
-            cursor: none; /* Убираем стандартный курсор */
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #0f0f0f;
-            color: #e0e0e0;
-            line-height: 1.6;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* ===== ТУМАН НА ФОНЕ ===== */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
-                        radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.01) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 1;
-            animation: fogMove 20s ease-in-out infinite;
-        }
-
-        @keyframes fogMove {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        /* ===== АНИМИРОВАННЫЙ КУРСОР ===== */
-        .cursor {
-            width: 30px;
-            height: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
-            transform: translate(-50%, -50%);
-            backdrop-filter: blur(2px);
-        }
-
-        .cursor-dot {
-            width: 4px;
-            height: 4px;
-            background: white;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.05s ease;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 10px white;
-        }
-
-        .cursor.hover {
-            width: 50px;
-            height: 50px;
-            border-color: white;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        /* ===== ЭФФЕКТ ДОЖДЯ ===== */
-        .rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .drop {
-            position: absolute;
-            width: 1px;
-            height: 100px;
-            background: linear-gradient(transparent, rgba(255, 255, 255, 0.15));
-            animation: rain 2s linear infinite;
-        }
-
-        @keyframes rain {
-            0% {
-                transform: translateY(-100px);
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0.1;
-            }
-        }
-
-        /* Заголовки с благородным шрифтом */
-        h1, h2, h3, .section-title, .nav-links a {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-        }
-
-        /* ===== ПЛАВНОЕ ПОЯВЛЕНИЕ СЕКЦИЙ ===== */
-        section {
-            min-height: 100vh;
-            padding: 120px 12%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            z-index: 2;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title {
-            font-size: 3.5rem;
-            margin-bottom: 3rem;
+            background: #0a0a0a;
             color: #ffffff;
-            text-align: center;
-            font-weight: 400;
-            position: relative;
-            display: inline-block;
-            align-self: center;
+            line-height: 1.6;
         }
 
-        .section-title::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 1px;
-            background: #ffffff;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 1px;
-            background: #ffffff;
-        }
-
-        /* ===== НАВИГАЦИЯ ===== */
+        /* Навигация */
         nav {
             position: fixed;
-            top: 30px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            padding: 0.8rem 2.5rem;
-            background: rgba(15, 15, 15, 0.3);
-            backdrop-filter: blur(10px) brightness(0.8);
-            -webkit-backdrop-filter: blur(10px) brightness(0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 0;
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            background: rgba(20, 20, 20, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 1px solid #333;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: #a0a0a0;
+            color: #888;
             text-decoration: none;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            padding: 0.3rem 0;
-            position: relative;
+            transition: color 0.3s;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: #ffffff;
-            transition: width 0.3s ease;
+        .nav-links a.active,
+        .nav-links a:hover {
+            color: white;
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
+        /* Секции */
+        section {
+            min-height: 100vh;
+            padding: 100px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .nav-links a.active {
-            color: #ffffff;
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            border-bottom: 2px solid white;
+            padding-bottom: 1rem;
+            display: inline-block;
+            align-self: center;
         }
 
-        /* ===== ГЛАВНАЯ ===== */
+        /* Главная */
         .hero-content {
             display: flex;
             align-items: center;
@@ -240,45 +88,23 @@
         }
 
         .hero-text h1 {
-            font-size: 4.5rem;
-            line-height: 1.2;
+            font-size: 4rem;
             margin-bottom: 1rem;
-            color: #ffffff;
-            font-weight: 400;
         }
 
         .highlight {
-            color: #ffffff;
-            font-style: italic;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            border-bottom: 2px solid white;
         }
 
         .animated-text {
             font-size: 1.8rem;
             margin: 2rem 0;
             height: 3rem;
-            display: flex;
-            gap: 0.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-        }
-
-        .static-text {
-            color: #888888;
-        }
-
-        .dynamic-text {
-            color: #ffffff;
-            position: relative;
         }
 
         .dynamic-text::after {
-            content: "";
-            position: absolute;
-            right: -5px;
-            width: 2px;
-            height: 80%;
-            background: #ffffff;
+            content: "|";
             animation: blink 1s infinite;
         }
 
@@ -288,47 +114,24 @@
         }
 
         .hero-description {
-            color: #b0b0b0;
-            margin: 1.5rem 0;
-            font-size: 1.1rem;
-            font-weight: 300;
-            line-height: 1.8;
+            color: #aaa;
+            margin: 1rem 0;
         }
 
         .btn {
             display: inline-block;
-            padding: 1rem 3rem;
-            background: transparent;
-            color: #ffffff;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: black;
             text-decoration: none;
-            border: 1px solid #ffffff;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            letter-spacing: 0.2em;
-            transition: all 0.3s ease;
-            cursor: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: #ffffff;
-            transition: left 0.3s ease;
-            z-index: -1;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s;
         }
 
         .btn:hover {
-            color: #0f0f0f;
-        }
-
-        .btn:hover::before {
-            left: 0;
+            transform: scale(1.05);
         }
 
         .hero-avatar {
@@ -340,28 +143,18 @@
         .avatar-container {
             width: 350px;
             height: 350px;
-            border-radius: 0;
+            border-radius: 50%;
             overflow: hidden;
-            border: 1px solid #ffffff;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            opacity: 0.9;
-            transition: all 0.3s ease;
-        }
-
-        .avatar-container:hover {
-            opacity: 1;
-            transform: scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            border: 3px solid white;
         }
 
         .avatar-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(100%);
         }
 
-        /* ===== НАВЫКИ ===== */
+        /* Навыки */
         .skills-container {
             display: flex;
             flex-direction: column;
@@ -369,62 +162,41 @@
         }
 
         .skill-category {
-            background: rgba(20, 20, 20, 0.7);
-            backdrop-filter: blur(5px);
-            padding: 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .skill-category:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+            background: #111;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid #333;
         }
 
         .skill-category h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: #ffffff;
-            font-weight: 400;
-            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            color: white;
         }
 
         .skill-items {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            gap: 1.5rem;
         }
 
         .skill-info {
             display: flex;
             justify-content: space-between;
-            color: #a0a0a0;
-            font-size: 0.95rem;
+            color: #aaa;
+            margin-bottom: 0.5rem;
         }
 
         .progress-bar {
             width: 100%;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
+            height: 8px;
+            background: #222;
+            border-radius: 10px;
             overflow: hidden;
         }
 
         .progress {
             height: 100%;
-            background: #ffffff;
-            animation: fillBar 1.5s ease-out forwards;
-            transform-origin: left;
-        }
-
-        @keyframes fillBar {
-            from { transform: scaleX(0); }
-            to { transform: scaleX(1); }
+            background: white;
         }
 
         .soft-skills {
@@ -435,41 +207,31 @@
 
         .skill-tag {
             padding: 0.5rem 1.5rem;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.9rem;
-            color: #e0e0e0;
-            transition: all 0.3s ease;
-            font-weight: 300;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 30px;
+            color: #ddd;
         }
 
-        .skill-tag:hover {
-            border-color: #ffffff;
-            color: #ffffff;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-            transform: scale(1.05);
-        }
-
-        /* ===== ОБРАЗОВАНИЕ ===== */
+        /* Образование */
         .timeline {
             position: relative;
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .timeline::after {
             content: '';
             position: absolute;
-            width: 1px;
-            background: rgba(255, 255, 255, 0.2);
+            width: 2px;
+            background: #333;
             top: 0;
             bottom: 0;
             left: 50%;
-            transform: translateX(-50%);
         }
 
         .timeline-item {
-            padding: 20px 40px;
+            padding: 10px 40px;
             position: relative;
             width: 50%;
         }
@@ -483,191 +245,107 @@
         }
 
         .timeline-content {
-            padding: 2rem;
-            background: rgba(20, 20, 20, 0.7);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
-            transform: translateY(-5px);
-        }
-
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #ffffff;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .left .timeline-content::before {
-            right: -45px;
-        }
-
-        .right .timeline-content::before {
-            left: -45px;
+            padding: 20px;
+            background: #111;
+            border-radius: 10px;
+            border: 1px solid #333;
         }
 
         .timeline-date {
-            color: #ffffff;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            font-family: 'Cormorant Garamond', serif;
-            letter-spacing: 0.2em;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
 
-        /* ===== ДОСТИЖЕНИЯ ===== */
+        /* Достижения */
         .achievements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
         .achievement-card {
-            background: rgba(20, 20, 20, 0.7);
-            backdrop-filter: blur(5px);
-            padding: 2.5rem 2rem;
+            background: #111;
+            padding: 2rem;
+            border-radius: 20px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            border: 1px solid #333;
+            transition: transform 0.3s;
         }
 
         .achievement-card:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
-        }
-
-        .achievement-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .achievement-card:hover::before {
-            left: 100%;
+            transform: translateY(-10px);
+            border-color: white;
         }
 
         .achievement-icon {
             font-size: 2.5rem;
-            color: #ffffff;
-            margin-bottom: 1.5rem;
-            opacity: 0.7;
+            color: white;
+            margin-bottom: 1rem;
         }
 
-        .achievement-date {
-            color: #888888;
-            font-size: 0.85rem;
-            margin: 0.8rem 0;
-            letter-spacing: 0.1em;
-        }
-
-        /* ===== ПРОЕКТЫ ===== */
+        /* Проекты */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .project-card {
-            background: rgba(20, 20, 20, 0.7);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s ease;
-            position: relative;
+            background: #111;
+            border-radius: 20px;
             overflow: hidden;
+            border: 1px solid #333;
+            transition: transform 0.3s;
         }
 
         .project-card:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .project-card:hover::before {
-            left: 100%;
+            transform: translateY(-10px);
+            border-color: white;
         }
 
         .project-image {
-            width: 100%;
             height: 200px;
             background: #1a1a1a;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
             font-size: 3rem;
-            opacity: 0.8;
         }
 
         .project-content {
-            padding: 2rem;
-        }
-
-        .project-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
-            font-weight: 400;
+            padding: 1.5rem;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
-            margin: 1.5rem 0;
+            gap: 0.5rem;
+            margin: 1rem 0;
         }
 
         .tech-tag {
             padding: 0.3rem 1rem;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1a1a1a;
+            border-radius: 20px;
             font-size: 0.8rem;
-            color: #b0b0b0;
+            color: #aaa;
         }
 
         .project-links a {
-            color: #888888;
+            color: #888;
             text-decoration: none;
-            margin-right: 1.5rem;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
+            margin-right: 1rem;
         }
 
         .project-links a:hover {
-            color: #ffffff;
+            color: white;
         }
 
-        /* ===== КОНТАКТЫ ===== */
+        /* Контакты */
         .contact-container {
             display: flex;
             gap: 4rem;
-            align-items: flex-start;
         }
 
         .contact-info {
@@ -677,161 +355,95 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
             margin-bottom: 2rem;
-            padding: 1rem;
-            background: rgba(20, 20, 20, 0.5);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
         }
 
         .contact-item i {
-            font-size: 1.8rem;
-            color: #ffffff;
-            opacity: 0.7;
+            font-size: 2rem;
+            color: white;
         }
 
         .social-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
         .social-links a {
-            color: #888888;
-            font-size: 1.8rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .social-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 1px;
-            background: white;
-            transition: width 0.3s ease;
-        }
-
-        .social-links a:hover::after {
-            width: 100%;
+            color: #888;
+            font-size: 2rem;
+            transition: color 0.3s;
         }
 
         .social-links a:hover {
-            color: #ffffff;
-            transform: translateY(-3px);
+            color: white;
         }
 
         .contact-form {
             flex: 1;
-            background: rgba(20, 20, 20, 0.7);
-            backdrop-filter: blur(5px);
-            padding: 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #111;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid #333;
         }
 
         .form-group {
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 1rem;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: white;
         }
 
         .form-group textarea {
             height: 120px;
-            resize: vertical;
         }
 
         .error-message {
-            color: #ff6b6b;
-            font-size: 0.85rem;
+            color: #ff4444;
+            font-size: 0.9rem;
             margin-top: 0.3rem;
             display: none;
         }
 
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #ff4444;
+        }
+
         .success-message {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
+            background: #1a1a1a;
+            border: 1px solid #00ff88;
+            color: white;
             padding: 1rem;
+            border-radius: 10px;
             margin-top: 1rem;
             display: none;
             text-align: center;
         }
 
-        /* ===== ПОДВАЛ ===== */
         footer {
             text-align: center;
             padding: 2rem;
-            color: #666666;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-            z-index: 2;
-            font-size: 0.9rem;
-            letter-spacing: 0.1em;
+            color: #666;
+            border-top: 1px solid #333;
         }
 
-        /* ===== АДАПТАЦИЯ ===== */
         @media (max-width: 768px) {
-            .cursor, .cursor-dot {
-                display: none;
-            }
-            
-            * {
-                cursor: auto;
-            }
-            
-            nav {
-                width: 90%;
-                padding: 0.8rem 1rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-            }
-
             .hero-content {
                 flex-direction: column-reverse;
                 text-align: center;
             }
 
             .hero-text h1 {
-                font-size: 3rem;
-            }
-
-            .animated-text {
-                font-size: 1.3rem;
-                justify-content: center;
+                font-size: 2.5rem;
             }
 
             .avatar-container {
@@ -845,38 +457,23 @@
 
             .timeline-item {
                 width: 100%;
+                left: 0 !important;
                 padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item.right {
-                left: 0;
-            }
-
-            .left .timeline-content::before,
-            .right .timeline-content::before {
-                left: -40px;
             }
 
             .contact-container {
                 flex-direction: column;
             }
 
-            .section-title {
-                font-size: 2.5rem;
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Анимированный курсор -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-dot" id="cursor-dot"></div>
-
-    <!-- Эффект дождя -->
-    <div class="rain" id="rain"></div>
-
-    <!-- Навигация -->
     <nav>
         <ul class="nav-links">
             <li><a href="#home" class="active">Главная</a></li>
@@ -888,88 +485,51 @@
         </ul>
     </nav>
 
-    <!-- Главная -->
     <section id="home">
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Привет, я <span class="highlight">Дышленко Александр</span></h1>
                 <div class="animated-text">
-                    <span class="static-text">Я</span>
                     <span class="dynamic-text" id="typing-text"></span>
                 </div>
                 <p class="hero-description">
-                    Студент 4 курса, погружённый в мир разработки настольных приложений и бэкенд-архитектуры. 
-                    Создаю элегантные решения для сложных задач.
+                    Студент 4 курса, разработчик настольных приложений и бэкенд-архитектуры.
                 </p>
-                <p class="hero-description">
-                    В свободное время — участник хакатонов, исследователь новых технологий и автор пет-проектов.
-                </p>
-                <a href="#contacts" class="btn">СВЯЗАТЬСЯ</a>
+                <a href="#contacts" class="btn">Связаться со мной</a>
             </div>
             <div class="hero-avatar">
                 <div class="avatar-container">
-                    <img src="https://github.com/user-attachments/assets/c763dc83-51f6-4ac0-9601-144336bdadd8" alt="Дышленко Александр">
+                    <img src="https://github.com/user-attachments/assets/c763dc83-51f6-4ac0-9601-144336bdadd8" alt="Аватар">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Навыки -->
     <section id="skills">
         <h2 class="section-title">Навыки</h2>
         <div class="skills-container">
-            <!-- Hard Skills -->
             <div class="skill-category">
                 <h3>Hard Skills</h3>
                 <div class="skill-items">
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Python</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 70%"></div>
-                        </div>
+                        <div class="skill-info"><span>Python</span><span>70%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width:70%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>JavaScript</span>
-                            <span>10%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 10%"></div>
-                        </div>
+                        <div class="skill-info"><span>JavaScript</span><span>10%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width:10%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Java</span>
-                            <span>60%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 60%"></div>
-                        </div>
+                        <div class="skill-info"><span>Java</span><span>60%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width:60%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>C++</span>
-                            <span>40%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 40%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>C</span>
-                            <span>50%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 50%"></div>
-                        </div>
+                        <div class="skill-info"><span>C++</span><span>40%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width:40%"></div></div>
                     </div>
                 </div>
-                <div style="margin-top: 2.5rem;">
-                    <h4 style="color: #a0a0a0; margin-bottom: 1.5rem; font-weight: 400;">Инструменты</h4>
+                <div style="margin-top:2rem">
+                    <h4 style="color:#aaa">Инструменты</h4>
                     <div class="soft-skills">
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">MySQL</span>
@@ -977,19 +537,8 @@
                         <span class="skill-tag">Linux</span>
                     </div>
                 </div>
-                <div style="margin-top: 2.5rem;">
-                    <h4 style="color: #a0a0a0; margin-bottom: 1.5rem; font-weight: 400;">Другое</h4>
-                    <div class="soft-skills">
-                        <span class="skill-tag">ООП</span>
-                        <span class="skill-tag">Паттерны</span>
-                        <span class="skill-tag">QT/wxWidgets</span>
-                        <span class="skill-tag">Android</span>
-                        <span class="skill-tag">HTTP</span>
-                    </div>
-                </div>
             </div>
 
-            <!-- Soft Skills -->
             <div class="skill-category">
                 <h3>Soft Skills</h3>
                 <div class="soft-skills">
@@ -997,92 +546,261 @@
                     <span class="skill-tag">Критическое мышление</span>
                     <span class="skill-tag">Коммуникабельность</span>
                     <span class="skill-tag">Тайм-менеджмент</span>
-                    <span class="skill-tag">Адаптивность</span>
-                    <span class="skill-tag">Решение проблем</span>
                 </div>
             </div>
 
-            <!-- Языки -->
             <div class="skill-category">
                 <h3>Языки</h3>
                 <div class="skill-items">
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Английский</span>
-                            <span>B2</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 75%"></div>
-                        </div>
+                        <div class="skill-info"><span>Английский</span><span>B2</span></div>
+                        <div class="progress-bar"><div class="progress" style="width:75%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Казахский</span>
-                            <span>Родной</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 100%"></div>
-                        </div>
+                        <div class="skill-info"><span>Казахский</span><span>Родной</span></div>
+                        <div class="progress-bar"><div class="progress" style="width:100%"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Русский</span>
-                            <span>Свободно</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 100%"></div>
-                        </div>
+                        <div class="skill-info"><span>Русский</span><span>Свободно</span></div>
+                        <div class="progress-bar"><div class="progress" style="width:100%"></div></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Образование -->
     <section id="education">
         <h2 class="section-title">Образование</h2>
         <div class="timeline">
             <div class="timeline-item left">
                 <div class="timeline-content">
-                    <div class="timeline-date">2021 — 2025</div>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Университет имени Сулеймана Демиреля</h3>
-                    <p style="color: #b0b0b0; margin-bottom: 0.5rem;">Факультет инженерии и естественных наук</p>
-                    <p style="color: #888888;"><em>Информационные системы, бакалавр</em></p>
+                    <div class="timeline-date">2021 - 2025</div>
+                    <h3>Университет имени Сулеймана Демиреля</h3>
+                    <p>Информационные системы, бакалавр</p>
                 </div>
             </div>
             <div class="timeline-item right">
                 <div class="timeline-content">
-                    <div class="timeline-date">2019 — 2021</div>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">НИШ ФМН Алматы</h3>
-                    <p style="color: #b0b0b0; margin-bottom: 0.5rem;">Физико-математическое направление</p>
-                    <p style="color: #888888;"><em>Информатика и математика</em></p>
+                    <div class="timeline-date">2019 - 2021</div>
+                    <h3>НИШ ФМН Алматы</h3>
+                    <p>Физико-математическое направление</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Достижения -->
     <section id="achievements">
         <h2 class="section-title">Достижения</h2>
         <div class="achievements-grid">
             <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class="fas fa-trophy"></i>
-                </div>
+                <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
                 <h3>HackNU 2024</h3>
-                <div class="achievement-date">МАРТ 2024</div>
-                <p style="color: #a0a0a0;">2 место в хакатоне по разработке настольных приложений</p>
+                <p>2 место</p>
             </div>
             <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class="fas fa-certificate"></i>
-                </div>
+                <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
                 <h3>Huawei Certificate</h3>
-                <div class="achievement-date">ЯНВАРЬ 2024</div>
-                <p style="color: #a0a0a0;">HCIA - Artificial Intelligence</p>
+                <p>HCIA - AI</p>
             </div>
             <div class="achievement-card">
-                <div class="achievement-icon">
-                    <i class="fas fa-medal"></i>
+                <div class="achievement-icon"><i class="fas fa-medal"></i></div>
+                <h3>Algorithmic Battle</h3>
+                <p>3 место</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Проекты</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image"><i class="fas fa-tasks"></i></div>
+                <div class="project-content">
+                    <h3>TaskFlow</h3>
+                    <p>Приложение для управления задачами</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">QT</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
                 </div>
-                <h3
+            </div>
+            <div class="project-card">
+                <div class="project-image"><i class="fas fa-chart-line"></i></div>
+                <div class="project-content">
+                    <h3>EduAnalytics</h3>
+                    <p>Аналитика успеваемости</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flask</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image"><i class="fas fa-mobile-alt"></i></div>
+                <div class="project-content">
+                    <h3>StudyBuddy</h3>
+                    <p>Мобильное приложение</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Android</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts">
+        <h2 class="section-title">Контакты</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>a.dyshlenko@student.example.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Локация</h3>
+                        <p>Алматы, Казахстан</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3 style="margin-bottom:1.5rem">Напишите мне</h3>
+                <div class="form-group" id="nameGroup">
+                    <input type="text" id="name" placeholder="Имя">
+                    <div class="error-message">Минимум 2 символа</div>
+                </div>
+                <div class="form-group" id="emailGroup">
+                    <input type="email" id="email" placeholder="Email">
+                    <div class="error-message">Неверный email</div>
+                </div>
+                <div class="form-group" id="messageGroup">
+                    <textarea id="message" placeholder="Сообщение"></textarea>
+                    <div class="error-message">Напишите сообщение</div>
+                </div>
+                <button class="btn" onclick="validateForm()" style="width:100%">Отправить</button>
+                <div class="success-message" id="successMessage">Отправлено!</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Дышленко Александр</p>
+    </footer>
+
+    <script>
+        // Печатная машинка
+        const roles = ["Frontend разработчик", "UI дизайнер", "Студент", "Разработчик"];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingText = document.getElementById('typing-text');
+
+        function typeEffect() {
+            const currentRole = roles[roleIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(typeEffect, 500);
+            } else {
+                setTimeout(typeEffect, isDeleting ? 50 : 100);
+            }
+        }
+        typeEffect();
+
+        // Подсветка навигации
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Валидация формы
+        function validateForm() {
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const message = document.getElementById('message');
+            
+            let isValid = true;
+
+            if (name.value.length < 2) {
+                document.getElementById('nameGroup').classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('nameGroup').classList.remove('error');
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                document.getElementById('emailGroup').classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('emailGroup').classList.remove('error');
+            }
+
+            if (message.value.trim() === '') {
+                document.getElementById('messageGroup').classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('messageGroup').classList.remove('error');
+            }
+
+            if (isValid) {
+                document.getElementById('successMessage').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 3000);
+                
+                name.value = '';
+                email.value = '';
+                message.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
