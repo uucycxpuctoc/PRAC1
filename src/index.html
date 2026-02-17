@@ -4,6 +4,347 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Портфолио | Алексей</title>
+    
+    <!-- FAVICON (inline SVG чтобы не было проблем с путями) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236c5ce7'/%3E%3C/svg%3E">
+    
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- НАШ CSS - ПРОВЕРЬТЕ ПУТЬ -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Временные стили на случай если CSS не загрузится */
+        body { margin: 0; font-family: 'Roboto', sans-serif; }
+        .navbar { position: fixed; top: 0; width: 100%; background: #2d3436; color: white; z-index: 1000; }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">&lt;DevPortfolio/&gt;</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Главная</a></li>
+                <li><a href="#skills" class="nav-link">Навыки</a></li>
+                <li><a href="#education" class="nav-link">Образование</a></li>
+                <li><a href="#achievements" class="nav-link">Достижения</a></li>
+                <li><a href="#projects" class="nav-link">Проекты</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Мини-игры <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-link" onclick="showGame('clicker')">Кликер</a></li>
+                        <li><a href="#" class="dropdown-link" onclick="showGame('adventure')">Генератор приключений</a></li>
+                        <li><a href="#" class="dropdown-link" onclick="showGame('guess')">Угадай число</a></li>
+                        <li><a href="#" class="dropdown-link" onclick="showGame('reaction')">Реакция</a></li>
+                        <li><a href="#" class="dropdown-link" onclick="showGame('tictactoe')">Крестики-нолики</a></li>
+                        <li><a href="#" class="dropdown-link" onclick="showGame('rpg')">RPG Планировщик</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contacts" class="nav-link">Контакты</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main>
+        <!-- Главная секция -->
+        <section id="home" class="section home-section">
+            <div class="container">
+                <div class="home-content">
+                    <div class="home-text">
+                        <h1 class="glitch" data-text="Привет, я Алексей">Привет, я Алексей</h1>
+                        <div class="animated-text">
+                            <span class="static-text">Я</span>
+                            <span class="dynamic-text"></span>
+                        </div>
+                        <p class="home-description">Студент 4 курса по специальности "Программная инженерия". Увлекаюсь разработкой игр, веб-приложений и всем, что связано с интерактивными технологиями.</p>
+                        <p class="home-description">В свободное время участвую в хакатонах, пишу статьи для Habr и разрабатываю инди-игры. Верю, что код может быть искусством.</p>
+                        <button class="btn btn-primary" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})">Связаться со мной</button>
+                    </div>
+                    <div class="home-image">
+                        <div class="avatar-wrapper">
+                            <!-- АВАТАР - используем inline SVG если нет файла -->
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='95' fill='%236c5ce7'/%3E%3Ccircle cx='100' cy='70' r='25' fill='%23fff'/%3E%3Ccircle cx='80' cy='65' r='5' fill='%232d3436'/%3E%3Ccircle cx='120' cy='65' r='5' fill='%232d3436'/%3E%3Cpath d='M70 120 Q100 150 130 120' stroke='%23fff' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" alt="Аватар" class="avatar">
+                            <div class="avatar-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Навыки -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <h2 class="section-title">Мои навыки</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Hard Skills</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span>JavaScript/TypeScript</span>
+                                <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Python</span>
+                                <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>C++</span>
+                                <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>React</span>
+                                <div class="progress-bar"><div class="progress" style="width: 70%"></div></div>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="tag">Git</span>
+                                <span class="tag">MySQL</span>
+                                <span class="tag">Linux</span>
+                                <span class="tag">ООП</span>
+                                <span class="tag">Паттерны</span>
+                                <span class="tag">Android</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span>Командная работа</span>
+                                <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Критическое мышление</span>
+                                <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Коммуникабельность</span>
+                                <div class="progress-bar"><div class="progress" style="width: 88%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Креативность</span>
+                                <div class="progress-bar"><div class="progress" style="width: 92%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-language"></i> Языки</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span>Английский (B2)</span>
+                                <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Казахский (C1)</span>
+                                <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Русский (Родной)</span>
+                                <div class="progress-bar"><div class="progress" style="width: 100%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Образование -->
+        <section id="education" class="section education-section">
+            <div class="container">
+                <h2 class="section-title">Образование</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2021 - 2025</div>
+                        <div class="timeline-content">
+                            <h3>Казахский национальный университет</h3>
+                            <h4>Программная инженерия, бакалавр</h4>
+                            <p>Специализация: разработка игр и интерактивных приложений. Средний балл: 3.8/4.0.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023 - 2024</div>
+                        <div class="timeline-content">
+                            <h3>Технический университет</h3>
+                            <h4>Computer Science, стажировка</h4>
+                            <p>Программа академической мобильности. Изучал машинное обучение.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Достижения -->
+        <section id="achievements" class="section achievements-section">
+            <div class="container">
+                <h2 class="section-title">Достижения</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="achievement-content">
+                            <h3>Хакатон "Цифровой прорыв"</h3>
+                            <span class="achievement-date">Март 2024</span>
+                            <p>1 место в номинации "Лучшее игровое решение".</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
+                        <div class="achievement-content">
+                            <h3>Сертификат Huawei AI</h3>
+                            <span class="achievement-date">Декабрь 2023</span>
+                            <p>HCIA-AI: основы искусственного интеллекта.</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon"><i class="fas fa-medal"></i></div>
+                        <div class="achievement-content">
+                            <h3>Олимпиада по программированию</h3>
+                            <span class="achievement-date">Ноябрь 2023</span>
+                            <p>2 место в республиканской олимпиаде.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Проекты -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <h2 class="section-title">Мои проекты</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #6c5ce7, #a29bfe); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">RPG</div>
+                        <div class="project-content">
+                            <h3>RPG Планировщик задач</h3>
+                            <p>Todo-приложение с RPG-механикой: персонаж получает опыт за выполнение задач.</p>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small" onclick="showGame('rpg')">Демо</a>
+                                <a href="#" class="btn btn-small btn-outline">Код</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #fd79a8, #ff6b6b); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">🎮</div>
+                        <div class="project-content">
+                            <h3>Игры на реакцию</h3>
+                            <p>Сборник мини-игр: кликер, генератор приключений, угадай число.</p>
+                            <div class="project-tech">
+                                <span>JavaScript</span>
+                                <span>CSS Grid</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small" onclick="showGame('clicker')">Демо</a>
+                                <a href="#" class="btn btn-small btn-outline">Код</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #00b894, #00cec9); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">&lt;/&gt;</div>
+                        <div class="project-content">
+                            <h3>Этот сайт-портфолио</h3>
+                            <p>Современное портфолио с плавными анимациями.</p>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small">Код</a>
+                                <a href="#" class="btn btn-small btn-outline">Live</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Игры секция -->
+        <section id="games-section" class="section games-section" style="display: none;">
+            <div class="container">
+                <button class="btn btn-back" onclick="hideGames()"><i class="fas fa-arrow-left"></i> Назад к портфолио</button>
+                <div id="game-content"></div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contacts" class="section contacts-section">
+            <div class="container">
+                <h2 class="section-title">Свяжитесь со мной</h2>
+                <div class="contacts-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>student@example.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Алматы, Казахстан</span>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-hackerrank"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Ваш email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Ваше сообщение" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                        <div id="form-message" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Алексей. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- ПОДКЛЮЧАЕМ JS - ПРОВЕРЬТЕ ПУТЬ -->
+    <script src="js/script.js"></script>
+    
+    <script>
+        // Проверка загрузки CSS
+        console.log('CSS path:', document.querySelector('link[rel="stylesheet"]').href);
+        console.log('JS path:', document.querySelector('script[src="js/script.js"]').src);
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио | Алексей</title>
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%236c5ce7'/></svg>">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
