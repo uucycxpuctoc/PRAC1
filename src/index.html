@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио & RPG Планировщик | Ваше Имя</title>
+    <title>Портфолио | RPG Планировщик | Мини-игры</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Временные стили для отладки */
+        .hidden { display: none !important; }
+        .game-container { transition: opacity 0.3s ease; }
+        .tab-btn.active { background: #ffffff !important; color: #000000 !important; }
+    </style>
 </head>
 <body>
-    <!-- Навигационная панель -->
+    <!-- Анимированные линии фона -->
+    <div class="animated-lines"></div>
+
+    <!-- Навигация -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">⚔️ DevPort</div>
+            <div class="logo">⚡ DEV</div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">Главная</a></li>
                 <li><a href="#skills" class="nav-link">Навыки</a></li>
                 <li><a href="#education" class="nav-link">Образование</a></li>
                 <li><a href="#achievements" class="nav-link">Достижения</a></li>
                 <li><a href="#projects" class="nav-link">Проекты</a></li>
-                <li><a href="#games" class="nav-link">Мини-игры</a></li>
-                <li><a href="#rpg-planner" class="nav-link">RPG Планировщик</a></li>
+                <li><a href="#games" class="nav-link">Игры</a></li>
+                <li><a href="#rpg" class="nav-link">RPG</a></li>
                 <li><a href="#contacts" class="nav-link">Контакты</a></li>
             </ul>
             <div class="hamburger">
@@ -31,24 +39,24 @@
         </div>
     </nav>
 
-    <!-- Главная секция -->
+    <!-- Главная -->
     <section id="home" class="section hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="glitch" data-text="Привет, я Алексей">Привет, я Алексей</h1>
+                    <h1 class="glitch">Привет, я Алексей</h1>
                     <div class="typed-text">
-                        <span class="role"></span>
+                        <span class="role">Frontend разработчик</span>
                     </div>
                     <p class="hero-description">
                         Студент-разработчик с опытом создания веб-приложений 
-                        и игровых механик. Увлекаюсь геймификацией и UI/UX дизайном.
+                        и игровых механик.
                     </p>
-                    <a href="#contacts" class="btn btn-primary">Связаться со мной</a>
+                    <a href="#contacts" class="btn btn-primary">Связаться</a>
                 </div>
                 <div class="hero-image">
                     <div class="avatar-frame">
-                        <img src="assets/avatar-placeholder.png" alt="Аватар" class="avatar">
+                        <div class="avatar" style="background: linear-gradient(45deg, #333, #666); width: 100%; height: 100%;"></div>
                     </div>
                 </div>
             </div>
@@ -63,58 +71,27 @@
     <!-- Навыки -->
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">⚡ Навыки</h2>
+            <h2 class="section-title">Навыки</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>Hard Skills</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span>JavaScript/ES6</span>
-                            <div class="progress-bar"><div class="progress" style="width: 85%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span>HTML5/CSS3</span>
-                            <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span>React</span>
-                            <div class="progress-bar"><div class="progress" style="width: 70%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Node.js</span>
-                            <div class="progress-bar"><div class="progress" style="width: 65%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Python</span>
-                            <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
-                        </div>
-                    </div>
+                    <div class="skill-item"><span>JavaScript</span><div class="progress-bar"><div class="progress" style="width:85%"></div></div></div>
+                    <div class="skill-item"><span>HTML/CSS</span><div class="progress-bar"><div class="progress" style="width:90%"></div></div></div>
+                    <div class="skill-item"><span>React</span><div class="progress-bar"><div class="progress" style="width:70%"></div></div></div>
                 </div>
                 <div class="skill-category">
                     <h3>Soft Skills</h3>
                     <div class="soft-skills">
                         <span class="soft-skill">Командная работа</span>
-                        <span class="soft-skill">Критическое мышление</span>
-                        <span class="soft-skill">Коммуникабельность</span>
-                        <span class="soft-skill">Тайм-менеджмент</span>
                         <span class="soft-skill">Креативность</span>
+                        <span class="soft-skill">Коммуникация</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Языки</h3>
                     <div class="language-items">
-                        <div class="language-item">
-                            <span>🇷🇺 Русский</span>
-                            <span class="level">Родной</span>
-                        </div>
-                        <div class="language-item">
-                            <span>🇬🇧 Английский</span>
-                            <span class="level">B2 (Upper-Intermediate)</span>
-                        </div>
-                        <div class="language-item">
-                            <span>🇰🇿 Казахский</span>
-                            <span class="level">A2 (Базовый)</span>
-                        </div>
+                        <div class="language-item"><span>Русский</span><span class="level">Родной</span></div>
+                        <div class="language-item"><span>Английский</span><span class="level">B2</span></div>
                     </div>
                 </div>
             </div>
@@ -124,22 +101,13 @@
     <!-- Образование -->
     <section id="education" class="section">
         <div class="container">
-            <h2 class="section-title">🎓 Образование</h2>
+            <h2 class="section-title">Образование</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">2022 - 2026</div>
+                    <div class="timeline-date">2022-2026</div>
                     <div class="timeline-content">
-                        <h3>Университет имени Примерова</h3>
-                        <p class="timeline-subtitle">Бакалавр прикладной информатики</p>
-                        <p>Специализация: Разработка игр и веб-приложений. Участник студенческих хакатонов.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-content">
-                        <h3>Курс "Full Stack JavaScript"</h3>
-                        <p class="timeline-subtitle">IT-Academy</p>
-                        <p>Изучение современных фреймворков и архитектурных паттернов.</p>
+                        <h3>Университет</h3>
+                        <p>Прикладная информатика</p>
                     </div>
                 </div>
             </div>
@@ -149,25 +117,12 @@
     <!-- Достижения -->
     <section id="achievements" class="section">
         <div class="container">
-            <h2 class="section-title">🏆 Достижения</h2>
+            <h2 class="section-title">Достижения</h2>
             <div class="achievements-grid">
                 <div class="achievement-card">
-                    <div class="achievement-icon">🥇</div>
-                    <h3>Hackathon 2024</h3>
-                    <p class="achievement-date">Март 2024</p>
-                    <p>1 место в номинации "Лучшее игровое приложение"</p>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">📜</div>
-                    <h3>Сертификат Huawei</h3>
-                    <p class="achievement-date">Январь 2024</p>
-                    <p>HCIA - Artificial Intelligence</p>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">📊</div>
-                    <h3>Олимпиада по программированию</h3>
-                    <p class="achievement-date">Ноябрь 2023</p>
-                    <p>Топ-10 в республиканском этапе</p>
+                    <div class="achievement-icon">🏆</div>
+                    <h3>Хакатон 2024</h3>
+                    <p>1 место</p>
                 </div>
             </div>
         </div>
@@ -176,154 +131,113 @@
     <!-- Проекты -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">💻 Проекты</h2>
+            <h2 class="section-title">Проекты</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <a href="#" class="btn-small">GitHub</a>
-                            <a href="#" class="btn-small">Demo</a>
-                        </div>
-                    </div>
+                    <div class="project-image"></div>
                     <div class="project-info">
-                        <h3>Task Manager RPG</h3>
-                        <p>Планировщик задач с RPG-механикой и системой уровней</p>
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <a href="#" class="btn-small">GitHub</a>
-                            <a href="#" class="btn-small">Demo</a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Мини-игры</h3>
-                        <p>Коллекция игр: Кликер, Крестики-нолики, Лабиринт</p>
-                        <div class="project-tech">
-                            <span>JavaScript</span>
-                            <span>Canvas</span>
-                            <span>LocalStorage</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <a href="#" class="btn-small">GitHub</a>
-                            <a href="#" class="btn-small">Demo</a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Генератор приключений</h3>
-                        <p>AI-генерация сюжетов для RPG игр</p>
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>API</span>
-                        </div>
+                        <h3>RPG Планировщик</h3>
+                        <div class="project-tech"><span>JS</span><span>HTML</span><span>CSS</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Мини-игры -->
+    <!-- ИГРЫ -->
     <section id="games" class="section games-section">
         <div class="container">
-            <h2 class="section-title">🎮 Мини-игры</h2>
+            <h2 class="section-title">Игры</h2>
+            
+            <!-- Вкладки -->
             <div class="games-tabs">
                 <button class="tab-btn active" data-game="clicker">Кликер</button>
-                <button class="tab-btn" data-game="adventure">Генератор приключений</button>
+                <button class="tab-btn" data-game="adventure">Приключения</button>
                 <button class="tab-btn" data-game="guess">Угадай число</button>
                 <button class="tab-btn" data-game="reaction">Реакция</button>
                 <button class="tab-btn" data-game="tictactoe">Крестики-нолики</button>
                 <button class="tab-btn" data-game="maze">Лабиринт</button>
             </div>
-            
-            <div class="game-container" id="clicker-game">
-                <h3>Кликер</h3>
+
+            <!-- Кликер -->
+            <div id="clicker-game" class="game-container">
+                <h3>⚡ Кликер</h3>
                 <div class="game-stats">
                     <div class="stat">Очки: <span id="clicker-score">0</span></div>
                     <div class="stat">Таймер: <span id="clicker-timer">30</span>с</div>
                     <div class="stat">Рекорд: <span id="clicker-record">0</span></div>
                 </div>
-                <button class="game-btn" id="clicker-btn" disabled>👆 Кликай!</button>
+                <button class="game-btn" id="clicker-btn" disabled>👆 КЛИКАЙ</button>
                 <div class="game-controls">
-                    <button class="btn-small" id="start-clicker">Старт</button>
-                    <button class="btn-small" id="reset-clicker">Сброс</button>
+                    <button class="btn-small" id="start-clicker">▶ СТАРТ</button>
+                    <button class="btn-small" id="reset-clicker">⟲ СБРОС</button>
                 </div>
             </div>
 
-            <div class="game-container hidden" id="adventure-game">
-                <h3>Генератор приключений</h3>
-                <div class="adventure-story" id="adventure-story">
-                    Нажми "Сгенерировать", чтобы создать историю
+            <!-- Генератор приключений -->
+            <div id="adventure-game" class="game-container hidden">
+                <h3>📖 Генератор приключений</h3>
+                <div class="adventure-story" id="adventure-story" style="margin: 20px 0; padding: 20px; border: 2px solid #fff;">
+                    Нажми "Сгенерировать"
                 </div>
-                <button class="game-btn" id="generate-adventure">🎲 Сгенерировать</button>
-                <button class="btn-small" id="save-adventure">💾 Сохранить</button>
+                <button class="game-btn" id="generate-adventure">🎲 ГЕНЕРИРОВАТЬ</button>
+                <button class="btn-small" id="save-adventure">💾 СОХРАНИТЬ</button>
             </div>
 
-            <div class="game-container hidden" id="guess-game">
-                <h3>Угадай число (1-100)</h3>
-                <input type="number" id="guess-input" min="1" max="100" placeholder="Введите число">
-                <button class="game-btn" id="guess-btn">Проверить</button>
-                <div class="game-message" id="guess-message"></div>
+            <!-- Угадай число -->
+            <div id="guess-game" class="game-container hidden">
+                <h3>🔢 Угадай число (1-100)</h3>
+                <input type="number" id="guess-input" min="1" max="100" placeholder="Введите число" style="width:100%; padding:10px; margin:10px 0; background:#000; color:#fff; border:2px solid #fff;">
+                <button class="game-btn" id="guess-btn">ПРОВЕРИТЬ</button>
+                <div id="guess-message" style="margin:10px 0; padding:10px; border:2px solid #fff;"></div>
                 <div class="attempts">Попыток: <span id="attempts-count">0</span></div>
-                <button class="btn-small" id="new-guess-game">Новая игра</button>
+                <button class="btn-small" id="new-guess-game">🔄 НОВАЯ ИГРА</button>
             </div>
 
-            <div class="game-container hidden" id="reaction-game">
-                <h3>Игра на реакцию</h3>
+            <!-- Реакция -->
+            <div id="reaction-game" class="game-container hidden">
+                <h3>⚡ Игра на реакцию</h3>
                 <div class="reaction-stats">
                     <div class="stat">Таймер: <span id="reaction-timer">30</span>с</div>
                     <div class="stat">Успешно: <span id="reaction-hits">0</span></div>
-                    <div class="stat">Среднее время: <span id="reaction-avg">0</span>мс</div>
+                    <div class="stat">Среднее: <span id="reaction-avg">0</span>мс</div>
                 </div>
-                <div class="reaction-area" id="reaction-area">
-                    <button class="reaction-btn hidden" id="reaction-btn">👆 Жми!</button>
+                <div class="reaction-area" id="reaction-area" style="position:relative; height:300px; border:2px solid #fff; margin:20px 0;">
+                    <button class="reaction-btn hidden" id="reaction-btn" style="position:absolute; padding:15px 30px;">👆 ЖМИ!</button>
                 </div>
                 <div class="game-controls">
-                    <button class="btn-small" id="start-reaction">Старт</button>
-                    <button class="btn-small" id="reset-reaction">Сброс</button>
+                    <button class="btn-small" id="start-reaction">▶ СТАРТ</button>
+                    <button class="btn-small" id="reset-reaction">⟲ СБРОС</button>
                 </div>
             </div>
 
-            <div class="game-container hidden" id="tictactoe-game">
-                <h3>Крестики-нолики</h3>
-                <div class="game-status" id="tictactoe-status">Ход: X</div>
-                <div class="board" id="tictactoe-board">
-                    <!-- Генерируется JS -->
-                </div>
+            <!-- Крестики-нолики -->
+            <div id="tictactoe-game" class="game-container hidden">
+                <h3>⭕❌ Крестики-нолики</h3>
+                <div class="game-status" id="tictactoe-status" style="margin:10px 0;">Ход: X</div>
+                <div id="tictactoe-board" style="display:grid; grid-template-columns:repeat(3,80px); gap:10px; justify-content:center; margin:20px 0;"></div>
                 <div class="game-controls">
-                    <button class="btn-small" id="reset-tictactoe">Новая игра</button>
-                    <button class="btn-small" id="vs-computer">Против компьютера</button>
+                    <button class="btn-small" id="reset-tictactoe">🔄 НОВАЯ ИГРА</button>
+                    <button class="btn-small" id="vs-computer">🤖 ПРОТИВ КОМПА</button>
                 </div>
             </div>
 
-            <div class="game-container hidden" id="maze-game">
-                <h3>Лабиринт</h3>
+            <!-- Лабиринт -->
+            <div id="maze-game" class="game-container hidden">
+                <h3>🏃 Лабиринт</h3>
                 <div class="maze-stats">
                     <div class="stat">Время: <span id="maze-timer">0</span>с</div>
                 </div>
-                <div class="maze-grid" id="maze-grid">
-                    <!-- Генерируется JS -->
-                </div>
-                <div class="game-controls">
-                    <button class="btn-small" id="reset-maze">Новый лабиринт</button>
-                </div>
+                <div id="maze-grid" style="display:grid; gap:2px; justify-content:center; margin:20px 0;"></div>
+                <button class="btn-small" id="reset-maze">🔄 НОВЫЙ ЛАБИРИНТ</button>
             </div>
         </div>
     </section>
 
-    <!-- RPG Планировщик -->
-    <section id="rpg-planner" class="section rpg-section">
+    <!-- RPG ПЛАНИРОВЩИК -->
+    <section id="rpg" class="section rpg-section">
         <div class="container">
-            <h2 class="section-title">⚔️ RPG Планировщик задач</h2>
+            <h2 class="section-title">RPG Планировщик</h2>
             
             <!-- Персонаж -->
             <div class="character-card">
@@ -333,11 +247,10 @@
                             <option value="warrior">⚔️ Воин</option>
                             <option value="mage">🔮 Маг</option>
                             <option value="rogue">🗡️ Разбойник</option>
-                            <option value="priest">✨ Жрец</option>
                         </select>
                     </div>
                     <div class="character-info">
-                        <input type="text" id="character-name" placeholder="Имя персонажа" value="Новичок">
+                        <input type="text" id="character-name" value="Новичок">
                         <div class="level-info">
                             <span class="level">Ур. <span id="character-level">1</span></span>
                             <span class="xp">Опыт: <span id="character-xp">0</span>/<span id="next-level-xp">100</span></span>
@@ -345,52 +258,44 @@
                     </div>
                 </div>
                 <div class="xp-bar-container">
-                    <div class="xp-bar" id="xp-bar" style="width: 0%"></div>
+                    <div class="xp-bar" id="xp-bar" style="width:0%"></div>
                 </div>
                 <div class="character-stats">
-                    <div>Задач выполнено: <span id="tasks-completed">0</span></div>
-                    <div>Всего опыта: <span id="total-xp">0</span></div>
-                    <div>Дата создания: <span id="creation-date"></span></div>
+                    <div>Задач: <span id="tasks-completed">0</span></div>
+                    <div>Всего XP: <span id="total-xp">0</span></div>
+                    <div>Создан: <span id="creation-date"></span></div>
                 </div>
             </div>
 
-            <!-- Создание задачи -->
+            <!-- Новая задача -->
             <div class="create-task">
-                <h3>📜 Новая задача</h3>
-                <input type="text" id="task-title" placeholder="Название задачи" required>
-                <textarea id="task-desc" placeholder="Описание (необязательно)"></textarea>
+                <h3>📝 Новая задача</h3>
+                <input type="text" id="task-title" placeholder="Название">
+                <textarea id="task-desc" placeholder="Описание"></textarea>
                 <div class="task-difficulty">
-                    <label>
-                        <input type="radio" name="difficulty" value="10" checked> Легкая (+10 XP)
-                    </label>
-                    <label>
-                        <input type="radio" name="difficulty" value="25"> Средняя (+25 XP)
-                    </label>
-                    <label>
-                        <input type="radio" name="difficulty" value="50"> Сложная (+50 XP)
-                    </label>
-                    <label>
-                        <input type="radio" name="difficulty" value="100"> Эпическая (+100 XP)
-                    </label>
+                    <label><input type="radio" name="difficulty" value="10" checked> Легкая (+10)</label>
+                    <label><input type="radio" name="difficulty" value="25"> Средняя (+25)</label>
+                    <label><input type="radio" name="difficulty" value="50"> Сложная (+50)</label>
+                    <label><input type="radio" name="difficulty" value="100"> Эпическая (+100)</label>
                 </div>
-                <button class="btn-primary" id="add-task">➕ Добавить задачу</button>
+                <button class="btn-primary" id="add-task">➕ ДОБАВИТЬ</button>
             </div>
 
             <!-- Активные задачи -->
             <div class="tasks-section">
-                <h3>⚔️ Активные задачи</h3>
+                <h3>⚔️ Активные</h3>
                 <div id="active-tasks" class="tasks-list"></div>
             </div>
 
             <!-- Выполненные задачи -->
             <div class="tasks-section">
-                <h3>✅ Выполненные задачи</h3>
+                <h3>✅ Выполненные</h3>
                 <div id="completed-tasks" class="tasks-list"></div>
             </div>
 
-            <!-- Управление -->
+            <!-- Сброс -->
             <div class="planner-controls">
-                <button class="btn-danger" id="reset-progress">🔄 Сбросить прогресс</button>
+                <button class="btn-danger" id="reset-progress">⚠️ СБРОСИТЬ ВСЁ</button>
             </div>
         </div>
     </section>
@@ -398,37 +303,515 @@
     <!-- Контакты -->
     <section id="contacts" class="section">
         <div class="container">
-            <h2 class="section-title">📬 Контакты</h2>
+            <h2 class="section-title">Контакты</h2>
             <div class="contacts-grid">
                 <div class="contact-info">
-                    <h3>Свяжитесь со мной</h3>
-                    <p>📍 Астана, Казахстан</p>
+                    <h3>Связь</h3>
+                    <p>📍 Астана</p>
                     <p>📧 student@example.com</p>
                     <div class="social-links">
                         <a href="#" class="social-link">GitHub</a>
-                        <a href="#" class="social-link">HackerRank</a>
                         <a href="#" class="social-link">Telegram</a>
                     </div>
                 </div>
                 <form id="contact-form" class="contact-form">
-                    <input type="text" id="name" placeholder="Ваше имя" required>
-                    <input type="email" id="email" placeholder="Ваш email" required>
+                    <input type="text" id="name" placeholder="Имя" required>
+                    <input type="email" id="email" placeholder="Email" required>
                     <textarea id="message" placeholder="Сообщение" required></textarea>
-                    <button type="submit" class="btn-primary">Отправить</button>
-                    <div id="form-message" class="form-message hidden"></div>
+                    <button type="submit" class="btn-primary">ОТПРАВИТЬ</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Футер -->
     <footer class="footer">
-        <p>&copy; 2026 Алексей. Все права защищены.</p>
+        <p>© 2026 Алексей</p>
     </footer>
 
-    <script src="js/storage.js"></script>
-    <script src="js/rpg-planner.js"></script>
-    <script src="js/games.js"></script>
-    <script src="js/script.js"></script>
-</body>
-</html>
+    <!-- СКРИПТ -->
+    <script>
+        // ==================== КЛАССЫ ====================
+        class Storage {
+            static save(key, data) { localStorage.setItem(key, JSON.stringify(data)); }
+            static load(key, def = null) { 
+                const data = localStorage.getItem(key); 
+                return data ? JSON.parse(data) : def; 
+            }
+            static remove(key) { localStorage.removeItem(key); }
+        }
+
+        class Character {
+            constructor(name = "Новичок", avatar = "warrior") {
+                this.name = name;
+                this.avatar = avatar;
+                this.level = 1;
+                this.xp = 0;
+                this.totalXp = 0;
+                this.tasksCompleted = 0;
+                this.creationDate = new Date().toLocaleDateString();
+            }
+            addExperience(amount) {
+                this.xp += amount;
+                this.totalXp += amount;
+                let leveledUp = false;
+                while (this.xp >= this.getExperienceToNextLevel()) {
+                    this.xp -= this.getExperienceToNextLevel();
+                    this.level++;
+                    leveledUp = true;
+                }
+                return leveledUp;
+            }
+            getExperienceToNextLevel() { return 100 * this.level; }
+            getXpProgress() { return (this.xp / this.getExperienceToNextLevel()) * 100; }
+        }
+
+        class Task {
+            constructor(title, desc, diff, xp) {
+                this.id = Date.now() + Math.random();
+                this.title = title;
+                this.description = desc || "";
+                this.difficulty = diff;
+                this.xpValue = parseInt(xp);
+                this.completed = false;
+                this.createdAt = new Date().toLocaleString();
+                this.completedAt = null;
+            }
+            complete() { this.completed = true; this.completedAt = new Date().toLocaleString(); }
+            uncomplete() { this.completed = false; this.completedAt = null; }
+        }
+
+        // ==================== TASK MANAGER ====================
+        class TaskManager {
+            constructor() {
+                this.tasks = [];
+                this.character = new Character();
+                this.load();
+                this.render();
+            }
+            addTask(task) { this.tasks.push(task); this.save(); this.render(); }
+            removeTask(id) { this.tasks = this.tasks.filter(t => t.id !== id); this.save(); this.render(); }
+            completeTask(id) {
+                const task = this.tasks.find(t => t.id === id);
+                if (task && !task.completed) {
+                    task.complete();
+                    const leveledUp = this.character.addExperience(task.xpValue);
+                    this.character.tasksCompleted++;
+                    this.showNotification(`+${task.xpValue} XP`);
+                    if (leveledUp) this.showNotification(`🎉 УРОВЕНЬ ${this.character.level}!`, 'levelup');
+                    this.save();
+                    this.render();
+                }
+            }
+            uncompleteTask(id) {
+                const task = this.tasks.find(t => t.id === id);
+                if (task && task.completed) {
+                    task.uncomplete();
+                    this.character.xp = Math.max(0, this.character.xp - task.xpValue);
+                    this.character.totalXp = Math.max(0, this.character.totalXp - task.xpValue);
+                    this.character.tasksCompleted--;
+                    this.save();
+                    this.render();
+                }
+            }
+            getActiveTasks() { return this.tasks.filter(t => !t.completed); }
+            getCompletedTasks() { return this.tasks.filter(t => t.completed); }
+            save() {
+                Storage.save('rpg_character', this.character);
+                Storage.save('rpg_tasks', this.tasks);
+            }
+            load() {
+                const char = Storage.load('rpg_character');
+                if (char) this.character = char;
+                const tasks = Storage.load('rpg_tasks', []);
+                this.tasks = tasks;
+            }
+            reset() {
+                if (confirm('Сбросить прогресс?')) {
+                    Storage.remove('rpg_character');
+                    Storage.remove('rpg_tasks');
+                    this.character = new Character();
+                    this.tasks = [];
+                    this.save();
+                    this.render();
+                }
+            }
+            showNotification(msg) {
+                const notif = document.createElement('div');
+                notif.textContent = msg;
+                notif.style.cssText = 'position:fixed; top:100px; right:20px; background:#fff; color:#000; padding:15px; border:2px solid #000; z-index:1000;';
+                document.body.appendChild(notif);
+                setTimeout(() => notif.remove(), 2000);
+            }
+            render() {
+                // Персонаж
+                const nameInput = document.getElementById('character-name');
+                const levelSpan = document.getElementById('character-level');
+                const xpSpan = document.getElementById('character-xp');
+                const nextXpSpan = document.getElementById('next-level-xp');
+                const tasksSpan = document.getElementById('tasks-completed');
+                const totalXpSpan = document.getElementById('total-xp');
+                const dateSpan = document.getElementById('creation-date');
+                const avatarSelect = document.getElementById('avatar-select');
+                const xpBar = document.getElementById('xp-bar');
+                
+                if (nameInput) nameInput.value = this.character.name;
+                if (levelSpan) levelSpan.textContent = this.character.level;
+                if (xpSpan) xpSpan.textContent = this.character.xp;
+                if (nextXpSpan) nextXpSpan.textContent = this.character.getExperienceToNextLevel();
+                if (tasksSpan) tasksSpan.textContent = this.character.tasksCompleted;
+                if (totalXpSpan) totalXpSpan.textContent = this.character.totalXp;
+                if (dateSpan) dateSpan.textContent = this.character.creationDate;
+                if (avatarSelect) avatarSelect.value = this.character.avatar;
+                if (xpBar) xpBar.style.width = this.character.getXpProgress() + '%';
+                
+                // Задачи
+                const activeEl = document.getElementById('active-tasks');
+                const completedEl = document.getElementById('completed-tasks');
+                if (activeEl) {
+                    activeEl.innerHTML = '';
+                    this.getActiveTasks().forEach(t => activeEl.appendChild(this.createTaskElement(t)));
+                }
+                if (completedEl) {
+                    completedEl.innerHTML = '';
+                    this.getCompletedTasks().forEach(t => completedEl.appendChild(this.createTaskElement(t, true)));
+                }
+            }
+            createTaskElement(task, completed = false) {
+                const div = document.createElement('div');
+                div.style.cssText = 'border:2px solid #fff; padding:10px; margin:10px 0; background:#000;';
+                div.innerHTML = `
+                    <div style="display:flex; justify-content:space-between;">
+                        <div>
+                            <strong style="color:#fff;">${task.title}</strong>
+                            ${task.description ? `<p style="color:#999;">${task.description}</p>` : ''}
+                            <span style="color:#0f0;">+${task.xpValue} XP</span>
+                        </div>
+                        <div>
+                            <input type="checkbox" ${task.completed ? 'checked' : ''} 
+                                onchange="window.taskManager.toggleTask('${task.id}')" style="width:20px;height:20px;">
+                            <button onclick="window.taskManager.removeTask('${task.id}')" 
+                                style="background:#f00; color:#fff; border:none; padding:5px 10px;">✕</button>
+                        </div>
+                    </div>
+                `;
+                return div;
+            }
+            toggleTask(id) {
+                const task = this.tasks.find(t => t.id == id);
+                if (task) {
+                    if (task.completed) this.uncompleteTask(id);
+                    else this.completeTask(id);
+                }
+            }
+        }
+
+        // ==================== GAMES MANAGER ====================
+        class GamesManager {
+            constructor() {
+                this.initClicker();
+                this.initAdventure();
+                this.initGuessNumber();
+                this.initReaction();
+                this.initTicTacToe();
+                this.initMaze();
+                this.setupTabs();
+                this.loadRecords();
+            }
+            setupTabs() {
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        
+                        document.querySelectorAll('.game-container').forEach(game => {
+                            game.classList.add('hidden');
+                        });
+                        
+                        const gameId = btn.dataset.game + '-game';
+                        const el = document.getElementById(gameId);
+                        if (el) el.classList.remove('hidden');
+                    });
+                });
+            }
+            initClicker() {
+                let score = 0, timer = 30, interval = null;
+                let record = Storage.load('clicker_record', 0);
+                const scoreEl = document.getElementById('clicker-score');
+                const timerEl = document.getElementById('clicker-timer');
+                const recordEl = document.getElementById('clicker-record');
+                const btn = document.getElementById('clicker-btn');
+                const startBtn = document.getElementById('start-clicker');
+                const resetBtn = document.getElementById('reset-clicker');
+                
+                if (!btn) return;
+                
+                recordEl.textContent = record;
+                
+                const update = () => {
+                    scoreEl.textContent = score;
+                    timerEl.textContent = timer;
+                };
+                
+                const end = () => {
+                    if (interval) clearInterval(interval);
+                    interval = null;
+                    btn.disabled = true;
+                    if (score > record) {
+                        record = score;
+                        recordEl.textContent = record;
+                        Storage.save('clicker_record', record);
+                        alert('Новый рекорд: ' + score);
+                    }
+                };
+                
+                btn.onclick = () => {
+                    if (!btn.disabled) {
+                        score++;
+                        scoreEl.textContent = score;
+                        btn.style.transform = 'scale(0.95)';
+                        setTimeout(() => btn.style.transform = 'scale(1)', 100);
+                    }
+                };
+                
+                startBtn.onclick = () => {
+                    if (interval) return;
+                    score = 0;
+                    timer = 30;
+                    btn.disabled = false;
+                    update();
+                    interval = setInterval(() => {
+                        timer--;
+                        timerEl.textContent = timer;
+                        if (timer <= 0) end();
+                    }, 1000);
+                };
+                
+                resetBtn.onclick = () => {
+                    if (interval) clearInterval(interval);
+                    interval = null;
+                    score = 0;
+                    timer = 30;
+                    btn.disabled = true;
+                    update();
+                };
+            }
+            initAdventure() {
+                const chars = ['рыцарь','маг','вор','эльф'];
+                const locs = ['лес','замок','пещера','город'];
+                const villains = ['дракон','колдун','гоблин','тролль'];
+                const storyEl = document.getElementById('adventure-story');
+                const genBtn = document.getElementById('generate-adventure');
+                const saveBtn = document.getElementById('save-adventure');
+                
+                if (!genBtn) return;
+                
+                genBtn.onclick = () => {
+                    const c = chars[Math.floor(Math.random()*chars.length)];
+                    const l = locs[Math.floor(Math.random()*locs.length)];
+                    const v = villains[Math.floor(Math.random()*villains.length)];
+                    storyEl.textContent = `⚔️ ${c} в ${l} сражается с ${v}`;
+                };
+                
+                saveBtn.onclick = () => {
+                    const stories = Storage.load('stories', []);
+                    stories.push(storyEl.textContent);
+                    Storage.save('stories', stories);
+                    alert('Сохранено!');
+                };
+            }
+            initGuessNumber() {
+                let secret = Math.floor(Math.random()*100)+1;
+                let attempts = 0;
+                const input = document.getElementById('guess-input');
+                const guessBtn = document.getElementById('guess-btn');
+                const msgEl = document.getElementById('guess-message');
+                const attemptsEl = document.getElementById('attempts-count');
+                const newBtn = document.getElementById('new-guess-game');
+                
+                if (!guessBtn) return;
+                
+                guessBtn.onclick = () => {
+                    const guess = parseInt(input.value);
+                    if (isNaN(guess) || guess < 1 || guess > 100) {
+                        msgEl.textContent = 'Ошибка!';
+                        return;
+                    }
+                    attempts++;
+                    attemptsEl.textContent = attempts;
+                    if (guess === secret) {
+                        msgEl.textContent = '🎉 Победа!';
+                        guessBtn.disabled = true;
+                    } else if (guess < secret) msgEl.textContent = 'Больше';
+                    else msgEl.textContent = 'Меньше';
+                    input.value = '';
+                };
+                
+                newBtn.onclick = () => {
+                    secret = Math.floor(Math.random()*100)+1;
+                    attempts = 0;
+                    attemptsEl.textContent = attempts;
+                    msgEl.textContent = '';
+                    guessBtn.disabled = false;
+                };
+            }
+            initReaction() {
+                let timer = 30, hits = 0, totalTime = 0;
+                let interval = null, timeout = null, active = false, startTime = null;
+                
+                const timerEl = document.getElementById('reaction-timer');
+                const hitsEl = document.getElementById('reaction-hits');
+                const avgEl = document.getElementById('reaction-avg');
+                const area = document.getElementById('reaction-area');
+                const btn = document.getElementById('reaction-btn');
+                const startBtn = document.getElementById('start-reaction');
+                const resetBtn = document.getElementById('reset-reaction');
+                
+                if (!btn) return;
+                
+                const showBtn = () => {
+                    if (!active) return;
+                    btn.classList.remove('hidden');
+                    const maxX = area.clientWidth - btn.clientWidth;
+                    const maxY = area.clientHeight - btn.clientHeight;
+                    btn.style.left = Math.random() * maxX + 'px';
+                    btn.style.top = Math.random() * maxY + 'px';
+                    startTime = Date.now();
+                };
+                
+                btn.onclick = () => {
+                    if (!active || !startTime) return;
+                    const reaction = Date.now() - startTime;
+                    totalTime += reaction;
+                    hits++;
+                    hitsEl.textContent = hits;
+                    avgEl.textContent = Math.round(totalTime / hits);
+                    btn.classList.add('hidden');
+                    timeout = setTimeout(showBtn, Math.random() * 2000 + 1000);
+                };
+                
+                startBtn.onclick = () => {
+                    if (active) return;
+                    active = true;
+                    timer = 30;
+                    hits = 0;
+                    totalTime = 0;
+                    timerEl.textContent = timer;
+                    hitsEl.textContent = hits;
+                    avgEl.textContent = 0;
+                    interval = setInterval(() => {
+                        timer--;
+                        timerEl.textContent = timer;
+                        if (timer <= 0) {
+                            active = false;
+                            clearInterval(interval);
+                            clearTimeout(timeout);
+                            btn.classList.add('hidden');
+                        }
+                    }, 1000);
+                    showBtn();
+                };
+                
+                resetBtn.onclick = () => {
+                    active = false;
+                    clearInterval(interval);
+                    clearTimeout(timeout);
+                    timer = 30;
+                    hits = 0;
+                    totalTime = 0;
+                    timerEl.textContent = timer;
+                    hitsEl.textContent = hits;
+                    avgEl.textContent = 0;
+                    btn.classList.add('hidden');
+                };
+            }
+            initTicTacToe() {
+                let board = ['','','','','','','','',''];
+                let current = 'X';
+                let active = true;
+                let vsComp = false;
+                
+                const statusEl = document.getElementById('tictactoe-status');
+                const boardEl = document.getElementById('tictactoe-board');
+                const resetBtn = document.getElementById('reset-tictactoe');
+                const vsBtn = document.getElementById('vs-computer');
+                
+                if (!boardEl) return;
+                
+                const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+                
+                const checkWin = () => {
+                    for (let w of wins) {
+                        if (board[w[0]] && board[w[0]] === board[w[1]] && board[w[0]] === board[w[2]]) {
+                            return board[w[0]];
+                        }
+                    }
+                    return board.includes('') ? null : 'draw';
+                };
+                
+                const computerMove = () => {
+                    if (!active || current !== 'O' || !vsComp) return;
+                    const empty = board.reduce((acc, cell, i) => !cell ? [...acc, i] : acc, []);
+                    if (empty.length > 0) {
+                        setTimeout(() => {
+                            const move = empty[Math.floor(Math.random() * empty.length)];
+                            handleMove(move);
+                        }, 500);
+                    }
+                };
+                
+                const handleMove = (index) => {
+                    if (!active || board[index]) return;
+                    board[index] = current;
+                    render();
+                    
+                    const winner = checkWin();
+                    if (winner) {
+                        active = false;
+                        if (winner === 'draw') statusEl.textContent = 'Ничья!';
+                        else statusEl.textContent = `Победил ${winner}!`;
+                        return;
+                    }
+                    
+                    current = current === 'X' ? 'O' : 'X';
+                    statusEl.textContent = `Ход: ${current}`;
+                    
+                    if (vsComp && current === 'O') computerMove();
+                };
+                
+                const render = () => {
+                    boardEl.innerHTML = '';
+                    board.forEach((cell, i) => {
+                        const btn = document.createElement('button');
+                        btn.textContent = cell;
+                        btn.style.cssText = 'width:80px;height:80px;font-size:2rem;border:2px solid #fff;background:#000;color:#fff;';
+                        if (active && !cell) btn.onclick = () => handleMove(i);
+                        boardEl.appendChild(btn);
+                    });
+                };
+                
+                resetBtn.onclick = () => {
+                    board = ['','','','','','','','',''];
+                    current = 'X';
+                    active = true;
+                    statusEl.textContent = 'Ход: X';
+                    render();
+                };
+                
+                vsBtn.onclick = () => {
+                    vsComp = !vsComp;
+                    vsBtn.textContent = vsComp ? '🤝 Против друга' : '🤖 Против компа';
+                    resetBtn.click();
+                };
+                
+                render();
+            }
+            initMaze() {
+                const maze = [
+                    [1,1,1,1,1,1,1,1,1,1],
+                    [1,0,0,0,1,0,0,0,0,1],
+                    [1,0,1,0,1,0,1,1,0,1],
+                    [1,0,1,0,0,0,1,0,0,1],
+                    [1,0,1,1,1,1,1,0,1,1],
+                    [1,0,0,0,0,0,0,0,0,1],
+                    [1,1,1,1,
