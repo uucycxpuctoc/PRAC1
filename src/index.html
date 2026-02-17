@@ -1,85 +1,129 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Portfolio + Games</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Portfolio | Project 2026</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-<nav>
-  <a href="#home">Главная</a>
-  <a href="#portfolio">Портфолио</a>
-  <a href="#mini">Мини-игры</a>
-  <a href="#games">Игры</a>
-</nav>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">HERO<span>DEV</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#">Игры <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#games">Аркада</a>
+                        <a href="#maze-section">Лабиринт</a>
+                    </div>
+                </li>
+                <li><a href="#rpg-planner">Планировщик</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<section id="home" class="hero">
-  <h1>Student Developer</h1>
-  <p>Frontend • UI • Game Dev</p>
-</section>
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <div class="avatar-box">
+                <img src="https://api.dicebear.com/7.x/pixel-art/svg?seed=Hero" alt="Avatar">
+            </div>
+            <h1>Мастер кода: <span class="neon">Имя Фамилия</span></h1>
+            <p id="typewriter"></p>
+            <div class="hero-btns">
+                <a href="#rpg-planner" class="btn-gold">Начать квест</a>
+            </div>
+        </div>
+    </header>
 
-<section id="portfolio">
-  <h2>Портфолио</h2>
-  <div class="cards">
-    <div class="card">Навыки: HTML, CSS, JS, Python, Git</div>
-    <div class="card">Образование: IT Student</div>
-    <div class="card">Проекты: Игры, сайты, приложения</div>
-  </div>
-</section>
+    <section id="rpg-planner" class="container">
+        <h2 class="title">⚔️ Журнал Задач</h2>
+        <div class="rpg-wrapper">
+            <div class="char-sheet">
+                <div class="level-circle" id="lvl-display">1</div>
+                <div class="char-details">
+                    <h3>Ранг: Новичок</h3>
+                    <div class="xp-container">
+                        <div class="xp-bar"><div id="xp-fill"></div></div>
+                        <span>XP: <span id="xp-current">0</span> / <span id="xp-needed">100</span></span>
+                    </div>
+                </div>
+            </div>
 
-<section id="mini">
-  <h2>Мини-игры</h2>
+            <div class="quest-form">
+                <input type="text" id="quest-name" placeholder="Название квеста...">
+                <select id="quest-diff">
+                    <option value="10">Легкий (+10 XP)</option>
+                    <option value="25">Средний (+25 XP)</option>
+                    <option value="50">Сложный (+50 XP)</option>
+                    <option value="100">ЭПИК (+100 XP)</option>
+                </select>
+                <button id="add-quest-btn">Взять квест</button>
+            </div>
 
-  <div class="game">
-    <h3>🖱 Кликер</h3>
-    <p>Счёт: <span id="score">0</span></p>
-    <button id="clickBtn">Клик</button>
-    <button id="resetBtn">Сброс</button>
-  </div>
+            <div class="quest-lists">
+                <div class="list-column">
+                    <h4>Активные квесты</h4>
+                    <div id="active-quests"></div>
+                </div>
+                <div class="list-column">
+                    <h4>Завершено</h4>
+                    <div id="done-quests"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="game">
-    <h3>🧙 Генератор приключений</h3>
-    <p id="story">Нажми кнопку, чтобы создать приключение</p>
-    <button id="storyBtn">Сгенерировать</button>
-  </div>
+    <section id="games" class="container">
+        <h2 class="title">🕹️ Испытания</h2>
+        <div class="games-grid">
+            <div class="game-box">
+                <h3>Кликер</h3>
+                <div class="display" id="click-count">0</div>
+                <button id="btn-click" class="btn-game">УДАР</button>
+                <p>Таймер: <span id="click-timer">30</span>с</p>
+            </div>
+            <div class="game-box">
+                <h3>Взлом кода</h3>
+                <input type="number" id="guess-in" placeholder="1-100">
+                <button id="btn-guess" class="btn-game">ВЗЛОМ</button>
+                <p id="guess-hint">Попыток: 10</p>
+            </div>
+            <div id="ttt-game" class="game-box">
+                <h3>Крестики-Нолики</h3>
+                <div id="ttt-board"></div>
+                <p id="ttt-status">Ход X</p>
+            </div>
+        </div>
+    </section>
 
-  <div class="game">
-    <h3>🔢 Угадай число</h3>
-    <input id="guessInput" type="number" min="1" max="100" placeholder="1-100">
-    <button id="guessBtn">Проверить</button>
-    <p id="guessResult"></p>
-  </div>
-</section>
+    <section id="maze-section" class="container">
+        <h2 class="title">🛰️ Лабиринт</h2>
+        <div id="maze-grid"></div>
+    </section>
 
-<section id="games">
-  <h2>Игры</h2>
+    <section id="skills" class="container">
+        <h2 class="title">Навыки</h2>
+        <div class="skills-flex">
+            <div class="skill"><span>Python</span><div class="bar"><div style="width:70%"></div></div></div>
+            <div class="skill"><span>JS</span><div class="bar"><div style="width:20%"></div></div></div>
+        </div>
+    </section>
 
-  <div class="game">
-    <h3>❌⭕ Крестики-нолики</h3>
-    <div id="ttt" class="grid"></div>
-    <p id="tttStatus"></p>
-    <button id="tttReset">Перезапуск</button>
-  </div>
+    <section id="contacts" class="container">
+        <h2 class="title">Контакты</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Имя">
+            <input type="email" placeholder="Email">
+            <button type="submit" class="btn-gold">Отправить</button>
+        </form>
+    </section>
 
-  <div class="game">
-    <h3>⚡ Игра на реакцию</h3>
-    <button id="reactStart">Старт</button>
-    <button id="reactBtn">ЖМИ!</button>
-    <p id="reactResult"></p>
-  </div>
-
-  <div class="game">
-    <h3>🧩 Лабиринт</h3>
-    <p>Управление: ↑ ↓ ← →</p>
-    <div id="maze"></div>
-  </div>
-</section>
-
-<!-- JS -->
-<script src="js/script.js"></script>
-
+    <script src="js/app.js"></script>
 </body>
 </html>
