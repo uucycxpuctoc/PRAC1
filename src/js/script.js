@@ -376,6 +376,7 @@ class TaskManager {
 
 class GamesManager {
     constructor() {
+        this.currentGame = 'clicker';
         this.initClicker();
         this.initAdventure();
         this.initGuessNumber();
@@ -389,20 +390,33 @@ class GamesManager {
     setupTabs() {
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
+                // Убираем активный класс со всех кнопок
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                // Добавляем активный класс нажатой кнопке
                 btn.classList.add('active');
                 
+                // Получаем ID игры из data атрибута
+                const gameId = btn.dataset.game;
+                this.currentGame = gameId;
+                
+                // Скрываем все игры
                 document.querySelectorAll('.game-container').forEach(game => {
                     game.classList.add('hidden');
                 });
                 
-                const gameId = btn.dataset.game;
-                const gameElement = document.getElementById(`${gameId}-game`);
-                if (gameElement) {
-                    gameElement.classList.remove('hidden');
+                // Показываем выбранную игру
+                const selectedGame = document.getElementById(`${gameId}-game`);
+                if (selectedGame) {
+                    selectedGame.classList.remove('hidden');
                 }
             });
         });
+        
+        // Показываем первую игру по умолчанию
+        const firstTab = document.querySelector('.tab-btn');
+        if (firstTab) {
+            firstTab.click();
+        }
     }
 
     // Кликер
@@ -915,6 +929,26 @@ class GamesManager {
 // ==================== ОСНОВНОЙ КОД ПРИЛОЖЕНИЯ ====================
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Добавляем стили для скрытия игр
+    const style = document.createElement('style');
+    style.textContent = `
+        .hidden {
+            display: none !important;
+        }
+        
+        .game-container {
+            transition: opacity 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background: var(--primary) !important;
+            color: var(--dark) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 0 var(--accent);
+        }
+    `;
+    document.head.appendChild(style);
+    
     // Инициализация RPG планировщика
     window.taskManager = new TaskManager();
     window.taskManager.render();
@@ -1020,33 +1054,4 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             
-            const spans = hamburger.querySelectorAll('span');
-            if (hamburger.classList.contains('active')) {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(7px, -7px)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        });
-    }
-    
-    // Анимация для текста ролей
-    const roles = ['Frontend разработчик', 'UI дизайнер', 'Студент', 'Геймдизайнер'];
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    
-    function typeRole() {
-        const roleElement = document.querySelector('.role');
-        if (!roleElement) return;
-        
-        const currentRole = roles[roleIndex];
-        
-        if (isDeleting) {
-            roleElement.textContent = currentRole.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            roleElement
+            const spans = hamburger.querySelectorAll
