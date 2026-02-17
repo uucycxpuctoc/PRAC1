@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Portfolio + Games</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Portfolio + Games</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <nav>
   <a href="#home">Главная</a>
   <a href="#portfolio">Портфолио</a>
@@ -12,62 +14,67 @@
   <a href="#games">Игры</a>
 </nav>
 
+<!-- HERO -->
 <section id="home" class="hero">
   <h1>Student Developer</h1>
-  <p>Frontend | UI | Games</p>
+  <p>Frontend • UI • Game Dev</p>
 </section>
 
+<!-- PORTFOLIO -->
 <section id="portfolio">
   <h2>Портфолио</h2>
   <div class="cards">
-    <div class="card">Навыки: HTML, CSS, JS, Python</div>
+    <div class="card">Навыки: HTML, CSS, JS, Python, Git</div>
     <div class="card">Образование: IT Student</div>
-    <div class="card">Проекты: Мини-игры</div>
+    <div class="card">Проекты: Игры, сайты, приложения</div>
   </div>
 </section>
 
+<!-- MINI GAMES -->
 <section id="mini">
   <h2>Мини-игры</h2>
+
   <div class="game">
-    <h3>Кликер</h3>
+    <h3>🖱 Кликер</h3>
     <p>Счёт: <span id="score">0</span></p>
     <button id="clickBtn">Клик</button>
     <button id="resetBtn">Сброс</button>
   </div>
 
   <div class="game">
-    <h3>Генератор приключений</h3>
-    <p id="story"></p>
+    <h3>🧙 Генератор приключений</h3>
+    <p id="story">Нажми кнопку, чтобы создать приключение</p>
     <button id="storyBtn">Сгенерировать</button>
   </div>
 
   <div class="game">
-    <h3>Угадай число</h3>
-    <input id="guessInput" type="number" min="1" max="100">
+    <h3>🔢 Угадай число</h3>
+    <input id="guessInput" type="number" min="1" max="100" placeholder="1-100">
     <button id="guessBtn">Проверить</button>
     <p id="guessResult"></p>
   </div>
 </section>
 
+<!-- GAMES -->
 <section id="games">
   <h2>Игры</h2>
 
   <div class="game">
-    <h3>Крестики-нолики</h3>
+    <h3>❌⭕ Крестики-нолики</h3>
     <div id="ttt" class="grid"></div>
     <p id="tttStatus"></p>
     <button id="tttReset">Перезапуск</button>
   </div>
 
   <div class="game">
-    <h3>Игра на реакцию</h3>
+    <h3>⚡ Игра на реакцию</h3>
     <button id="reactStart">Старт</button>
     <button id="reactBtn">ЖМИ!</button>
     <p id="reactResult"></p>
   </div>
 
   <div class="game">
-    <h3>Лабиринт</h3>
+    <h3>🧩 Лабиринт</h3>
     <p>Управление: ↑ ↓ ← →</p>
     <div id="maze"></div>
   </div>
