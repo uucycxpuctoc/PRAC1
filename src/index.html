@@ -131,12 +131,13 @@
             transform: translateX(-50%);
             background: rgba(15, 15, 15, 0.9);
             backdrop-filter: blur(10px);
-            min-width: 200px;
+            min-width: 250px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
             margin-top: 10px;
+            z-index: 1001;
         }
 
         .dropdown:hover .dropdown-content {
@@ -150,6 +151,11 @@
             color: #a0a0a0;
             text-align: center;
             text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
         }
 
         .dropdown-content a:hover {
@@ -601,6 +607,16 @@
         }
 
         /* ===== СТИЛИ ДЛЯ ИГР ===== */
+        .games-section {
+            min-height: 100vh;
+            padding: 120px 12%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
         .games-container {
             display: flex;
             flex-direction: column;
@@ -634,163 +650,203 @@
             opacity: 0.7;
         }
 
-        /* Кликер */
-        .clicker-display {
-            text-align: center;
-            margin-bottom: 2rem;
+        .game-area {
+            position: relative;
+            min-height: 400px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 2rem 0;
+            overflow: hidden;
         }
 
-        .clicker-score {
-            font-size: 4rem;
-            font-weight: 300;
+        .game-stats {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin: 1rem 0;
+            font-size: 1.2rem;
+            color: #a0a0a0;
+        }
+
+        .game-stats span {
             color: #ffffff;
-            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
         }
 
-        .clicker-timer {
-            font-size: 1.5rem;
-            color: #888888;
-            margin-top: 0.5rem;
-        }
-
-        .clicker-button {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: transparent;
-            border: 2px solid #ffffff;
-            color: #ffffff;
-            font-size: 2rem;
-            font-family: 'Cormorant Garamond', serif;
-            cursor: pointer;
-            margin: 2rem auto;
-            display: block;
-            transition: all 0.1s ease;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-        }
-
-        .clicker-button:hover {
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .clicker-button:active {
-            transform: scale(0.95);
-        }
-
-        .clicker-button.clicked {
+        /* Игра на скорость реакции */
+        .reaction-btn {
+            position: absolute;
+            padding: 1.5rem 3rem;
             background: #ffffff;
             color: #0f0f0f;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .game-btn {
-            padding: 0.8rem 2rem;
-            background: transparent;
-            color: #ffffff;
-            border: 1px solid #ffffff;
+            border: none;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .reaction-btn:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            background: #f0f0f0;
+        }
+
+        .reaction-btn:active {
+            transform: translate(-50%, -50%) scale(0.95);
+        }
+
+        .waiting-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: #888888;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Крестики-нолики */
+        .tic-tac-toe {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: #ffffff;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .game-btn:hover {
+        .cell:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ffffff;
+        }
+
+        .cell.win {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffffff;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .game-info {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            min-width: 200px;
+        }
+
+        .game-info p {
+            margin: 1rem 0;
+            color: #a0a0a0;
+        }
+
+        .game-info span {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .mode-selector {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .mode-btn {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mode-btn.active {
             background: #ffffff;
             color: #0f0f0f;
         }
 
-        .record-info {
-            text-align: center;
-            color: #888888;
-            margin-top: 1rem;
-        }
-
-        /* Генератор приключений */
-        .story-text {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: #e0e0e0;
-            margin: 2rem 0;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.3);
-            border-left: 3px solid #ffffff;
-        }
-
-        .saved-stories {
-            margin-top: 2rem;
-        }
-
-        .saved-stories h3 {
-            color: #ffffff;
-            margin-bottom: 1rem;
-        }
-
-        .story-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1rem;
-            margin-bottom: 0.5rem;
+        /* Лабиринт */
+        .maze-container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: 2rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .story-item p {
-            color: #a0a0a0;
+        .maze {
+            display: grid;
+            grid-template-columns: repeat(10, 40px);
+            gap: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px;
         }
 
-        .delete-story {
-            background: none;
-            border: none;
-            color: #ff6b6b;
-            cursor: pointer;
-            font-size: 1rem;
+        .maze-cell {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
-        /* Угадай число */
-        .guess-number {
-            font-size: 3rem;
-            color: #ffffff;
-            text-align: center;
-            margin-bottom: 1rem;
+        .maze-cell.wall {
+            background: #2a2a2a;
+            border-color: #444;
         }
 
-        .guess-input {
-            width: 100%;
-            max-width: 300px;
-            padding: 1rem;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            font-size: 1.5rem;
-            text-align: center;
-            margin: 0 auto 1rem;
-            display: block;
+        .maze-cell.player {
+            background: #ffffff;
+            box-shadow: 0 0 20px #ffffff;
         }
 
-        .guess-message {
-            text-align: center;
+        .maze-cell.exit {
+            background: #4a4a4a;
+            border-color: #ffffff;
+            position: relative;
+        }
+
+        .maze-cell.exit::after {
+            content: '🚪';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             font-size: 1.2rem;
-            margin: 1rem 0;
-            color: #a0a0a0;
         }
 
-        .attempts-left {
-            text-align: center;
-            color: #888888;
-            margin: 1rem 0;
-        }
-
-        .range-info {
-            text-align: center;
-            color: #888888;
-            margin-bottom: 1rem;
+        .maze-info {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            min-width: 200px;
         }
 
         /* ===== КОНТАКТЫ ===== */
@@ -973,10 +1029,22 @@
                 font-size: 2.5rem;
             }
 
-            .clicker-button {
-                width: 150px;
-                height: 150px;
-                font-size: 1.5rem;
+            .board {
+                transform: scale(0.8);
+            }
+
+            .cell {
+                width: 80px;
+                height: 80px;
+            }
+
+            .maze {
+                grid-template-columns: repeat(10, 30px);
+            }
+
+            .maze-cell {
+                width: 30px;
+                height: 30px;
             }
         }
     </style>
@@ -996,9 +1064,9 @@
             <li class="dropdown">
                 <a href="#games">Мини-игры <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
                 <div class="dropdown-content">
-                    <a href="#" onclick="showGame('clicker-game')">Кликер</a>
-                    <a href="#" onclick="showGame('adventure-game')">Генератор приключений</a>
-                    <a href="#" onclick="showGame('guess-game')">Угадай число</a>
+                    <a href="#reaction-game">На скорость реакции</a>
+                    <a href="#tictactoe-game">Крестики-нолики</a>
+                    <a href="#maze-game">Лабиринт</a>
                 </div>
             </li>
             <li><a href="#contacts">Контакты</a></li>
@@ -1099,65 +1167,4 @@
                     <div class="soft-skills">
                         <span class="skill-tag">ООП</span>
                         <span class="skill-tag">Паттерны</span>
-                        <span class="skill-tag">QT/wxWidgets</span>
-                        <span class="skill-tag">Android</span>
-                        <span class="skill-tag">HTTP</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Soft Skills -->
-            <div class="skill-category">
-                <h3>Soft Skills</h3>
-                <div class="soft-skills">
-                    <span class="skill-tag">Командная работа</span>
-                    <span class="skill-tag">Критическое мышление</span>
-                    <span class="skill-tag">Коммуникабельность</span>
-                    <span class="skill-tag">Тайм-менеджмент</span>
-                    <span class="skill-tag">Адаптивность</span>
-                    <span class="skill-tag">Решение проблем</span>
-                </div>
-            </div>
-
-            <!-- Языки -->
-            <div class="skill-category">
-                <h3>Языки</h3>
-                <div class="skill-items">
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Английский</span>
-                            <span>B1</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 75%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Казахский</span>
-                            <span>Ниже среднего</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 100%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Русский</span>
-                            <span>Родной</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 100%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Образование -->
-    <section id="education">
-        <h2 class="section-title">Образование</h2>
-        <div class="timeline">
-            <div class="timeline-item left">
-                <div class="timeline-content
+                        <
