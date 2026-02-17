@@ -6,16 +6,16 @@
     <title>Айбек Сериков | Портфолио</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23000000'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='Arial'>AS</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23ffffff'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='black' font-family='Cormorant Garamond'>AS</text></svg>">
     
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* ===== ЧИСТО ЧЁРНО-БЕЛАЯ СХЕМА ===== */
+        /* ===== МРАЧНЫЙ ЭЛЕГАНТНЫЙ СТИЛЬ ===== */
         * {
             margin: 0;
             padding: 0;
@@ -25,69 +25,143 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #000000;
-            color: #ffffff;
+            background: #0f0f0f;
+            color: #e0e0e0;
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* ===== ЭФФЕКТ ДОЖДЯ ===== */
+        .rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .drop {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.2));
+            animation: rain 2s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes rain {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0.1;
+            }
+        }
+
+        /* Заголовки с благородным шрифтом */
+        h1, h2, h3, .section-title, .nav-links a {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: 0.05em;
         }
 
         /* ===== НАВИГАЦИЯ ===== */
         nav {
             position: fixed;
-            top: 20px;
+            top: 30px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            padding: 1rem 2rem;
-            background-color: #111111;
-            border: 1px solid #333333;
-            border-radius: 50px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 2.5rem;
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: #888888;
+            color: #a0a0a0;
             text-decoration: none;
-            font-weight: 500;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
+            padding: 0.3rem 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #ffffff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         .nav-links a.active {
-            background-color: #ffffff;
-            color: #000000;
-        }
-
-        .nav-links a:hover {
             color: #ffffff;
         }
 
         /* ===== СЕКЦИИ ===== */
         section {
             min-height: 100vh;
-            padding: 100px 10%;
+            padding: 120px 12%;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            position: relative;
+            z-index: 2;
         }
 
         .section-title {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 3rem;
             color: #ffffff;
             text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            border-bottom: 2px solid #ffffff;
-            padding-bottom: 1rem;
+            font-weight: 400;
+            position: relative;
             display: inline-block;
             align-self: center;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background: #ffffff;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background: #ffffff;
         }
 
         /* ===== ГЛАВНАЯ ===== */
@@ -102,25 +176,27 @@
         }
 
         .hero-text h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             line-height: 1.2;
             margin-bottom: 1rem;
             color: #ffffff;
+            font-weight: 400;
         }
 
         .highlight {
             color: #ffffff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            font-style: italic;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .animated-text {
-            font-size: 2rem;
-            font-weight: 600;
-            margin: 1.5rem 0;
+            font-size: 1.8rem;
+            margin: 2rem 0;
             height: 3rem;
             display: flex;
             gap: 0.5rem;
-            color: #ffffff;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
         }
 
         .static-text {
@@ -136,10 +212,10 @@
             content: "";
             position: absolute;
             right: -5px;
-            width: 3px;
+            width: 2px;
             height: 80%;
             background: #ffffff;
-            animation: blink 0.7s infinite;
+            animation: blink 1s infinite;
         }
 
         @keyframes blink {
@@ -148,27 +224,47 @@
         }
 
         .hero-description {
-            color: #cccccc;
+            color: #b0b0b0;
             margin: 1.5rem 0;
             font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
         }
 
         .btn {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background-color: #ffffff;
-            color: #000000;
+            padding: 1rem 3rem;
+            background: transparent;
+            color: #ffffff;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
+            border: 1px solid #ffffff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
             transition: all 0.3s ease;
-            border: none;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            transition: left 0.3s ease;
+            z-index: -1;
         }
 
         .btn:hover {
-            background-color: #cccccc;
-            transform: scale(1.05);
+            color: #0f0f0f;
+        }
+
+        .btn:hover::before {
+            left: 0;
         }
 
         .hero-avatar {
@@ -180,16 +276,16 @@
         .avatar-container {
             width: 350px;
             height: 350px;
-            border-radius: 50%;
+            border-radius: 0;
             overflow: hidden;
-            border: 3px solid #ffffff;
-            animation: float 6s ease-in-out infinite;
-            filter: grayscale(100%);
+            border: 1px solid #ffffff;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        .avatar-container:hover {
+            opacity: 1;
         }
 
         .avatar-container img {
@@ -207,22 +303,29 @@
         }
 
         .skill-category {
-            background-color: #111111;
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid #333333;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border-color 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .skill-category h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            margin-bottom: 2rem;
             color: #ffffff;
+            font-weight: 400;
+            letter-spacing: 0.1em;
         }
 
         .skill-items {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .skill-item {
@@ -234,21 +337,20 @@
         .skill-info {
             display: flex;
             justify-content: space-between;
-            color: #cccccc;
+            color: #a0a0a0;
+            font-size: 0.95rem;
         }
 
         .progress-bar {
             width: 100%;
-            height: 10px;
-            background-color: #333333;
-            border-radius: 10px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
             overflow: hidden;
         }
 
         .progress {
             height: 100%;
-            background-color: #ffffff;
-            border-radius: 10px;
+            background: #ffffff;
             animation: fillBar 1.5s ease-out forwards;
             transform-origin: left;
         }
@@ -266,32 +368,31 @@
 
         .skill-tag {
             padding: 0.5rem 1.5rem;
-            background-color: #222222;
-            border: 1px solid #444444;
-            border-radius: 30px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             font-size: 0.9rem;
-            color: #ffffff;
+            color: #e0e0e0;
             transition: all 0.3s ease;
+            font-weight: 300;
         }
 
         .skill-tag:hover {
-            background-color: #ffffff;
-            color: #000000;
-            transform: scale(1.05);
+            border-color: #ffffff;
+            color: #ffffff;
         }
 
         /* ===== ОБРАЗОВАНИЕ ===== */
         .timeline {
             position: relative;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .timeline::after {
             content: '';
             position: absolute;
-            width: 4px;
-            background-color: #ffffff;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.2);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -299,22 +400,16 @@
         }
 
         .timeline-item {
-            padding: 10px 40px;
+            padding: 20px 40px;
             position: relative;
             width: 50%;
-            animation: fadeInUp 0.8s ease forwards;
+            animation: fadeIn 0.8s ease forwards;
             opacity: 0;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .timeline-item.left {
@@ -326,143 +421,141 @@
         }
 
         .timeline-content {
-            padding: 20px;
-            background-color: #111111;
-            border-radius: 15px;
-            border: 1px solid #333333;
+            padding: 2rem;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             position: relative;
         }
 
         .timeline-content::before {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #ffffff;
-            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            background: #ffffff;
             top: 50%;
             transform: translateY(-50%);
         }
 
         .left .timeline-content::before {
-            right: -50px;
+            right: -45px;
         }
 
         .right .timeline-content::before {
-            left: -50px;
+            left: -45px;
         }
 
         .timeline-date {
             color: #ffffff;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.2em;
         }
 
         /* ===== ДОСТИЖЕНИЯ ===== */
         .achievements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
         .achievement-card {
-            background-color: #111111;
-            padding: 2rem;
-            border-radius: 20px;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 2.5rem 2rem;
             text-align: center;
-            border: 1px solid #333333;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease forwards;
+            animation: fadeIn 0.8s ease forwards;
             opacity: 0;
         }
 
         .achievement-card:hover {
-            transform: translateY(-10px);
-            border-color: #ffffff;
-            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
         }
 
         .achievement-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: #ffffff;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
         }
 
         .achievement-date {
             color: #888888;
-            font-size: 0.9rem;
-            margin: 0.5rem 0;
+            font-size: 0.85rem;
+            margin: 0.8rem 0;
+            letter-spacing: 0.1em;
         }
 
         /* ===== ПРОЕКТЫ ===== */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         .project-card {
-            background-color: #111111;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid #333333;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease forwards;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+            animation: fadeIn 0.8s ease forwards;
             opacity: 0;
+            position: relative;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            border-color: #ffffff;
-            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px);
         }
 
         .project-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, #222222, #333333);
+            background: #1a1a1a;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #ffffff;
             font-size: 3rem;
+            opacity: 0.8;
         }
 
         .project-content {
-            padding: 1.5rem;
+            padding: 2rem;
         }
 
         .project-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
             color: #ffffff;
+            font-weight: 400;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1rem 0;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
         }
 
         .tech-tag {
             padding: 0.3rem 1rem;
-            background-color: #222222;
-            border: 1px solid #444444;
-            border-radius: 20px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.8rem;
-            color: #cccccc;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            color: #b0b0b0;
         }
 
         .project-links a {
             color: #888888;
             text-decoration: none;
+            margin-right: 1.5rem;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
         }
 
@@ -484,51 +577,55 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(20, 20, 20, 0.5);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .contact-item i {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: #ffffff;
+            opacity: 0.7;
         }
 
         .social-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             margin-top: 2rem;
         }
 
         .social-links a {
             color: #888888;
-            font-size: 2rem;
+            font-size: 1.8rem;
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
             color: #ffffff;
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
 
         .contact-form {
             flex: 1;
-            background-color: #111111;
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid #333333;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 1rem;
-            background-color: #222222;
-            border: 1px solid #333333;
-            border-radius: 10px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: #ffffff;
             font-size: 1rem;
             transition: all 0.3s ease;
@@ -537,36 +634,26 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .form-group textarea {
-            height: 150px;
+            height: 120px;
             resize: vertical;
         }
 
         .error-message {
-            color: #ff4444;
-            font-size: 0.9rem;
+            color: #ff6b6b;
+            font-size: 0.85rem;
             margin-top: 0.3rem;
             display: none;
         }
 
-        .form-group.error .error-message {
-            display: block;
-        }
-
-        .form-group.error input,
-        .form-group.error textarea {
-            border-color: #ff4444;
-        }
-
         .success-message {
-            background-color: #222222;
-            border: 1px solid #ffffff;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #ffffff;
             padding: 1rem;
-            border-radius: 10px;
             margin-top: 1rem;
             display: none;
             text-align: center;
@@ -576,25 +663,28 @@
         footer {
             text-align: center;
             padding: 2rem;
-            color: #888888;
-            border-top: 1px solid #333333;
+            color: #666666;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 2;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
         }
 
         /* ===== АДАПТАЦИЯ ===== */
         @media (max-width: 768px) {
             nav {
                 width: 90%;
-                padding: 0.5rem;
+                padding: 0.8rem 1rem;
             }
 
             .nav-links {
-                gap: 0.5rem;
+                gap: 1rem;
                 flex-wrap: wrap;
                 justify-content: center;
             }
 
             .nav-links a {
-                padding: 0.3rem 0.8rem;
                 font-size: 0.9rem;
             }
 
@@ -604,11 +694,11 @@
             }
 
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
 
             .animated-text {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
                 justify-content: center;
             }
 
@@ -618,7 +708,7 @@
             }
 
             .timeline::after {
-                left: 31px;
+                left: 30px;
             }
 
             .timeline-item {
@@ -641,12 +731,15 @@
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Эффект дождя -->
+    <div class="rain" id="rain"></div>
+
     <!-- Навигация -->
     <nav>
         <ul class="nav-links">
@@ -669,17 +762,17 @@
                     <span class="dynamic-text" id="typing-text"></span>
                 </div>
                 <p class="hero-description">
-                    Студент 4 курса, специализирующийся на разработке настольных приложений и бэкенд-разработке. 
-                    Увлечен созданием эффективных и масштабируемых решений.
+                    Студент 4 курса, погружённый в мир разработки настольных приложений и бэкенд-архитектуры. 
+                    Создаю элегантные решения для сложных задач.
                 </p>
                 <p class="hero-description">
-                    В свободное время участвую в хакатонах, изучаю новые технологии и работаю над пет-проектами.
+                    В свободное время — участник хакатонов, исследователь новых технологий и автор пет-проектов.
                 </p>
-                <a href="#contacts" class="btn">Связаться со мной</a>
+                <a href="#contacts" class="btn">СВЯЗАТЬСЯ</a>
             </div>
             <div class="hero-avatar">
                 <div class="avatar-container">
-                    <img src="https://ui-avatars.com/api/?name=Айбек+Сериков&size=350&length=2&background=000000&color=fff&bold=true&font-size=0.50&rounded=true" alt="Аватар">
+                    <img src="https://ui-avatars.com/api/?name=Айбек+Сериков&size=350&length=2&background=1a1a1a&color=fff&bold=false&font-size=0.40&rounded=false" alt="Аватар">
                 </div>
             </div>
         </div>
@@ -739,8 +832,8 @@
                         </div>
                     </div>
                 </div>
-                <div style="margin-top: 2rem;">
-                    <h4 style="color: #cccccc; margin-bottom: 1rem;">Инструменты</h4>
+                <div style="margin-top: 2.5rem;">
+                    <h4 style="color: #a0a0a0; margin-bottom: 1.5rem; font-weight: 400;">Инструменты</h4>
                     <div class="soft-skills">
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">MySQL</span>
@@ -748,8 +841,8 @@
                         <span class="skill-tag">Linux</span>
                     </div>
                 </div>
-                <div style="margin-top: 2rem;">
-                    <h4 style="color: #cccccc; margin-bottom: 1rem;">Другое</h4>
+                <div style="margin-top: 2.5rem;">
+                    <h4 style="color: #a0a0a0; margin-bottom: 1.5rem; font-weight: 400;">Другое</h4>
                     <div class="soft-skills">
                         <span class="skill-tag">ООП</span>
                         <span class="skill-tag">Паттерны</span>
@@ -815,19 +908,18 @@
         <div class="timeline">
             <div class="timeline-item left">
                 <div class="timeline-content">
-                    <div class="timeline-date">2021 - 2025</div>
-                    <h3>КазНУ им. Аль-Фараби</h3>
-                    <p>Факультет информационных технологий</p>
-                    <p><strong>Специальность:</strong> Информационные системы</p>
-                    <p><strong>Степень:</strong> Бакалавр</p>
+                    <div class="timeline-date">2021 — 2025</div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">КазНУ им. Аль-Фараби</h3>
+                    <p style="color: #b0b0b0; margin-bottom: 0.5rem;">Факультет информационных технологий</p>
+                    <p style="color: #888888;"><em>Информационные системы, бакалавр</em></p>
                 </div>
             </div>
             <div class="timeline-item right">
                 <div class="timeline-content">
-                    <div class="timeline-date">2019 - 2021</div>
-                    <h3>НИШ</h3>
-                    <p>Физико-математическое направление</p>
-                    <p><strong>Специализация:</strong> Информатика</p>
+                    <div class="timeline-date">2019 — 2021</div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">НИШ</h3>
+                    <p style="color: #b0b0b0; margin-bottom: 0.5rem;">Физико-математическое направление</p>
+                    <p style="color: #888888;"><em>Информатика и математика</em></p>
                 </div>
             </div>
         </div>
@@ -842,24 +934,24 @@
                     <i class="fas fa-trophy"></i>
                 </div>
                 <h3>HackNU 2024</h3>
-                <div class="achievement-date">Март 2024</div>
-                <p>2 место в хакатоне</p>
+                <div class="achievement-date">МАРТ 2024</div>
+                <p style="color: #a0a0a0;">2 место в хакатоне по разработке настольных приложений</p>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">
                     <i class="fas fa-certificate"></i>
                 </div>
-                <h3>Сертификат Huawei</h3>
-                <div class="achievement-date">Январь 2024</div>
-                <p>HCIA - Artificial Intelligence</p>
+                <h3>Huawei Certificate</h3>
+                <div class="achievement-date">ЯНВАРЬ 2024</div>
+                <p style="color: #a0a0a0;">HCIA - Artificial Intelligence</p>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">
                     <i class="fas fa-medal"></i>
                 </div>
-                <h3>Олимпиада</h3>
-                <div class="achievement-date">Ноябрь 2023</div>
-                <p>3 место, Algorithmic Battle</p>
+                <h3>Algorithmic Battle</h3>
+                <div class="achievement-date">НОЯБРЬ 2023</div>
+                <p style="color: #a0a0a0;">3 место в республиканской олимпиаде</p>
             </div>
         </div>
     </section>
@@ -874,13 +966,15 @@
                 </div>
                 <div class="project-content">
                     <h3>TaskFlow</h3>
-                    <p>Приложение для управления задачами</p>
+                    <p style="color: #b0b0b0; font-weight: 300;">Кроссплатформенное приложение для управления задачами с облачной синхронизацией.</p>
                     <div class="project-tech">
                         <span class="tech-tag">C++</span>
                         <span class="tech-tag">QT</span>
+                        <span class="tech-tag">SQLite</span>
                     </div>
                     <div class="project-links">
                         <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
                     </div>
                 </div>
             </div>
@@ -890,10 +984,11 @@
                 </div>
                 <div class="project-content">
                     <h3>EduAnalytics</h3>
-                    <p>Аналитика успеваемости</p>
+                    <p style="color: #b0b0b0; font-weight: 300;">Платформа для анализа успеваемости с элементами машинного обучения.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Pandas</span>
                     </div>
                     <div class="project-links">
                         <a href="#"><i class="fab fa-github"></i> GitHub</a>
@@ -906,10 +1001,11 @@
                 </div>
                 <div class="project-content">
                     <h3>StudyBuddy</h3>
-                    <p>Мобильное приложение</p>
+                    <p style="color: #b0b0b0; font-weight: 300;">Мобильное приложение для поиска учебных партнёров.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Java</span>
                         <span class="tech-tag">Android</span>
+                        <span class="tech-tag">Firebase</span>
                     </div>
                     <div class="project-links">
                         <a href="#"><i class="fab fa-github"></i> GitHub</a>
@@ -927,155 +1023,32 @@
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <div>
-                        <h3>Email</h3>
-                        <p>a.seirkov@student.example.com</p>
+                        <h3 style="font-weight: 400;">Email</h3>
+                        <p style="color: #b0b0b0;">a.seirkov@student.example.com</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
-                        <h3>Локация</h3>
-                        <p>Алматы, Казахстан</p>
+                        <h3 style="font-weight: 400;">Локация</h3>
+                        <p style="color: #b0b0b0;">Алматы, Казахстан</p>
                     </div>
                 </div>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-github"></i></a>
                     <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="contact-form">
-                <h3 style="margin-bottom: 1.5rem;">Напишите мне</h3>
+                <h3 style="margin-bottom: 2rem; font-weight: 400; letter-spacing: 0.2em;">НАПИШИТЕ МНЕ</h3>
                 <div class="form-group" id="nameGroup">
-                    <input type="text" id="name" placeholder="Ваше имя">
+                    <input type="text" id="name" placeholder="Имя">
                     <div class="error-message">Минимум 2 символа</div>
                 </div>
                 <div class="form-group" id="emailGroup">
-                    <input type="email" id="email" placeholder="Ваш Email">
+                    <input type="email" id="email" placeholder="Email">
                     <div class="error-message">Неверный email</div>
                 </div>
                 <div class="form-group" id="messageGroup">
-                    <textarea id="message" placeholder="Сообщение"></textarea>
-                    <div class="error-message">Напишите сообщение</div>
-                </div>
-                <button class="btn" onclick="validateForm()" style="width: 100%;">Отправить</button>
-                <div class="success-message" id="successMessage">
-                    Отправлено! (тест)
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Подвал -->
-    <footer>
-        <p>© 2025 Айбек Сериков</p>
-    </footer>
-
-    <!-- JavaScript -->
-    <script>
-        // Печатная машинка
-        const roles = ["Frontend разработчик", "UI дизайнер", "Студент"];
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingText = document.getElementById('typing-text');
-
-        function typeEffect() {
-            const currentRole = roles[roleIndex];
-            
-            if (isDeleting) {
-                typingText.textContent = currentRole.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.textContent = currentRole.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentRole.length) {
-                isDeleting = true;
-                setTimeout(typeEffect, 2000);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-                setTimeout(typeEffect, 500);
-            } else {
-                setTimeout(typeEffect, isDeleting ? 50 : 100);
-            }
-        }
-
-        typeEffect();
-
-        // Подсветка навигации
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-links a');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Валидация формы
-        function validateForm() {
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const message = document.getElementById('message');
-            const nameGroup = document.getElementById('nameGroup');
-            const emailGroup = document.getElementById('emailGroup');
-            const messageGroup = document.getElementById('messageGroup');
-            const successMessage = document.getElementById('successMessage');
-            
-            let isValid = true;
-
-            // Имя
-            if (name.value.length < 2) {
-                nameGroup.classList.add('error');
-                isValid = false;
-            } else {
-                nameGroup.classList.remove('error');
-            }
-
-            // Email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email.value)) {
-                emailGroup.classList.add('error');
-                isValid = false;
-            } else {
-                emailGroup.classList.remove('error');
-            }
-
-            // Сообщение
-            if (message.value.trim() === '') {
-                messageGroup.classList.add('error');
-                isValid = false;
-            } else {
-                messageGroup.classList.remove('error');
-            }
-
-            if (isValid) {
-                successMessage.style.display = 'block';
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 3000);
-                
-                name.value = '';
-                email.value = '';
-                message.value = '';
-            }
-        }
-    </script>
-</body>
-</html>
+                    <textarea id="message"
