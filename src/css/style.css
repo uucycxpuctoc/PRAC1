@@ -674,3 +674,32 @@ footer {
         font-size: 2.5rem;
     }
 }
+/* ===== ЭФФЕКТ ДОЖДЯ ===== */
+.rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.drop {
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.4));
+    animation: rainFall linear infinite;
+}
+
+@keyframes rainFall {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0.1;
+    }
+}
