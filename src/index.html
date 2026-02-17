@@ -41,14 +41,14 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
+            overflow: hidden;
         }
 
         .drop {
             position: absolute;
             width: 1px;
-            height: 100px;
-            background: linear-gradient(transparent, rgba(255, 255, 255, 0.15));
-            animation: rain 2s linear infinite;
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.3));
+            animation: rain linear infinite;
         }
 
         @keyframes rain {
@@ -648,6 +648,15 @@
             display: none;
         }
 
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #ff6b6b;
+        }
+
         .success-message {
             background: transparent;
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -769,9 +778,10 @@
                 </p>
                 <a href="#contacts" class="btn">СВЯЗАТЬСЯ</a>
             </div>
-<div class="avatar-container">
-    <img src="https://github.com/user-attachments/assets/c763dc83-51f6-4ac0-9601-144336bdadd8" alt="Дышленко Александр">
-</div>
+            <div class="hero-avatar">
+                <div class="avatar-container">
+                    <img src="https://github.com/user-attachments/assets/c763dc83-51f6-4ac0-9601-144336bdadd8" alt="Дышленко Александр">
+                </div>
             </div>
         </div>
     </section>
@@ -1048,8 +1058,4 @@
                     <input type="email" id="email" placeholder="Email">
                     <div class="error-message">Неверный email</div>
                 </div>
-                <div class="form-group" id="messageGroup">
-                    <textarea id="message" placeholder="Сообщение"></textarea>
-                    <div class="error-message">Напишите сообщение</div>
-                </div>
-               
+                <
