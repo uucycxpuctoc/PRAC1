@@ -1,93 +1,78 @@
 <!DOCTYPE html>
-<html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Портфолио — Студент</title>
-<link rel="icon" href="assets/avatar.png" />
-<link rel="stylesheet" href="./css/style.css">
+<meta charset="UTF-8">
+<title>Portfolio + Games</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-<nav class="nav">
-<ul>
-<li><a href="#home" class="active">Главная</a></li>
-<li><a href="#skills">Навыки</a></li>
-<li><a href="#education">Образование</a></li>
-<li><a href="#achievements">Достижения</a></li>
-<li><a href="#projects">Проекты</a></li>
-<li><a href="#contacts">Контакты</a></li>
-</ul>
+<nav>
+  <a href="#home">Главная</a>
+  <a href="#portfolio">Портфолио</a>
+  <a href="#mini">Мини-игры</a>
+  <a href="#games">Игры</a>
 </nav>
-</header>
 
-
-<main>
 <section id="home" class="hero">
-<img src="assets/avatar.png" alt="Аватар" class="avatar" />
-<h1>Привет, я <span>Ваше Имя</span></h1>
-<p>Я студент и начинающий разработчик. Интересуюсь созданием современных приложений, интерфейсов и программированием.</p>
-<p>Люблю учиться новому и постоянно развиваю свои навыки.</p>
-<h2 class="typing">Frontend разработчик | Студент | UI‑энтузиаст</h2>
-<a href="#contacts" class="btn">Связаться со мной</a>
+  <h1>Student Developer</h1>
+  <p>Frontend | UI | Games</p>
 </section>
 
-
-<section id="skills">
-<h2>Навыки</h2>
-<h3>Hard Skills</h3>
-<div class="skill"><span>Python</span><div class="bar"><div style="width:70%"></div></div></div>
-<div class="skill"><span>JavaScript</span><div class="bar"><div style="width:10%"></div></div></div>
-<div class="skill"><span>Java</span><div class="bar"><div style="width:60%"></div></div></div>
-<div class="skill"><span>C++</span><div class="bar"><div style="width:40%"></div></div></div>
-<div class="skill"><span>C</span><div class="bar"><div style="width:50%"></div></div></div>
-
-
-<h3>Инструменты</h3>
-<ul class="tags"><li>Git</li><li>MySQL</li><li>Qt</li><li>Linux</li></ul>
-
-
-<h3>Soft Skills</h3>
-<ul>
-<li>Командная работа</li>
-<li>Критическое мышление</li>
-<li>Коммуникабельность</li>
-</ul>
+<section id="portfolio">
+  <h2>Портфолио</h2>
+  <div class="cards">
+    <div class="card">Навыки: HTML, CSS, JS, Python</div>
+    <div class="card">Образование: IT Student</div>
+    <div class="card">Проекты: Мини-игры</div>
+  </div>
 </section>
 
+<section id="mini">
+  <h2>Мини-игры</h2>
+  <div class="game">
+    <h3>Кликер</h3>
+    <p>Счёт: <span id="score">0</span></p>
+    <button id="clickBtn">Клик</button>
+    <button id="resetBtn">Сброс</button>
+  </div>
 
-<section id="education">
-<h2>Образование</h2>
-<div class="timeline">
-<article>
-<h3>Университет</h3>
-<span>2022 — настоящее время</span>
-<p>Бакалавр, Информационные технологии</p>
-</article>
-<article>
-<h3>Колледж</h3>
-<span>2018 — 2022</span>
-<p>Программирование</p>
-</article>
-</div>
+  <div class="game">
+    <h3>Генератор приключений</h3>
+    <p id="story"></p>
+    <button id="storyBtn">Сгенерировать</button>
+  </div>
+
+  <div class="game">
+    <h3>Угадай число</h3>
+    <input id="guessInput" type="number" min="1" max="100">
+    <button id="guessBtn">Проверить</button>
+    <p id="guessResult"></p>
+  </div>
 </section>
 
+<section id="games">
+  <h2>Игры</h2>
 
-<section id="achievements">
-<h2>Достижения</h2>
-<div class="cards">
-<div class="card">🏆 Хакатон — участие (2024)</div>
-<div class="card">📜 Сертификат Coursera</div>
-<div class="card">🎓 Олимпиада по программированию</div>
-</div>
+  <div class="game">
+    <h3>Крестики-нолики</h3>
+    <div id="ttt" class="grid"></div>
+    <p id="tttStatus"></p>
+    <button id="tttReset">Перезапуск</button>
+  </div>
+
+  <div class="game">
+    <h3>Игра на реакцию</h3>
+    <button id="reactStart">Старт</button>
+    <button id="reactBtn">ЖМИ!</button>
+    <p id="reactResult"></p>
+  </div>
+
+  <div class="game">
+    <h3>Лабиринт</h3>
+    <p>Управление: ↑ ↓ ← →</p>
+    <div id="maze"></div>
+  </div>
 </section>
 
-
-<section id="projects">
-<h2>Проекты</h2>
-<div class="cards">
-<div class="card">
-<h3>Портфолио</h3>
-<p>Одностраничный сайт‑портфолио.</p>
-<p><strong>Технологии:</strong> HTML, CSS, JS</p>
+<script src="script.js"></script>
+</body>
 </html>
