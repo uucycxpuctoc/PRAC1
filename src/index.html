@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио - Разработчик игр и веб-приложений</title>
+    <title>Портфолио - Дышленко Александр</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,7 +12,7 @@
     <!-- Навигация -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">Portfolio</a>
+            <a href="#home" class="nav-logo">AlexDev</a>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">Главная</a></li>
                 <li><a href="#skills" class="nav-link">Навыки</a></li>
@@ -22,12 +22,12 @@
                 <li class="dropdown">
                     <a href="#" class="nav-link">Мини-игры <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#clicker" class="dropdown-item" onclick="showGame('clicker')">Кликер</a></li>
-                        <li><a href="#adventure" class="dropdown-item" onclick="showGame('adventure')">Генератор приключений</a></li>
-                        <li><a href="#guess" class="dropdown-item" onclick="showGame('guess')">Угадай число</a></li>
-                        <li><a href="#reaction" class="dropdown-item" onclick="showGame('reaction')">Реакция</a></li>
-                        <li><a href="#tictactoe" class="dropdown-item" onclick="showGame('tictactoe')">Крестики-нолики</a></li>
-                        <li><a href="#maze" class="dropdown-item" onclick="showGame('maze')">Лабиринт</a></li>
+                        <li><a href="#" onclick="showGame('clicker'); return false;">Кликер</a></li>
+                        <li><a href="#" onclick="showGame('adventure'); return false;">Генератор приключений</a></li>
+                        <li><a href="#" onclick="showGame('guess'); return false;">Угадай число</a></li>
+                        <li><a href="#" onclick="showGame('reaction'); return false;">Реакция</a></li>
+                        <li><a href="#" onclick="showGame('tictactoe'); return false;">Крестики-нолики</a></li>
+                        <li><a href="#" onclick="showGame('maze'); return false;">Лабиринт</a></li>
                     </ul>
                 </li>
                 <li><a href="#contacts" class="nav-link">Контакты</a></li>
@@ -46,7 +46,7 @@
             <div class="container">
                 <div class="home-content">
                     <div class="home-text">
-                        <h1 class="glitch-text">Привет, я <span class="highlight">Алексей Иванов</span></h1>
+                        <h1 class="glitch-text">Привет, я <span class="highlight">Александр Дышленко</span></h1>
                         <div class="animated-text">
                             <span class="role"></span>
                         </div>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="home-image">
                         <div class="avatar-container">
-                            <img src="https://via.placeholder.com/300x300/6c5ce7/ffffff?text=AVATAR" alt="Аватар" class="avatar">
+                            <img src="https://via.placeholder.com/300x300/6c5ce7/ffffff?text=A.D." alt="Аватар Александра" class="avatar">
                             <div class="avatar-glow"></div>
                         </div>
                     </div>
@@ -202,7 +202,7 @@
                             <h3>Казахский Национальный Университет</h3>
                             <h4>Факультет информационных технологий</h4>
                             <p class="degree">Бакалавр прикладной информатики</p>
-                            <p>Специализация: Разработка игр и веб-приложений. Средний балл: 3.8/4.0. Участник студенческого научного кружка по геймдизайну.</p>
+                            <p>Специализация: Разработка игр и веб-приложений. Средний балл: 3.9/4.0. Участник студенческого научного кружка по геймдизайну.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -267,7 +267,7 @@
                 <div class="projects-grid">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="https://via.placeholder.com/300x200/6c5ce7/ffffff?text=GameHub" alt="GameHub">
+                            <img src="https://via.placeholder.com/300x200/6c5ce7/ffffff?text=GameHub" alt="GameHub проект">
                         </div>
                         <div class="project-content">
                             <h3>GameHub</h3>
@@ -336,7 +336,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h3>Email</h3>
-                                <p>student@example.com</p>
+                                <p>alex.dyshlenko@example.com</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -376,7 +376,7 @@
             </div>
         </section>
 
-        <!-- Секция игр (появляется при выборе) -->
+        <!-- Секция игр -->
         <section id="game-section" class="section" style="display: none;">
             <div class="container">
                 <div class="game-header">
@@ -384,7 +384,7 @@
                     <button class="btn-close-game" onclick="hideGame()"><i class="fas fa-times"></i></button>
                 </div>
                 <div id="game-container" class="game-container">
-                    <!-- Сюда будет загружаться игра -->
+                    <!-- Сюда загружаются игры -->
                 </div>
             </div>
         </section>
@@ -392,12 +392,11 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Алексей Иванов. Все права защищены.</p>
+            <p>&copy; 2024 Дышленко Александр. Все права защищены.</p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
-    <!-- Игры -->
     <script src="js/games/clicker.js"></script>
     <script src="js/games/adventure.js"></script>
     <script src="js/games/guess.js"></script>
