@@ -1,60 +1,408 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Портфолио</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио - Разработчик игр и веб-приложений</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">Portfolio</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Главная</a></li>
+                <li><a href="#skills" class="nav-link">Навыки</a></li>
+                <li><a href="#education" class="nav-link">Образование</a></li>
+                <li><a href="#achievements" class="nav-link">Достижения</a></li>
+                <li><a href="#projects" class="nav-link">Проекты</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Мини-игры <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#clicker" class="dropdown-item" onclick="showGame('clicker')">Кликер</a></li>
+                        <li><a href="#adventure" class="dropdown-item" onclick="showGame('adventure')">Генератор приключений</a></li>
+                        <li><a href="#guess" class="dropdown-item" onclick="showGame('guess')">Угадай число</a></li>
+                        <li><a href="#reaction" class="dropdown-item" onclick="showGame('reaction')">Реакция</a></li>
+                        <li><a href="#tictactoe" class="dropdown-item" onclick="showGame('tictactoe')">Крестики-нолики</a></li>
+                        <li><a href="#maze" class="dropdown-item" onclick="showGame('maze')">Лабиринт</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contacts" class="nav-link">Контакты</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
 
-<header>
-  <nav>
-    <ul>
-      <li><a href="#home">Главная</a></li>
-      <li><a href="#skills">Навыки</a></li>
-      <li><a href="#education">Образование</a></li>
-      <li><a href="#achievements">Достижения</a></li>
-      <li><a href="#projects">Проекты</a></li>
-      <li class="dropdown">
-        <a href="#">Мини-игры ▼</a>
-        <ul class="dropdown-menu">
-          <li><a href="#clicker">Кликер</a></li>
-          <li><a href="#adventure">Генератор</a></li>
-          <li><a href="#guess">Угадай число</a></li>
-        </ul>
-      </li>
-      <li><a href="#contacts">Контакты</a></li>
-    </ul>
-  </nav>
-</header>
+    <main>
+        <!-- Главная секция -->
+        <section id="home" class="section home-section">
+            <div class="container">
+                <div class="home-content">
+                    <div class="home-text">
+                        <h1 class="glitch-text">Привет, я <span class="highlight">Алексей Иванов</span></h1>
+                        <div class="animated-text">
+                            <span class="role"></span>
+                        </div>
+                        <p class="home-description">Студент факультета информационных технологий, увлеченный разработкой игр и веб-приложений. Создаю интерактивные проекты с красивым дизайном и продуманным пользовательским опытом.</p>
+                        <p class="home-description">В свободное время участвую в хакатонах, изучаю новые технологии и разрабатываю мини-игры. Верю, что программирование — это искусство создания полезных и красивых решений.</p>
+                        <a href="#contacts" class="btn btn-primary">Связаться со мной</a>
+                    </div>
+                    <div class="home-image">
+                        <div class="avatar-container">
+                            <img src="https://via.placeholder.com/300x300/6c5ce7/ffffff?text=AVATAR" alt="Аватар" class="avatar">
+                            <div class="avatar-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="home" class="hero">
-  <h1>Привет, я Студент</h1>
-  <p>Frontend разработчик | Студент</p>
-  <img src="assets/avatar.jpg" class="avatar">
-</section>
+        <!-- Навыки -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Мои навыки</h2>
+                <div class="skills-container">
+                    <div class="skills-category">
+                        <h3><i class="fas fa-code"></i> Hard Skills</h3>
+                        <div class="skill-group">
+                            <h4>Языки программирования:</h4>
+                            <div class="skill-item">
+                                <span>JavaScript</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Python</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>C++</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Java</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-group">
+                            <h4>Инструменты:</h4>
+                            <div class="tags">
+                                <span class="tag">Git</span>
+                                <span class="tag">MySQL</span>
+                                <span class="tag">QT</span>
+                                <span class="tag">Linux</span>
+                                <span class="tag">VS Code</span>
+                                <span class="tag">Figma</span>
+                            </div>
+                        </div>
+                        <div class="skill-group">
+                            <h4>Другое:</h4>
+                            <ul class="skill-list">
+                                <li>Объектно-ориентированное программирование</li>
+                                <li>Паттерны проектирования</li>
+                                <li>Разработка настольных приложений (QT, wxWidgets)</li>
+                                <li>Разработка Android-приложений</li>
+                                <li>HTTP/HTTPS, REST API</li>
+                            </ul>
+                        </div>
+                    </div>
 
-<section id="clicker">
-  <h2>Кликер</h2>
-  <p>Очки: <span id="score">0</span></p>
-  <p>Время: <span id="time">30</span></p>
-  <button id="clickBtn">Клик!</button>
-  <button id="resetBtn">Сброс</button>
-</section>
+                    <div class="skills-category">
+                        <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                        <div class="soft-skills">
+                            <div class="soft-skill">
+                                <span>Командная работа</span>
+                                <div class="skill-dots">
+                                    <span class="dot filled"></span>
+                                    <span class="dot filled"></span>
+                                    <span class="dot filled"></span>
+                                    <span class="dot filled"></span>
+                                    <span class="dot filled"></span>
+                                </div>
+                            </div>
+                            <div class="soft-skill">
+                                <span>Критическое мышление</span>
+                                <div class="skill-dots">
+                                    <span class="dot filled"></span>
+                                    <span class="dot filled"></span>
+                                    <span class="dot filled"></span>
+                                    <span class="dot filled"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <div class="soft-skill">
+                                <span>Коммуникабельность</span>
+                                <div class="skill-dots">
+                                    <span class="dot filled"></span>
+                                    <span class="dot filled"></span>
+                                    <span class="dot filled"></span>
+                                    <span class="dot filled"></span>
+                                    <span class="dot filled"></span>
+                                </div>
+                            </div>
+                            <div class="soft-skill">
+                                <span>Креативность</span>
+                                <div class="skill-dots">
+                                    <span class="dot filled"></span>
+                                    <span class="dot filled"></span>
+                                    <span class="dot filled"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                        </div>
 
-<section id="adventure">
-  <h2>Генератор приключений</h2>
-  <button onclick="generateAdventure()">Сгенерировать</button>
-  <p id="adventureText"></p>
-</section>
+                        <h3 style="margin-top: 2rem;"><i class="fas fa-language"></i> Языки</h3>
+                        <div class="language-item">
+                            <span>Английский (B2)</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="language-item">
+                            <span>Казахский (Родной)</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="language-item">
+                            <span>Русский (Свободно)</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="guess">
-  <h2>Угадай число</h2>
-  <input type="number" id="guessInput" min="1" max="100">
-  <button onclick="checkGuess()">Проверить</button>
-  <p id="guessResult"></p>
-</section>
+        <!-- Образование -->
+        <section id="education" class="section">
+            <div class="container">
+                <h2 class="section-title">Образование</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2022 - настоящее время</div>
+                        <div class="timeline-content">
+                            <h3>Казахский Национальный Университет</h3>
+                            <h4>Факультет информационных технологий</h4>
+                            <p class="degree">Бакалавр прикладной информатики</p>
+                            <p>Специализация: Разработка игр и веб-приложений. Средний балл: 3.8/4.0. Участник студенческого научного кружка по геймдизайну.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2020 - 2022</div>
+                        <div class="timeline-content">
+                            <h3>Колледж инновационных технологий</h3>
+                            <h4>Программирование в компьютерных системах</h4>
+                            <p class="degree">Техник-программист</p>
+                            <p>Выпуск с отличием. Разработал дипломный проект "Интерактивный тренажер по программированию".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Достижения -->
+        <section id="achievements" class="section">
+            <div class="container">
+                <h2 class="section-title">Достижения</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Hackathon 2024</h3>
+                        <p class="achievement-date">Март 2024</p>
+                        <p>1 место в категории "Образовательные игры". Разработал игру для изучения программирования за 24 часа.</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Сертификат Huawei</h3>
+                        <p class="achievement-date">Январь 2024</p>
+                        <p>HCIA - Artificial Intelligence. Успешно сдал экзамен по основам искусственного интеллекта.</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Олимпиада по программированию</h3>
+                        <p class="achievement-date">Ноябрь 2023</p>
+                        <p>2 место в городской олимпиаде по спортивному программированию среди студентов.</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Стипендия ректора</h3>
+                        <p class="achievement-date">2023-2024</p>
+                        <p>За отличную учебу и активную научную деятельность.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Проекты -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Мои проекты</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/300x200/6c5ce7/ffffff?text=GameHub" alt="GameHub">
+                        </div>
+                        <div class="project-content">
+                            <h3>GameHub</h3>
+                            <p>Платформа с коллекцией мини-игр: кликер, угадай число, крестики-нолики и лабиринт. Реализована система рекордов и локальное сохранение прогресса.</p>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                                <span>LocalStorage</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="#" class="btn btn-small"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/300x200/00b894/ffffff?text=Adventure+Generator" alt="Adventure Generator">
+                        </div>
+                        <div class="project-content">
+                            <h3>Adventure Generator</h3>
+                            <p>Генератор случайных приключений с персонажами, локациями и злодеями. Сохраняет понравившиеся комбинации в localStorage.</p>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                                <span>DOM</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="#" class="btn btn-small"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://via.placeholder.com/300x200/e17055/ffffff?text=Reaction+Trainer" alt="Reaction Trainer">
+                        </div>
+                        <div class="project-content">
+                            <h3>Reaction Trainer</h3>
+                            <p>Игра на скорость реакции с появлением кнопки в случайном месте. Отслеживает статистику и среднее время реакции.</p>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                                <span>Animations</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-small"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="#" class="btn btn-small"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contacts" class="section">
+            <div class="container">
+                <h2 class="section-title">Свяжитесь со мной</h2>
+                <div class="contacts-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>student@example.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Локация</h3>
+                                <p>Алматы, Казахстан</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Телефон</h3>
+                                <p>+7 (777) 123-45-67</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-hackerrank"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Ваш email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Ваше сообщение" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция игр (появляется при выборе) -->
+        <section id="game-section" class="section" style="display: none;">
+            <div class="container">
+                <div class="game-header">
+                    <h2 id="game-title" class="section-title">Мини-игры</h2>
+                    <button class="btn-close-game" onclick="hideGame()"><i class="fas fa-times"></i></button>
+                </div>
+                <div id="game-container" class="game-container">
+                    <!-- Сюда будет загружаться игра -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Алексей Иванов. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <!-- Игры -->
+    <script src="js/games/clicker.js"></script>
+    <script src="js/games/adventure.js"></script>
+    <script src="js/games/guess.js"></script>
+    <script src="js/games/reaction.js"></script>
+    <script src="js/games/tictactoe.js"></script>
+    <script src="js/games/maze.js"></script>
 </body>
 </html>
