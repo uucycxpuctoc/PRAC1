@@ -400,3 +400,12 @@ body {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     color: white;
     box-shadow:
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
