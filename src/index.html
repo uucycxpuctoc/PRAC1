@@ -3,573 +3,668 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дышленко Александр | Разработчик</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%236c5ce7'/><text x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-family='Arial'>A</text></svg>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Стефания Ветрова · glass-портфолио</title>
+    <!-- Favicon (генерируется из эмодзи для простоты) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+    <!-- Шрифты: интер для текста, плюс чистый sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (бесплатные иконки) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ И СБРОС */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", system-ui, -apple-system, sans-serif;
+            background: radial-gradient(circle at 10% 20%, #1e2b3a, #0b1219);
+            color: #eef4ff;
+            line-height: 1.6;
+            min-height: 100vh;
+            backdrop-filter: blur(2px);
+        }
+
+        /* стеклянный эффект общий */
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2.5rem;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255,255,255,0.1);
+        }
+
+        /* навигация фиксированная стеклянная */
+        .navbar {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 900px;
+            background: rgba(20, 30, 45, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 60px;
+            padding: 0.8rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar a {
+            color: #cddfff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            padding: 0.4rem 0.8rem;
+            border-radius: 40px;
+            transition: 0.25s ease;
+            position: relative;
+        }
+
+        .navbar a i {
+            margin-right: 6px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .navbar a.active-nav {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            border: 1px solid rgba(255,255,240,0.25);
+            box-shadow: 0 0 10px rgba(255,255,255,0.1);
+        }
+
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.18);
+            color: white;
+        }
+
+        /* основные секции */
+        section {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            background: linear-gradient(130deg, #ffffff, #b4c8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            border-left: 6px solid rgba(140, 180, 255, 0.7);
+            padding-left: 1.5rem;
+        }
+
+        /* ------ home (hero) ------ */
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            background: linear-gradient(to right, #fff, #d3e0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .typed-container {
+            font-size: 2rem;
+            font-weight: 500;
+            margin: 1rem 0 1.5rem;
+            color: #bbd6ff;
+            min-height: 4rem;
+            border-right: 3px solid #8cb0ff;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blinkCursor 1s step-end infinite;
+        }
+
+        @keyframes blinkCursor {
+            50% { border-color: transparent; }
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: #b0c6e0;
+            margin: 1.8rem 0 2.2rem;
+            max-width: 600px;
+            backdrop-filter: blur(4px);
+            background: rgba(0,0,0,0.2);
+            padding: 1.2rem 2rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            border: 1.5px solid rgba(255,255,255,0.25);
+            padding: 1rem 2.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            display: inline-block;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255,255,255,0.5);
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(50,100,200,0.3);
+        }
+
+        .hero-avatar {
+            flex: 1;
+            min-width: 220px;
+            text-align: center;
+        }
+
+        .avatar-img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,0.3);
+            box-shadow: 0 30px 40px -10px black;
+            transition: 0.4s ease;
+            filter: brightness(0.95) saturate(1.1);
+        }
+
+        .avatar-img:hover {
+            transform: scale(1.02);
+            border-color: #a0c0ff;
+            box-shadow: 0 0 30px #6d94ff;
+        }
+
+        /* навыки */
+        .skills-category {
+            margin-bottom: 3rem;
+        }
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #e0ecff;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .skill-item {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(5px);
+            border-radius: 30px;
+            padding: 1rem 1.8rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .skill-name {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #9bc0ff, #527acc);
+            border-radius: 20px;
+            width: 0%; /* будет установлено из data атрибута */
+            box-shadow: 0 0 10px #5f8aff;
+        }
+
+        /* образование timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .timeline-item {
+            background: rgba(20,30,50,0.4);
+            backdrop-filter: blur(8px);
+            border-radius: 40px;
+            padding: 2rem 2.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .timeline-left {
+            min-width: 180px;
+            font-weight: 300;
+            color: #9db8ff;
+        }
+        .timeline-right {
+            flex: 1;
+        }
+        .timeline-right h3 {
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+        .badge {
+            background: #3255b0;
+            padding: 0.2rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: white;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+
+        /* достижения */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .achievement-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 40px;
+            padding: 2rem 1.5rem;
+            transition: 0.25s;
+            text-align: center;
+        }
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            background: rgba(40,60,100,0.3);
+            border-color: #9ab3ff;
+        }
+        .achievement-icon {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            color: #c3d6ff;
+        }
+
+        /* проекты — карточки */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        .project-card {
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(12px);
+            border-radius: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+        .project-card:hover {
+            transform: scale(1.02);
+            border-color: rgba(255,255,255,0.3);
+            box-shadow: 0 30px 45px -15px #00000080;
+        }
+        .project-img {
+            height: 180px;
+            background: #2a3b55;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #ffffff60;
+        }
+        .project-body {
+            padding: 1.8rem;
+        }
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .tech-tag {
+            background: #203050;
+            border-radius: 30px;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            border: 1px solid #5470b0;
+        }
+        .project-links a {
+            color: white;
+            margin-right: 1.5rem;
+            text-decoration: none;
+            border-bottom: 1px dotted;
+        }
+
+        /* контакты */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(12px);
+            padding: 2.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        input, textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid #4d6080;
+            border-radius: 40px;
+            padding: 1rem 1.5rem;
+            color: white;
+            font-family: inherit;
+        }
+        textarea {
+            border-radius: 30px;
+            resize: vertical;
+        }
+        .contact-info {
+            flex: 1;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(8px);
+            padding: 2.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 2rem;
+            margin-top: 2rem;
+        }
+        .social-links a {
+            color: #c5d6ff;
+            transition: 0.2s;
+        }
+        .social-links a:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #96a9c7;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        /* уведомление формы */
+        .form-feedback {
+            margin-top: 1rem;
+            color: #a0ffb0;
+            font-weight: 400;
+        }
+        .invalid-feedback {
+            color: #ffa0a0;
+            font-size: 0.9rem;
+        }
+
+        /* адаптация */
+        @media (max-width: 700px) {
+            .navbar { width: 95%; padding: 0.7rem; gap: 0.3rem; }
+            .navbar a { font-size: 0.8rem; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .typed-container { font-size: 1.4rem; white-space: normal; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Прелоадер -->
-    <div class="preloader">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Навигация -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">
-                <span class="logo-text">{AD}</span>
-                <span class="logo-dot"></span>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Главная</a></li>
-                <li><a href="#skills" class="nav-link">Навыки</a></li>
-                <li><a href="#education" class="nav-link">Образование</a></li>
-                <li><a href="#achievements" class="nav-link">Достижения</a></li>
-                <li><a href="#projects" class="nav-link">Проекты</a></li>
-                <li class="dropdown">
-                    <a href="#" class="nav-link">Мини-игры <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" onclick="showGame('clicker'); return false;"><i class="fas fa-hand-pointer"></i> Кликер</a></li>
-                        <li><a href="#" onclick="showGame('adventure'); return false;"><i class="fas fa-dragon"></i> Генератор приключений</a></li>
-                        <li><a href="#" onclick="showGame('guess'); return false;"><i class="fas fa-question"></i> Угадай число</a></li>
-                        <li><a href="#" onclick="showGame('reaction'); return false;"><i class="fas fa-bolt"></i> Реакция</a></li>
-                        <li><a href="#" onclick="showGame('tictactoe'); return false;"><i class="fas fa-times"></i> Крестики-нолики</a></li>
-                        <li><a href="#" onclick="showGame('maze'); return false;"><i class="fas fa-map"></i> Лабиринт</a></li>
-                    </ul>
-                </li>
-                <li><a href="#contacts" class="nav-link">Контакты</a></li>
-            </ul>
-            <div class="nav-right">
-                <button class="theme-toggle" id="themeToggle">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
-        </div>
+    <!-- фиксированная навигация -->
+    <nav class="navbar glass" id="navbar">
+        <a href="#home" class="active-nav"><i class="fas fa-home"></i>Главная</a>
+        <a href="#skills"><i class="fas fa-code"></i>Навыки</a>
+        <a href="#education"><i class="fas fa-graduation-cap"></i>Образование</a>
+        <a href="#achievements"><i class="fas fa-trophy"></i>Достижения</a>
+        <a href="#projects"><i class="fas fa-folder-open"></i>Проекты</a>
+        <a href="#contacts"><i class="fas fa-envelope"></i>Контакты</a>
     </nav>
 
-    <main>
-        <!-- Главная секция -->
-        <section id="home" class="section home-section">
-            <div class="container">
-                <div class="home-content">
-                    <div class="home-text animate-left">
-                        <span class="home-subtitle">Добро пожаловать в мой мир</span>
-                        <h1 class="glitch-text">
-                            Дышленко <span class="highlight">Александр</span>
-                        </h1>
-                        <div class="animated-text">
-                            <span class="role"></span>
-                        </div>
-                        <p class="home-description">Создаю современные веб-приложения и игры с фокусом на пользовательский опыт и производительность. Превращаю сложные задачи в элегантные решения.</p>
-                        <div class="home-buttons">
-                            <a href="#contacts" class="btn btn-primary">
-                                <span>Связаться</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <a href="#projects" class="btn btn-outline">
-                                <span>Мои работы</span>
-                                <i class="fas fa-code"></i>
-                            </a>
-                        </div>
-                        <div class="home-stats">
-                            <div class="stat">
-                                <span class="stat-number">3+</span>
-                                <span class="stat-label">года опыта</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">15+</span>
-                                <span class="stat-label">проектов</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">6</span>
-                                <span class="stat-label">игр</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="home-image animate-right">
-                        <div class="avatar-wrapper">
-                            <div class="avatar-container">
-                                <img src="https://via.placeholder.com/400x400/6c5ce7/ffffff?text=A.D." alt="Дышленко Александр" class="avatar">
-                                <div class="avatar-glow"></div>
-                            </div>
-                            <div class="tech-icons">
-                                <i class="fab fa-js"></i>
-                                <i class="fab fa-react"></i>
-                                <i class="fab fa-python"></i>
-                                <i class="fab fa-git-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- ГЛАВНАЯ home -->
+    <section id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Стефания Ветрова</h1>
+                <div class="typed-container" id="typed-text">Frontend-разработчик</div>
+                <p class="hero-desc glass">Создаю цифровые впечатления. Увлекаюсь UI-анимацией и стеклянным дизайном. Учусь на четвёртом курсе, исследую пересечение кода и эстетики.</p>
+                <a href="#contacts" class="btn-glass">Связаться со мной <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="scroll-indicator">
-                <span>Скролл</span>
-                <i class="fas fa-arrow-down"></i>
-            </div>
-        </section>
-
-        <!-- Навыки -->
-        <section id="skills" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-subtitle">Что я умею</span>
-                    <h2 class="section-title">Мои <span class="gradient-text">навыки</span></h2>
-                    <div class="section-decoration"></div>
-                </div>
-                
-                <div class="skills-wrapper">
-                    <div class="skills-category glass-card">
-                        <div class="category-header">
-                            <i class="fas fa-code"></i>
-                            <h3>Hard Skills</h3>
-                        </div>
-                        <div class="skills-grid">
-                            <div class="skill-card">
-                                <div class="skill-icon">
-                                    <i class="fab fa-js"></i>
-                                </div>
-                                <div class="skill-info">
-                                    <h4>JavaScript</h4>
-                                    <div class="skill-level">
-                                        <div class="level-bar">
-                                            <div class="level-fill" style="width: 85%"></div>
-                                        </div>
-                                        <span>85%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-card">
-                                <div class="skill-icon">
-                                    <i class="fab fa-python"></i>
-                                </div>
-                                <div class="skill-info">
-                                    <h4>Python</h4>
-                                    <div class="skill-level">
-                                        <div class="level-bar">
-                                            <div class="level-fill" style="width: 75%"></div>
-                                        </div>
-                                        <span>75%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-card">
-                                <div class="skill-icon">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <div class="skill-info">
-                                    <h4>C++</h4>
-                                    <div class="skill-level">
-                                        <div class="level-bar">
-                                            <div class="level-fill" style="width: 70%"></div>
-                                        </div>
-                                        <span>70%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill-card">
-                                <div class="skill-icon">
-                                    <i class="fab fa-java"></i>
-                                </div>
-                                <div class="skill-info">
-                                    <h4>Java</h4>
-                                    <div class="skill-level">
-                                        <div class="level-bar">
-                                            <div class="level-fill" style="width: 60%"></div>
-                                        </div>
-                                        <span>60%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tools-section">
-                            <h4>Инструменты</h4>
-                            <div class="tools-cloud">
-                                <span class="tool-tag">Git</span>
-                                <span class="tool-tag">MySQL</span>
-                                <span class="tool-tag">QT</span>
-                                <span class="tool-tag">Linux</span>
-                                <span class="tool-tag">VS Code</span>
-                                <span class="tool-tag">Figma</span>
-                                <span class="tool-tag">Docker</span>
-                                <span class="tool-tag">MongoDB</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skills-category glass-card">
-                        <div class="category-header">
-                            <i class="fas fa-users"></i>
-                            <h3>Soft Skills</h3>
-                        </div>
-                        <div class="soft-skills-grid">
-                            <div class="soft-skill-item">
-                                <div class="soft-skill-circle" data-percent="95">
-                                    <svg>
-                                        <circle cx="40" cy="40" r="36"></circle>
-                                        <circle cx="40" cy="40" r="36" style="stroke-dashoffset: calc(226 - (226 * 95) / 100);"></circle>
-                                    </svg>
-                                    <span>95%</span>
-                                </div>
-                                <p>Командная работа</p>
-                            </div>
-                            <div class="soft-skill-item">
-                                <div class="soft-skill-circle" data-percent="90">
-                                    <svg>
-                                        <circle cx="40" cy="40" r="36"></circle>
-                                        <circle cx="40" cy="40" r="36" style="stroke-dashoffset: calc(226 - (226 * 90) / 100);"></circle>
-                                    </svg>
-                                    <span>90%</span>
-                                </div>
-                                <p>Креативность</p>
-                            </div>
-                            <div class="soft-skill-item">
-                                <div class="soft-skill-circle" data-percent="85">
-                                    <svg>
-                                        <circle cx="40" cy="40" r="36"></circle>
-                                        <circle cx="40" cy="40" r="36" style="stroke-dashoffset: calc(226 - (226 * 85) / 100);"></circle>
-                                    </svg>
-                                    <span>85%</span>
-                                </div>
-                                <p>Коммуникация</p>
-                            </div>
-                        </div>
-
-                        <div class="languages-section">
-                            <h4>Языки</h4>
-                            <div class="language-items">
-                                <div class="language-item">
-                                    <span>Английский (B2)</span>
-                                    <div class="progress-bar modern">
-                                        <div class="progress" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                                <div class="language-item">
-                                    <span>Казахский (C2)</span>
-                                    <div class="progress-bar modern">
-                                        <div class="progress" style="width: 100%"></div>
-                                    </div>
-                                </div>
-                                <div class="language-item">
-                                    <span>Русский (C2)</span>
-                                    <div class="progress-bar modern">
-                                        <div class="progress" style="width: 100%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Образование -->
-        <section id="education" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-subtitle">Мой путь</span>
-                    <h2 class="section-title">Образование</h2>
-                </div>
-
-                <div class="timeline-modern">
-                    <div class="timeline-item-modern">
-                        <div class="timeline-dot-wrapper">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-line"></div>
-                        </div>
-                        <div class="timeline-card glass-card">
-                            <div class="timeline-date">2022 — настоящее время</div>
-                            <h3>Казахский Национальный Университет</h3>
-                            <h4>Факультет информационных технологий</h4>
-                            <p class="degree">Бакалавр прикладной информатики</p>
-                            <p>Специализация: Разработка игр и веб-приложений. GPA: 3.9/4.0</p>
-                            <div class="timeline-tags">
-                                <span>Веб-разработка</span>
-                                <span>Геймдизайн</span>
-                                <span>ИИ</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item-modern">
-                        <div class="timeline-dot-wrapper">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-line"></div>
-                        </div>
-                        <div class="timeline-card glass-card">
-                            <div class="timeline-date">2020 — 2022</div>
-                            <h3>Колледж инновационных технологий</h3>
-                            <h4>Программирование в компьютерных системах</h4>
-                            <p class="degree">Техник-программист (с отличием)</p>
-                            <p>Дипломный проект: "Интерактивный тренажер по программированию"</p>
-                            <div class="timeline-tags">
-                                <span>Алгоритмы</span>
-                                <span>Базы данных</span>
-                                <span>ООП</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Достижения -->
-        <section id="achievements" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-subtitle">Мои успехи</span>
-                    <h2 class="section-title">Достижения</h2>
-                </div>
-
-                <div class="achievements-showcase">
-                    <div class="achievement-item glass-card">
-                        <div class="achievement-icon-wrapper">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <div class="achievement-content">
-                            <span class="achievement-year">2024</span>
-                            <h3>Hackathon 2024</h3>
-                            <p>1 место в категории "Образовательные игры"</p>
-                            <div class="achievement-badge">Победа</div>
-                        </div>
-                    </div>
-
-                    <div class="achievement-item glass-card">
-                        <div class="achievement-icon-wrapper">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <div class="achievement-content">
-                            <span class="achievement-year">2024</span>
-                            <h3>Сертификат Huawei</h3>
-                            <p>HCIA - Artificial Intelligence</p>
-                            <div class="achievement-badge">AI</div>
-                        </div>
-                    </div>
-
-                    <div class="achievement-item glass-card">
-                        <div class="achievement-icon-wrapper">
-                            <i class="fas fa-medal"></i>
-                        </div>
-                        <div class="achievement-content">
-                            <span class="achievement-year">2023</span>
-                            <h3>Олимпиада по программированию</h3>
-                            <p>2 место в городском этапе</p>
-                            <div class="achievement-badge">Серебро</div>
-                        </div>
-                    </div>
-
-                    <div class="achievement-item glass-card">
-                        <div class="achievement-icon-wrapper">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="achievement-content">
-                            <span class="achievement-year">2023</span>
-                            <h3>Стипендия ректора</h3>
-                            <p>За отличную учебу и научную деятельность</p>
-                            <div class="achievement-badge">Отлично</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Проекты -->
-        <section id="projects" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-subtitle">Мои работы</span>
-                    <h2 class="section-title">Проекты</h2>
-                </div>
-
-                <div class="projects-showcase">
-                    <div class="project-card-modern glass-card">
-                        <div class="project-image">
-                            <img src="https://via.placeholder.com/400x250/6c5ce7/ffffff?text=GameHub" alt="GameHub">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>GameHub</h3>
-                            <p>Платформа с коллекцией мини-игр. Рекорды, статистика, локальное сохранение.</p>
-                            <div class="project-tech">
-                                <span>React</span>
-                                <span>TypeScript</span>
-                                <span>Redux</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card-modern glass-card">
-                        <div class="project-image">
-                            <img src="https://via.placeholder.com/400x250/00b894/ffffff?text=Adventure+Generator" alt="Adventure Generator">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Adventure Generator</h3>
-                            <p>Генератор случайных приключений с сохранением историй.</p>
-                            <div class="project-tech">
-                                <span>Vue.js</span>
-                                <span>Vuex</span>
-                                <span>SCSS</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card-modern glass-card">
-                        <div class="project-image">
-                            <img src="https://via.placeholder.com/400x250/e17055/ffffff?text=Reaction+Trainer" alt="Reaction Trainer">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Reaction Trainer</h3>
-                            <p>Тренажер скорости реакции с аналитикой и графиками.</p>
-                            <div class="project-tech">
-                                <span>Vanilla JS</span>
-                                <span>Canvas</span>
-                                <span>Chart.js</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Контакты -->
-        <section id="contacts" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-subtitle">Свяжитесь со мной</span>
-                    <h2 class="section-title">Контакты</h2>
-                </div>
-
-                <div class="contacts-modern">
-                    <div class="contact-info-modern glass-card">
-                        <h3>Давайте обсудим ваш проект</h3>
-                        <p>Я всегда открыт для новых идей и интересных проектов. Напишите мне!</p>
-                        
-                        <div class="contact-details">
-                            <div class="contact-detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <h4>Email</h4>
-                                    <a href="mailto:alex.dyshlenko@example.com">alex.dyshlenko@example.com</a>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div>
-                                    <h4>Локация</h4>
-                                    <p>Алматы, Казахстан</p>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-detail-item">
-                                <div class="detail-icon">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div>
-                                    <h4>Телефон</h4>
-                                    <a href="tel:+77771234567">+7 (777) 123-45-67</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="social-links-modern">
-                            <a href="#" class="social-link-modern"><i class="fab fa-github"></i></a>
-                            <a href="#" class="social-link-modern"><i class="fab fa-telegram"></i></a>
-                            <a href="#" class="social-link-modern"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="social-link-modern"><i class="fab fa-hackerrank"></i></a>
-                        </div>
-                    </div>
-                    
-                    <form class="contact-form-modern glass-card" id="contactForm">
-                        <div class="form-group-modern">
-                            <input type="text" id="name" required>
-                            <label for="name">Ваше имя</label>
-                        </div>
-                        <div class="form-group-modern">
-                            <input type="email" id="email" required>
-                            <label for="email">Ваш email</label>
-                        </div>
-                        <div class="form-group-modern">
-                            <textarea id="message" required></textarea>
-                            <label for="message">Ваше сообщение</label>
-                        </div>
-                        <button type="submit" class="btn-submit">
-                            <span>Отправить</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Секция игр -->
-        <section id="game-section" class="section" style="display: none;">
-            <div class="container">
-                <div class="game-header">
-                    <h2 id="game-title" class="section-title">Мини-игры</h2>
-                    <button class="btn-close-game" onclick="hideGame()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div id="game-container" class="game-container glass-card">
-                    <!-- Сюда загружаются игры -->
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Футер -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="logo-text">{AD}</span>
-                </div>
-                <p class="footer-text">Создано с <i class="fas fa-heart" style="color: #ff4757;"></i> Дышленко Александром</p>
-                <p class="copyright">&copy; 2024 Все права защищены</p>
+            <div class="hero-avatar">
+                <!-- красивое фото-заглушка (девушка в стиле web) -->
+                <img src="https://images.unsplash.com/photo-1494790108777-2867e5ed74f6?w=400&auto=format&fit=crop&q=80" alt="Стефания Ветрова аватар" class="avatar-img">
             </div>
         </div>
-    </footer>
+    </section>
 
-    <!-- Кнопка наверх -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <!-- НАВЫКИ skills -->
+    <section id="skills">
+        <h2 class="section-title">⚙️ Навыки</h2>
+        <div class="skills-category">
+            <div class="category-title">Hard Skills</div>
+            <div class="skills-grid">
+                <div class="skill-item"><span class="skill-name">Python</span><div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div></div>
+                <div class="skill-item"><span class="skill-name">C++ / Qt</span><div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div></div>
+                <div class="skill-item"><span class="skill-name">Git / Linux</span><div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div></div>
+                <div class="skill-item"><span class="skill-name">ООП/паттерны</span><div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div></div>
+                <div class="skill-item"><span class="skill-name">Android (Kotlin)</span><div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div></div>
+                <div class="skill-item"><span class="skill-name">MySQL</span><div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div></div>
+            </div>
+        </div>
+        <div class="skills-category">
+            <div class="category-title">Soft Skills</div>
+            <div class="skills-grid">
+                <div class="skill-item"><span class="skill-name">Командная работа</span><div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div></div>
+                <div class="skill-item"><span class="skill-name">Критическое мышление</span><div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div></div>
+                <div class="skill-item"><span class="skill-name">Коммуникабельность</span><div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div></div>
+            </div>
+        </div>
+        <div class="skills-category">
+            <div class="category-title">Languages</div>
+            <div class="skills-grid">
+                <div class="skill-item"><span class="skill-name">Английский C1</span><div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div></div>
+                <div class="skill-item"><span class="skill-name">Казахский B2</span><div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div></div>
+                <div class="skill-item"><span class="skill-name">Русский (родной)</span><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+            </div>
+        </div>
+    </section>
 
-    <script src="js/main.js"></script>
-    <script src="js/games/clicker.js"></script>
-    <script src="js/games/adventure.js"></script>
-    <script src="js/games/guess.js"></script>
-    <script src="js/games/reaction.js"></script>
-    <script src="js/games/tictactoe.js"></script>
-    <script src="js/games/maze.js"></script>
+    <!-- ОБРАЗОВАНИЕ education -->
+    <section id="education">
+        <h2 class="section-title">📚 Образование</h2>
+        <div class="timeline">
+            <div class="timeline-item glass">
+                <div class="timeline-left">2021 — 2025</div>
+                <div class="timeline-right"><h3>НИУ ИТМО</h3><div class="badge">Бакалавр прикладной информатики</div><p>Разработка ПО, участие в стартап-студии. Средний балл 4.8. Тема ВКР: «Генерация интерфейсов в стеклянном стиле».</p></div>
+            </div>
+            <div class="timeline-item glass">
+                <div class="timeline-left">2023 — 2024</div>
+                <div class="timeline-right"><h3>Yandex LMS / Технопарк</h3><div class="badge">Доп. образование: web-разработка</div><p>Курс по современному фронтенду: React, TypeScript, анимации. Создала командный проект — дашборд для мониторинга.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ДОСТИЖЕНИЯ achievements -->
+    <section id="achievements">
+        <h2 class="section-title">🏆 Достижения</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card glass"><i class="fas fa-medal achievement-icon"></i><h3>Хакатон VK Education</h3><p>🥉 3 место / трек «Веб-сервисы» (декабрь 2024). Разработали прототип для планирования мероприятий.</p></div>
+            <div class="achievement-card glass"><i class="fas fa-certificate achievement-icon"></i><h3>Сертификат Huawei (AI)</h3><p>Huawei HCIA-AI, 2024. Основы искуственного интеллекта и нейросетей.</p></div>
+            <div class="achievement-card glass"><i class="fas fa-star achievement-icon"></i><h3>Стипендия Правительства РФ</h3><p>Назначалась за успехи в учебе и исследования 2023-2024.</p></div>
+        </div>
+    </section>
+
+    <!-- ПРОЕКТЫ projects -->
+    <section id="projects">
+        <h2 class="section-title">💻 Проекты</h2>
+        <div class="projects-grid">
+            <div class="project-card glass">
+                <div class="project-img">🎨</div>
+                <div class="project-body"><h3>Glassfolio</h3><p>Шаблон портфолио в стеклянном стиле. Кастомизируемые карточки и анимации.</p><div class="project-tech"><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">JS</span></div><div class="project-links"><a href="#"><i class="fab fa-github"></i> GitHub</a><a href="#"><i class="fas fa-external-link-alt"></i> Demo</a></div></div>
+            </div>
+            <div class="project-card glass">
+                <div class="project-img">📱</div>
+                <div class="project-body"><h3>Weather Now</h3><p>PWA погода с геолокацией и стеклянными элементами. Работает офлайн.</p><div class="project-tech"><span class="tech-tag">React</span><span class="tech-tag">ServiceWorker</span></div><div class="project-links"><a href="#"><i class="fab fa-github"></i> GitHub</a></div></div>
+            </div>
+            <div class="project-card glass">
+                <div class="project-img">📊</div>
+                <div class="project-body"><h3>Task Manager (QT)</h3><p>Десктоп приложение для заметок и задач с виджетами. C++, Qt6.</p><div class="project-tech"><span class="tech-tag">C++</span><span class="tech-tag">Qt</span><span class="tech-tag">SQLite</span></div><div class="project-links"><a href="#"><i class="fab fa-github"></i> GitHub</a></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ contacts -->
+    <section id="contacts">
+        <h2 class="section-title">✉️ Контакты</h2>
+        <div class="contact-container">
+            <div class="contact-form glass">
+                <form id="contactForm">
+                    <div class="form-group"><input type="text" id="name" placeholder="Ваше имя" required></div>
+                    <div class="form-group"><input type="email" id="email" placeholder="Email" required></div>
+                    <div class="form-group"><textarea id="message" rows="4" placeholder="Сообщение..." required></textarea></div>
+                    <button type="submit" class="btn-glass" style="border:none; cursor:pointer;">Отправить</button>
+                    <div class="form-feedback" id="formFeedback"></div>
+                </form>
+            </div>
+            <div class="contact-info glass">
+                <p><i class="fas fa-map-marker-alt"></i> Астана, Казахстан</p>
+                <p><i class="far fa-envelope"></i> stefaniira@edu.kz (учебный)</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-hackerrank"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>© 2025 Стефания Ветрова · стеклянное портфолио</footer>
+
+    <!-- JavaScript (ES6) интерактивность и валидация -->
+    <script>
+        (function() {
+            // подсветка активного пункта меню при скролле
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll(".navbar a");
+
+            function updateActiveNav() {
+                let current = "";
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 120;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove("active-nav");
+                    const href = link.getAttribute("href").substring(1); // убираем #
+                    if (href === current) {
+                        link.classList.add("active-nav");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", updateActiveNav);
+            window.addEventListener("load", updateActiveNav);
+
+            // анимация печатающего текста (роли)
+            const typedEl = document.getElementById("typed-text");
+            const roles = ["Frontend-разработчик", "UI-дизайнер", "Студентка ИТМО", "Glass-энтузиаст"];
+            let roleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function typeEffect() {
+                const currentRole = roles[roleIndex];
+                if (isDeleting) {
+                    typedEl.textContent = currentRole.substring(0, charIndex--);
+                } else {
+                    typedEl.textContent = currentRole.substring(0, charIndex++);
+                }
+
+                if (!isDeleting && charIndex === currentRole.length + 1) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 1500);
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    setTimeout(typeEffect, 200);
+                } else {
+                    setTimeout(typeEffect, isDeleting ? 50 : 100);
+                }
+            }
+            typeEffect();
+
+            // валидация контактной формы
+            const form = document.getElementById("contactForm");
+            const feedback = document.getElementById("formFeedback");
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const name = document.getElementById("name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const message = document.getElementById("message").value.trim();
+
+                if (!name || !email || !message) {
+                    feedback.innerHTML = '<span class="invalid-feedback">❌ Все поля обязательны</span>';
+                    return;
+                }
+                if (!email.includes('@') || !email.includes('.')) {
+                    feedback.innerHTML = '<span class="invalid-feedback">📧 Введите корректный email</span>';
+                    return;
+                }
+                feedback.innerHTML = '✨ Сообщение отправлено (демо-режим). Спасибо!';
+                form.reset();
+                setTimeout(() => feedback.innerHTML = '', 3000);
+            });
+        })();
+    </script>
+    <!-- маленькая заглушка для корректного позиционирования navbar (чтобы не перекрывал якоря) -->
+    <style>section:first-of-type { scroll-margin-top: 100px; } section { scroll-margin-top: 80px; }</style>
 </body>
 </html>
